@@ -10,7 +10,7 @@ let width = 280;
 
 let infoDeL1 = [20, 20, 0, 0, height - 60, 0, height - 40, 20, height - 60, 0, height - 60, width - 40, width - 60, width - 60, width - 60];
 let infoDeL2 = [40, 100, 0, 0, height - 60, 20, height - 60, 20, height - 60, 20, height - 40, width - 40, width - 40, width - 20, width - 40];
-let infoDeI = [60, 220, 0];
+let infoDeI = [60, 220, 0, 0, height - 80, 40, height - 60, 20, height - 80, 40, height - 60, width - 20, width - 40, width, width - 20];
 let infoDeCuadrado = [100, 20, 0];
 let infoDeS = [100, 120, 0];
 let infoDeZ = [100, 180, 0];
@@ -280,6 +280,6 @@ function keyPressed() {
     }
   }
   if (keyCode == UP_ARROW) {
-    infoDeI[2] += 1;
+    infoDeCuadrado[2] += 1;
   }
 }
