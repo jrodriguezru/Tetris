@@ -18,6 +18,7 @@ let width = 280;
 
 function setup() {
   createCanvas(width, height);
+  infoDeL1 += 1;
 }
 
 function draw() {
@@ -33,10 +34,6 @@ function draw() {
   fichaT();
 
 }
-
-
-
-
 
 function tablero() {
   stroke(0, 100);
@@ -259,7 +256,13 @@ function fichaT() {
     rect(infoDeT[0] + 20, infoDeT[1] + 20, 20, 20);
   }
 }
+/*
+function keyIsDown() {
+  if (infoDeActual[1] = infoDeActual[10]) {
 
+  }
+}
+*/
 function keyPressed() {
   if (keyCode == DOWN_ARROW) {
     if (infoDeT[1] != 380) {
