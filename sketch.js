@@ -4,8 +4,8 @@
 // TODO: Investigar si puedo generar nuevas figuas de forma "ilimitada"
 // TODO: Agregar la caida fuerte de las piezas con "space"
 
-// Posición en X, Posición en Y, Estado de Rotación, limiteXR0, limiteYR0, limiteXR1, limiteYR1, limiteXR2, limiteYR2, limiteXR3, limiteYR3, limiteXDR0, limiteYDR0, limiteXDR1, limiteYDR1, limiteXDR2, limiteYDR2, limiteXDR3, limiteYDR3.
-let infoDeL1 = [20, 20, 0, 340, 0, 360, 0, 340, 20, 340, 0];
+// Posición en X, Posición en Y, Estado de Rotación, limiteXR0, limiteYR0, limiteXR1, limiteYR1, limiteXR2, limiteYR2, limiteXR3, limiteYR3, limiteXDR0, limiteXDR1, limiteXDR2, limiteXDR3.
+let infoDeL1 = [20, 20, 0, 0, height - 60, 0, height - 40, 20, height - 60, 0, height - 6, width - 40, width - 60, width - 60, width - 60];
 let infoDeL2 = [40, 100, 0];
 let infoDeI = [60, 220, 0];
 let infoDeCuadrado = [100, 20, 0];
