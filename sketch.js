@@ -5,7 +5,7 @@
 // TODO: Agregar la caida fuerte de las piezas con "space"
 
 // Posición en X, Posición en Y, Estado de Rotación, limiteXR0, limiteYR0, limiteXR1, limiteYR1, limiteXR2, limiteYR2, limiteXR3, limiteYR3, limiteXDR0, limiteYDR0, limiteXDR1, limiteYDR1, limiteXDR2, limiteYDR2, limiteXDR3, limiteYDR3.
-let infoDeL1 = [20, 20, 0, 340, 0, ];
+let infoDeL1 = [20, 20, 1, 340, 0, ];
 let infoDeL2 = [40, 100, 0];
 let infoDeI = [60, 220, 0];
 let infoDeCuadrado = [100, 20, 0];
@@ -18,7 +18,6 @@ let width = 280;
 
 function setup() {
   createCanvas(width, height);
-  infoDeL1 += 1;
 }
 
 function draw() {
