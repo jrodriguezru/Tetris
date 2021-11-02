@@ -280,18 +280,19 @@ function keyPressed() {
   if (keyCode == UP_ARROW) {
     infoDeT[2] += 1;
   }
-  if (keyCode == SPACE_BAR) {
+  if (key == " ") {
     if (infoDeT[2] % 4 == 0) {
-      infoDeT[1] = infoDeT[5];
+      infoDeT[1] = infoDeT[4];
     }
-    else if (infoDeT[2] % 4 == 0) {
-      infoDeT[1] = infoDeT[7];
+    else if (infoDeT[2] % 4 == 1) {
+      infoDeT[1] = infoDeT[6];
     }
-    else if (infoDeT[2] % 4 == 0) {
-      infoDeT[1] = infoDeT[9];
+    else if (infoDeT[2] % 4 == 2) {
+      infoDeT[1] = infoDeT[8];
     }
-    else if (infoDeT[2] % 4 == 0) {
-      infoDeT[1] = infoDeT[11];
+    else if (infoDeT[2] % 4 == 3) {
+      infoDeT[1] = infoDeT[10];
     }
   }
+
 }
