@@ -13,7 +13,7 @@ let infoDeL2 = [40, 100, 0, 0, height - 60, 20, height - 60, 20, height - 60, 20
 let infoDeI = [60, 220, 0, 0, height - 80, 40, height - 60, 20, height - 80, 40, height - 60, width - 20, width - 40, width, width - 20];
 let infoDeCuadrado = [100, 20, 0, 0, height - 40, 0, height - 40, 0, height - 40, 0, height - 40, width - 40, width - 40, width - 40, width - 40];
 let infoDeS = [100, 120, 0, 0, height - 20, 0, height - 40, 0, height - 20, 0, height - 40, width - 60, width - 40, width - 60, width - 40];
-let infoDeZ = [100, 180, 0];
+let infoDeZ = [100, 180, 0, 0, height - 40, 0, height - 60, 0, height - 40, 0, height - 60, width - 60, width - 40, width - 60, width - 40];
 let infoDeT = [220, 120, 0];
 
 function setup() {
@@ -280,6 +280,6 @@ function keyPressed() {
     }
   }
   if (keyCode == UP_ARROW) {
-    infoDeZ[2] += 1;
+    infoDeT[2] += 1;
   }
 }
