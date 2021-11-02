@@ -36,6 +36,7 @@ function draw() {
 
 
 
+
 function tablero() {
   stroke(0, 100);
   strokeWeight(1);
