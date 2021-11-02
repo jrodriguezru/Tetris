@@ -256,7 +256,7 @@ function fichaT() {
   }
 }
 /*
-function keyIsDown() {
+function shapeIsDown() {
   if (infoDeActual[1] = infoDeActual[10]) {
 
   }
@@ -281,5 +281,19 @@ function keyPressed() {
   }
   if (keyCode == UP_ARROW) {
     infoDeT[2] += 1;
+  }
+  if (keyCode == SPACE_BAR) {
+    if (infoDeT[2] % 4 == 0) {
+      infoDeT[1] = infoDeT[5];
+    }
+    else if (infoDeT[2] % 4 == 0) {
+      infoDeT[1] = infoDeT[7];
+    }
+    else if (infoDeT[2] % 4 == 0) {
+      infoDeT[1] = infoDeT[9];
+    }
+    else if (infoDeT[2] % 4 == 0) {
+      infoDeT[1] = infoDeT[11];
+    }
   }
 }
