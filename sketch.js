@@ -280,6 +280,6 @@ function keyPressed() {
     }
   }
   if (keyCode == UP_ARROW) {
-    infoDeZ[2] += 1;
+    infoDeL1[2] += 1;
   }
 }
