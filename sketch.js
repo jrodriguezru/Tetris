@@ -1,4 +1,3 @@
-// TODO: Incluir en las matrices de información de cada ficha, los límites de cada lado dependiendo la rotación de la ficha.
 // TODO: Investigar si hay alguna forma que los dibujos tengan colisión
 // TODO: Investigar si hay una función random() en Javascript
 // TODO: Investigar si puedo generar nuevas figuas de forma "ilimitada"
@@ -14,7 +13,7 @@ let infoDeI = [60, 220, 0, 0, height - 80, 40, height - 60, 20, height - 80, 40,
 let infoDeCuadrado = [100, 20, 0, 0, height - 40, 0, height - 40, 0, height - 40, 0, height - 40, width - 40, width - 40, width - 40, width - 40];
 let infoDeS = [100, 120, 0, 0, height - 20, 0, height - 40, 0, height - 20, 0, height - 40, width - 60, width - 40, width - 60, width - 40];
 let infoDeZ = [100, 180, 0, 0, height - 40, 0, height - 60, 0, height - 40, 0, height - 60, width - 60, width - 40, width - 60, width - 40];
-let infoDeT = [220, 120, 0];
+let infoDeT = [220, 120, 0, 0, height - 20, 20, height - 40, 0, height - 40, 0, height - 40, width - 60, width - 60, width - 60, width - 40];
 
 function setup() {
   createCanvas(width, height);
@@ -267,7 +266,6 @@ function keyPressed() {
     if (infoDeT[1] != 380) {
       infoDeT[1] += 20;
     }
-
   }
   if (keyCode == RIGHT_ARROW) {
     if (infoDeT[0] != 340) {
