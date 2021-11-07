@@ -1,5 +1,4 @@
 // TODO: Investigar si hay alguna forma que los dibujos tengan colisión
-// TODO: Investigar si hay una función random() en Javascript
 // TODO: Investigar si puedo generar nuevas figuas de forma "ilimitada"
 // TODO: Representar cada ficha y cada una de sus rotaciones en una matriz de tres filas y tres columnas. (Para luego la representación matricial del tablero)
 
