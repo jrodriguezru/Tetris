@@ -263,8 +263,25 @@ function shapeIsDown() {
 */
 function keyPressed() {
   if (keyCode == DOWN_ARROW) {
-    if (infoDeT[1] != 380) {
-      infoDeT[1] += 20;
+    if (infoDeT[2] % 4 == 0) {
+      if (infoDeT[1] < infoDeT[4]) {
+        infoDeT[1] += 20;
+      }
+    }
+    else if (infoDeT[2] % 4 == 1) {
+      if (infoDeT[1] < infoDeT[6]) {
+        infoDeT[1] += 20;
+      }
+    }
+    else if (infoDeT[2] % 4 == 2) {
+      if (infoDeT[1] < infoDeT[8]) {
+        infoDeT[1] += 20;
+      }
+    }
+    else if (infoDeT[2] % 4 == 3) {
+      if (infoDeT[1] < infoDeT[10]) {
+        infoDeT[1] += 20;
+      }
     }
   }
   if (keyCode == RIGHT_ARROW) {
@@ -294,5 +311,5 @@ function keyPressed() {
       infoDeT[1] = infoDeT[10];
     }
   }
-  
+
 }
