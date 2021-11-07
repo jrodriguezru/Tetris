@@ -1,7 +1,7 @@
 // TODO: Investigar si hay alguna forma que los dibujos tengan colisión
 // TODO: Investigar si hay una función random() en Javascript
 // TODO: Investigar si puedo generar nuevas figuas de forma "ilimitada"
-// TODO: Agregar la caida fuerte de las piezas con "space"
+// TODO: Representar cada ficha y cada una de sus rotaciones en una matriz de tres filas y tres columnas. (Para luego la representación matricial del tablero)
 
 // Posición en X, Posición en Y, Estado de Rotación, limiteXR0, limiteYR0, limiteXR1, limiteYR1, limiteXR2, limiteYR2, limiteXR3, limiteYR3, limiteXDR0, limiteXDR1, limiteXDR2, limiteXDR3.
 let height = 400;
@@ -14,6 +14,8 @@ let infoDeCuadrado = [100, 20, 0, 0, height - 40, 0, height - 40, 0, height - 40
 let infoDeS = [100, 120, 0, 0, height - 20, 0, height - 40, 0, height - 20, 0, height - 40, width - 60, width - 40, width - 60, width - 40];
 let infoDeZ = [100, 180, 0, 0, height - 40, 0, height - 60, 0, height - 40, 0, height - 60, width - 60, width - 40, width - 60, width - 40];
 let infoDeT = [220, 120, 0, 0, height - 20, 20, height - 40, 0, height - 40, 0, height - 40, width - 60, width - 60, width - 60, width - 40];
+let fichaActual = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+
 
 function setup() {
   createCanvas(width, height);
@@ -254,6 +256,13 @@ function fichaT() {
     rect(infoDeT[0] + 20, infoDeT[1] + 20, 20, 20);
   }
 }
+
+// Desde min (incluyendolo) hasta max (excluyendolo)
+// Random arroja un número entre [0, 1)
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
 /*
 function shapeIsDown() {
   if (infoDeActual[1] = infoDeActual[10]) {
@@ -261,6 +270,7 @@ function shapeIsDown() {
   }
 }
 */
+
 function keyPressed() {
   if (keyCode == DOWN_ARROW) {
     if (infoDeT[2] % 4 == 0) {
