@@ -14,7 +14,7 @@ let infoDeS = [100, 120, 0, 0, height - 20, 0, height - 40, 0, height - 20, 0, h
 let infoDeZ = [100, 180, 0, 0, height - 40, 0, height - 60, 0, height - 40, 0, height - 60, width - 60, width - 40, width - 60, width - 40];
 let infoDeT = [220, 120, 0, 0, height - 20, 20, height - 40, 0, height - 40, 0, height - 40, width - 60, width - 60, width - 60, width - 40];
 let fichaActual = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
-
+let fichaEnStandBy = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
 
 function setup() {
   createCanvas(width, height);
