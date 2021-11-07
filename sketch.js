@@ -285,8 +285,25 @@ function keyPressed() {
     }
   }
   if (keyCode == RIGHT_ARROW) {
-    if (infoDeT[0] != 340) {
-      infoDeT[0] += 20;
+    if (infoDeT[2] % 4 == 0) {
+      if (infoDeT[1] < infoDeT[12]) {
+        infoDeT[0] += 20;
+      }
+    }
+    else if (infoDeT[2] % 4 == 1) {
+      if (infoDeT[1] < infoDeT[13]) {
+        infoDeT[0] += 20;
+      }
+    }
+    else if (infoDeT[2] % 4 == 2) {
+      if (infoDeT[1] < infoDeT[14]) {
+        infoDeT[0] += 20;
+      }
+    }
+    else if (infoDeT[2] % 4 == 3) {
+      if (infoDeT[1] < infoDeT[15]) {
+        infoDeT[0] += 20;
+      }
     }
   }
   if (keyCode == LEFT_ARROW) {
