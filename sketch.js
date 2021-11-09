@@ -53,7 +53,7 @@ function fichaL1() {
     rect(infoDeL1[0], infoDeL1[1], 20, 20);
     rect(infoDeL1[0], infoDeL1[1] + 20, 20, 20);
     rect(infoDeL1[0], infoDeL1[1] + 40, 20, 20);
-    rect(infoDeL1[0] + 20, infoDeL1[1] + 40, 20, 20);
+    rect(infoDeL1[0] + 20, infoDeL1[1] + 40, 20, 20); 
   }
   else if (infoDeL1[2] % 4 == 1) {
     rect(infoDeL1[0] + 40, infoDeL1[1], 20, 20);
