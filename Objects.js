@@ -53,22 +53,22 @@ let L1 = {
     },
     moveLeft : function () {
         if (this.rotation % 4 == 0) {
-            if (this.posEnX < this.limiteXR0) {
+            if (this.posEnX > this.limiteXR0) {
               this.posEnX -= 20;
             }
         }
         else if (this.rotation % 4 == 1) {
-            if (this.posEnX < this.limiteXR1) {
+            if (this.posEnX > this.limiteXR1) {
               this.posEnX -= 20;
             }
         }
         else if (this.rotation % 4 == 2) {
-            if (this.posEnX < this.limiteXR2) {
+            if (this.posEnX > this.limiteXR2) {
               this.posEnX -= 20;
             }
         }
         else if (this.rotation % 4 == 3) {
-            if (this.posEnX < this.limiteXR3) {
+            if (this.posEnX > this.limiteXR3) {
               this.posEnX -= 20;
             }
         }
@@ -154,30 +154,30 @@ let l2 = {
     draw : function (){
         strokeWeight(2);
         stroke(0, 255);
-        fill(255, 140, 0);
+        fill(38, 0, 231);
         if (this.rotation % 4 == 0) {
-            rect(this.posEnX, this.posEnY, 20, 20);
-            rect(this.posEnX, this.posEnY + 20, 20, 20);
-            rect(this.posEnX, this.posEnY + 40, 20, 20);
+            rect(this.posEnX + 20, this.posEnY, 20, 20);
+            rect(this.posEnX + 20, this.posEnY + 20, 20, 20);
             rect(this.posEnX + 20, this.posEnY + 40, 20, 20);
+            rect(this.posEnX, this.posEnY + 40, 20, 20);
         }
         else if (this.rotation % 4 == 1) {
-            rect(this.posEnX + 40, this.posEnY, 20, 20);
-            rect(this.posEnX + 20, this.posEnY, 20, 20);
-            rect(this.posEnX, this.posEnY, 20, 20);
-            rect(this.posEnX, this.posEnY + 20, 20, 20);
-        }
-        else if (this.rotation % 4 == 2) {
-            rect(this.posEnX + 20, this.posEnY, 20, 20);
-            rect(this.posEnX + 40, this.posEnY, 20, 20);
-            rect(this.posEnX + 40, this.posEnY + 20, 20, 20);
-            rect(this.posEnX + 40, this.posEnY + 40, 20, 20);
-        }
-        else if (this.rotation % 4 == 3) {
-            rect(this.posEnX + 40, this.posEnY + 20, 20, 20);
-            rect(this.posEnX + 40, this.posEnY + 40, 20, 20);
             rect(this.posEnX + 20, this.posEnY + 40, 20, 20);
             rect(this.posEnX, this.posEnY + 40, 20, 20);
+            rect(this.posEnX - 20, this.posEnY + 40, 20, 20);
+            rect(this.posEnX - 20, this.posEnY + 20, 20, 20);
+        }
+        else if (this.rotation % 4 == 2) {
+            rect(this.posEnX - 20, this.posEnY, 20, 20);
+            rect(this.posEnX, this.posEnY, 20, 20);
+            rect(this.posEnX - 20, this.posEnY + 20, 20, 20);
+            rect(this.posEnX - 20, this.posEnY + 40, 20, 20);
+        }
+        else if (this.rotation % 4 == 3) {
+            rect(this.posEnX - 20, this.posEnY, 20, 20);
+            rect(this.posEnX, this.posEnY, 20, 20);
+            rect(this.posEnX + 20, this.posEnY, 20, 20);
+            rect(this.posEnX + 20, this.posEnY + 20, 20, 20);
         }
     },
     rotate : function () {
@@ -185,22 +185,22 @@ let l2 = {
     },
     moveLeft : function () {
         if (this.rotation % 4 == 0) {
-            if (this.posEnX < this.limiteXR0) {
+            if (this.posEnX > this.limiteXR0) {
               this.posEnX -= 20;
             }
         }
         else if (this.rotation % 4 == 1) {
-            if (this.posEnX < this.limiteXR1) {
+            if (this.posEnX > this.limiteXR1) {
               this.posEnX -= 20;
             }
         }
         else if (this.rotation % 4 == 2) {
-            if (this.posEnX < this.limiteXR2) {
+            if (this.posEnX > this.limiteXR2) {
               this.posEnX -= 20;
             }
         }
         else if (this.rotation % 4 == 3) {
-            if (this.posEnX < this.limiteXR3) {
+            if (this.posEnX > this.limiteXR3) {
               this.posEnX -= 20;
             }
         }
@@ -286,30 +286,30 @@ let I = {
     draw : function (){
         strokeWeight(2);
         stroke(0, 255);
-        fill(255, 140, 0);
+        fill(0, 255, 255);
         if (this.rotation % 4 == 0) {
             rect(this.posEnX, this.posEnY, 20, 20);
             rect(this.posEnX, this.posEnY + 20, 20, 20);
             rect(this.posEnX, this.posEnY + 40, 20, 20);
-            rect(this.posEnX + 20, this.posEnY + 40, 20, 20);
+            rect(this.posEnX, this.posEnY + 60, 20, 20);
         }
         else if (this.rotation % 4 == 1) {
-            rect(this.posEnX + 40, this.posEnY, 20, 20);
-            rect(this.posEnX + 20, this.posEnY, 20, 20);
-            rect(this.posEnX, this.posEnY, 20, 20);
-            rect(this.posEnX, this.posEnY + 20, 20, 20);
+            rect(this.posEnX, this.posEnY + 40, 20, 20);
+            rect(this.posEnX - 20, this.posEnY + 40, 20, 20);
+            rect(this.posEnX - 40, this.posEnY + 40, 20, 20);
+            rect(this.posEnX + 20, this.posEnY + 40, 20, 20);
         }
         else if (this.rotation % 4 == 2) {
-            rect(this.posEnX + 20, this.posEnY, 20, 20);
-            rect(this.posEnX + 40, this.posEnY, 20, 20);
-            rect(this.posEnX + 40, this.posEnY + 20, 20, 20);
-            rect(this.posEnX + 40, this.posEnY + 40, 20, 20);
+            rect(this.posEnX - 20, this.posEnY, 20, 20);
+            rect(this.posEnX - 20, this.posEnY + 20, 20, 20);
+            rect(this.posEnX - 20, this.posEnY + 40, 20, 20);
+            rect(this.posEnX - 20, this.posEnY + 60, 20, 20);
         }
         else if (this.rotation % 4 == 3) {
-            rect(this.posEnX + 40, this.posEnY + 20, 20, 20);
-            rect(this.posEnX + 40, this.posEnY + 40, 20, 20);
-            rect(this.posEnX + 20, this.posEnY + 40, 20, 20);
-            rect(this.posEnX, this.posEnY + 40, 20, 20);
+            rect(this.posEnX, this.posEnY + 20, 20, 20);
+            rect(this.posEnX - 20, this.posEnY + 20, 20, 20);
+            rect(this.posEnX - 40, this.posEnY + 20, 20, 20);
+            rect(this.posEnX + 20, this.posEnY + 20, 20, 20);
         }
     },
     rotate : function () {
@@ -317,22 +317,22 @@ let I = {
     },
     moveLeft : function () {
         if (this.rotation % 4 == 0) {
-            if (this.posEnX < this.limiteXR0) {
+            if (this.posEnX > this.limiteXR0) {
               this.posEnX -= 20;
             }
         }
         else if (this.rotation % 4 == 1) {
-            if (this.posEnX < this.limiteXR1) {
+            if (this.posEnX > this.limiteXR1) {
               this.posEnX -= 20;
             }
         }
         else if (this.rotation % 4 == 2) {
-            if (this.posEnX < this.limiteXR2) {
+            if (this.posEnX > this.limiteXR2) {
               this.posEnX -= 20;
             }
         }
         else if (this.rotation % 4 == 3) {
-            if (this.posEnX < this.limiteXR3) {
+            if (this.posEnX > this.limiteXR3) {
               this.posEnX -= 20;
             }
         }
@@ -418,30 +418,30 @@ let Cuad = {
     draw : function (){
         strokeWeight(2);
         stroke(0, 255);
-        fill(255, 140, 0);
+        fill(255, 255, 0);
         if (this.rotation % 4 == 0) {
-            rect(this.posEnX, this.posEnY, 20, 20);
-            rect(this.posEnX, this.posEnY + 20, 20, 20);
-            rect(this.posEnX, this.posEnY + 40, 20, 20);
-            rect(this.posEnX + 20, this.posEnY + 40, 20, 20);
+          rect(this.posEnX, this.posEnY, 20, 20);
+          rect(this.posEnX, this.posEnY + 20, 20, 20);
+          rect(this.posEnX + 20, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY + 20, 20, 20);
         }
         else if (this.rotation % 4 == 1) {
-            rect(this.posEnX + 40, this.posEnY, 20, 20);
-            rect(this.posEnX + 20, this.posEnY, 20, 20);
-            rect(this.posEnX, this.posEnY, 20, 20);
-            rect(this.posEnX, this.posEnY + 20, 20, 20);
+          rect(this.posEnX, this.posEnY, 20, 20);
+          rect(this.posEnX, this.posEnY + 20, 20, 20);
+          rect(this.posEnX + 20, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY + 20, 20, 20);
         }
         else if (this.rotation % 4 == 2) {
-            rect(this.posEnX + 20, this.posEnY, 20, 20);
-            rect(this.posEnX + 40, this.posEnY, 20, 20);
-            rect(this.posEnX + 40, this.posEnY + 20, 20, 20);
-            rect(this.posEnX + 40, this.posEnY + 40, 20, 20);
+          rect(this.posEnX, this.posEnY, 20, 20);
+          rect(this.posEnX, this.posEnY + 20, 20, 20);
+          rect(this.posEnX + 20, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY + 20, 20, 20);
         }
         else if (this.rotation % 4 == 3) {
-            rect(this.posEnX + 40, this.posEnY + 20, 20, 20);
-            rect(this.posEnX + 40, this.posEnY + 40, 20, 20);
-            rect(this.posEnX + 20, this.posEnY + 40, 20, 20);
-            rect(this.posEnX, this.posEnY + 40, 20, 20);
+          rect(this.posEnX, this.posEnY, 20, 20);
+          rect(this.posEnX, this.posEnY + 20, 20, 20);
+          rect(this.posEnX + 20, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY + 20, 20, 20);
         }
     },
     rotate : function () {
@@ -449,22 +449,22 @@ let Cuad = {
     },
     moveLeft : function () {
         if (this.rotation % 4 == 0) {
-            if (this.posEnX < this.limiteXR0) {
+            if (this.posEnX > this.limiteXR0) {
               this.posEnX -= 20;
             }
         }
         else if (this.rotation % 4 == 1) {
-            if (this.posEnX < this.limiteXR1) {
+            if (this.posEnX > this.limiteXR1) {
               this.posEnX -= 20;
             }
         }
         else if (this.rotation % 4 == 2) {
-            if (this.posEnX < this.limiteXR2) {
+            if (this.posEnX > this.limiteXR2) {
               this.posEnX -= 20;
             }
         }
         else if (this.rotation % 4 == 3) {
-            if (this.posEnX < this.limiteXR3) {
+            if (this.posEnX > this.limiteXR3) {
               this.posEnX -= 20;
             }
         }
@@ -550,30 +550,30 @@ let S = {
     draw : function (){
         strokeWeight(2);
         stroke(0, 255);
-        fill(255, 140, 0);
+        fill(0, 255, 0);
         if (this.rotation % 4 == 0) {
-            rect(this.posEnX, this.posEnY, 20, 20);
-            rect(this.posEnX, this.posEnY + 20, 20, 20);
-            rect(this.posEnX, this.posEnY + 40, 20, 20);
-            rect(this.posEnX + 20, this.posEnY + 40, 20, 20);
+          rect(this.posEnX, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY - 20, 20, 20);
+          rect(this.posEnX + 40, this.posEnY - 20, 20, 20);
         }
         else if (this.rotation % 4 == 1) {
-            rect(this.posEnX + 40, this.posEnY, 20, 20);
-            rect(this.posEnX + 20, this.posEnY, 20, 20);
-            rect(this.posEnX, this.posEnY, 20, 20);
-            rect(this.posEnX, this.posEnY + 20, 20, 20);
+          rect(this.posEnX, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY, 20, 20);
+          rect(this.posEnX, this.posEnY - 20, 20, 20);
+          rect(this.posEnX + 20, this.posEnY + 20, 20, 20);
         }
         else if (this.rotation % 4 == 2) {
-            rect(this.posEnX + 20, this.posEnY, 20, 20);
-            rect(this.posEnX + 40, this.posEnY, 20, 20);
-            rect(this.posEnX + 40, this.posEnY + 20, 20, 20);
-            rect(this.posEnX + 40, this.posEnY + 40, 20, 20);
+          rect(this.posEnX, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY - 20, 20, 20);
+          rect(this.posEnX + 40, this.posEnY - 20, 20, 20);
         }
         else if (this.rotation % 4 == 3) {
-            rect(this.posEnX + 40, this.posEnY + 20, 20, 20);
-            rect(this.posEnX + 40, this.posEnY + 40, 20, 20);
-            rect(this.posEnX + 20, this.posEnY + 40, 20, 20);
-            rect(this.posEnX, this.posEnY + 40, 20, 20);
+          rect(this.posEnX, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY, 20, 20);
+          rect(this.posEnX, this.posEnY - 20, 20, 20);
+          rect(this.posEnX + 20, this.posEnY + 20, 20, 20);
         }
     },
     rotate : function () {
@@ -581,22 +581,22 @@ let S = {
     },
     moveLeft : function () {
         if (this.rotation % 4 == 0) {
-            if (this.posEnX < this.limiteXR0) {
+            if (this.posEnX > this.limiteXR0) {
               this.posEnX -= 20;
             }
         }
         else if (this.rotation % 4 == 1) {
-            if (this.posEnX < this.limiteXR1) {
+            if (this.posEnX > this.limiteXR1) {
               this.posEnX -= 20;
             }
         }
         else if (this.rotation % 4 == 2) {
-            if (this.posEnX < this.limiteXR2) {
+            if (this.posEnX > this.limiteXR2) {
               this.posEnX -= 20;
             }
         }
         else if (this.rotation % 4 == 3) {
-            if (this.posEnX < this.limiteXR3) {
+            if (this.posEnX > this.limiteXR3) {
               this.posEnX -= 20;
             }
         }
@@ -682,30 +682,30 @@ let Z = {
     draw : function (){
         strokeWeight(2);
         stroke(0, 255);
-        fill(255, 140, 0);
+        fill(255, 0, 0);
         if (this.rotation % 4 == 0) {
-            rect(this.posEnX, this.posEnY, 20, 20);
-            rect(this.posEnX, this.posEnY + 20, 20, 20);
-            rect(this.posEnX, this.posEnY + 40, 20, 20);
-            rect(this.posEnX + 20, this.posEnY + 40, 20, 20);
+          rect(this.posEnX, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY + 20, 20, 20);
+          rect(this.posEnX + 40, this.posEnY + 20, 20, 20);
         }
         else if (this.rotation % 4 == 1) {
-            rect(this.posEnX + 40, this.posEnY, 20, 20);
-            rect(this.posEnX + 20, this.posEnY, 20, 20);
-            rect(this.posEnX, this.posEnY, 20, 20);
-            rect(this.posEnX, this.posEnY + 20, 20, 20);
+          rect(this.posEnX + 20, this.posEnY, 20, 20);
+          rect(this.posEnX, this.posEnY + 20, 20, 20);
+          rect(this.posEnX + 20, this.posEnY + 20, 20, 20);
+          rect(this.posEnX, this.posEnY + 40, 20, 20);
         }
         else if (this.rotation % 4 == 2) {
-            rect(this.posEnX + 20, this.posEnY, 20, 20);
-            rect(this.posEnX + 40, this.posEnY, 20, 20);
-            rect(this.posEnX + 40, this.posEnY + 20, 20, 20);
-            rect(this.posEnX + 40, this.posEnY + 40, 20, 20);
+          rect(this.posEnX, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY + 20, 20, 20);
+          rect(this.posEnX + 40, this.posEnY + 20, 20, 20);
         }
         else if (this.rotation % 4 == 3) {
-            rect(this.posEnX + 40, this.posEnY + 20, 20, 20);
-            rect(this.posEnX + 40, this.posEnY + 40, 20, 20);
-            rect(this.posEnX + 20, this.posEnY + 40, 20, 20);
-            rect(this.posEnX, this.posEnY + 40, 20, 20);
+          rect(this.posEnX + 20, this.posEnY, 20, 20);
+          rect(this.posEnX, this.posEnY + 20, 20, 20);
+          rect(this.posEnX + 20, this.posEnY + 20, 20, 20);
+          rect(this.posEnX, this.posEnY + 40, 20, 20);
         }
     },
     rotate : function () {
@@ -735,22 +735,22 @@ let Z = {
     },
     moveRight : function () {
         if (this.rotation % 4 == 0) {
-            if (this.posEnX < this.limiteXI0) {
+            if (this.posEnX > this.limiteXI0) {
               this.posEnX += 20;
             }
         }
         else if (this.rotation % 4 == 1) {
-            if (this.posEnX < this.limiteXI1) {
+            if (this.posEnX > this.limiteXI1) {
               this.posEnX += 20;
             }
         }
         else if (this.rotation % 4 == 2) {
-            if (this.posEnX < this.limiteXI2) {
+            if (this.posEnX > this.limiteXI2) {
               this.posEnX += 20;
             }
         }
         else if (this.rotation % 4 == 3) {
-            if (this.posEnX < this.limiteXI3) {
+            if (this.posEnX > this.limiteXI3) {
               this.posEnX += 20;
             }
         }
@@ -814,30 +814,30 @@ let T = {
     draw : function (){
         strokeWeight(2);
         stroke(0, 255);
-        fill(255, 140, 0);
+        fill(200, 50, 250);
         if (this.rotation % 4 == 0) {
-            rect(this.posEnX, this.posEnY, 20, 20);
-            rect(this.posEnX, this.posEnY + 20, 20, 20);
-            rect(this.posEnX, this.posEnY + 40, 20, 20);
-            rect(this.posEnX + 20, this.posEnY + 40, 20, 20);
+          rect(this.posEnX, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY - 20, 20);
+          rect(this.posEnX + 40, this.posEnY, 20, 20);
         }
         else if (this.rotation % 4 == 1) {
-            rect(this.posEnX + 40, this.posEnY, 20, 20);
-            rect(this.posEnX + 20, this.posEnY, 20, 20);
-            rect(this.posEnX, this.posEnY, 20, 20);
-            rect(this.posEnX, this.posEnY + 20, 20, 20);
+          rect(this.posEnX + 20, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY - 20, 20, 20);
+          rect(this.posEnX + 40, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY + 20, 20, 20);
         }
         else if (this.rotation % 4 == 2) {
-            rect(this.posEnX + 20, this.posEnY, 20, 20);
-            rect(this.posEnX + 40, this.posEnY, 20, 20);
-            rect(this.posEnX + 40, this.posEnY + 20, 20, 20);
-            rect(this.posEnX + 40, this.posEnY + 40, 20, 20);
+          rect(this.posEnX, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY + 20, 20, 20);
+          rect(this.posEnX + 40, this.posEnY, 20, 20);
         }
         else if (this.rotation % 4 == 3) {
-            rect(this.posEnX + 40, this.posEnY + 20, 20, 20);
-            rect(this.posEnX + 40, this.posEnY + 40, 20, 20);
-            rect(this.posEnX + 20, this.posEnY + 40, 20, 20);
-            rect(this.posEnX, this.posEnY + 40, 20, 20);
+          rect(this.posEnX + 20, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY - 20, 20, 20);
+          rect(this.posEnX, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY + 20, 20, 20);
         }
     },
     rotate : function () {
@@ -845,22 +845,22 @@ let T = {
     },
     moveLeft : function () {
         if (this.rotation % 4 == 0) {
-            if (this.posEnX < this.limiteXR0) {
+            if (this.posEnX > this.limiteXR0) {
               this.posEnX -= 20;
             }
         }
         else if (this.rotation % 4 == 1) {
-            if (this.posEnX < this.limiteXR1) {
+            if (this.posEnX > this.limiteXR1) {
               this.posEnX -= 20;
             }
         }
         else if (this.rotation % 4 == 2) {
-            if (this.posEnX < this.limiteXR2) {
+            if (this.posEnX > this.limiteXR2) {
               this.posEnX -= 20;
             }
         }
         else if (this.rotation % 4 == 3) {
-            if (this.posEnX < this.limiteXR3) {
+            if (this.posEnX > this.limiteXR3) {
               this.posEnX -= 20;
             }
         }
@@ -924,3 +924,14 @@ let T = {
         }
     },
 };
+
+function tablero() {
+    stroke(0, 100);
+    strokeWeight(1);
+    for (let i = 0; i <= width; i += 20) {
+      line(i, 0, i, height);
+    }
+    for (let i = 0; i <= height; i += 20) {
+      line(0, i, width, i);
+    }
+}

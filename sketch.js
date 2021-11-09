@@ -43,7 +43,6 @@ function tablero() {
   for (let i = 0; i <= height; i += 20) {
     line(0, i, width, i);
   }
-
 }
 
 function fichaL1() {
@@ -317,22 +316,22 @@ function keyPressed() {
   }
   if (keyCode == LEFT_ARROW) {
     if (infoDeT[2] % 4 == 0) {
-      if (infoDeT[0] < infoDeT[3]) {
+      if (infoDeT[0] > infoDeT[3]) {
         infoDeT[0] -= 20;
       }
     }
     else if (infoDeT[2] % 4 == 1) {
-      if (infoDeT[0] < infoDeT[5]) {
+      if (infoDeT[0] > infoDeT[5]) {
         infoDeT[0] -= 20;
       }
     }
     else if (infoDeT[2] % 4 == 2) {
-      if (infoDeT[0] < infoDeT[7]) {
+      if (infoDeT[0] > infoDeT[7]) {
         infoDeT[0] -= 20;
       }
     }
     else if (infoDeT[2] % 4 == 3) {
-      if (infoDeT[0] < infoDeT[9]) {
+      if (infoDeT[0] > infoDeT[9]) {
         infoDeT[0] -= 20;
       }
     }
