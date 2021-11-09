@@ -295,51 +295,53 @@ function keyPressed() {
   }
   if (keyCode == RIGHT_ARROW) {
     if (infoDeT[2] % 4 == 0) {
-      if (infoDeT[1] < infoDeT[12]) {
+      if (infoDeT[0] < infoDeT[12]) {
         infoDeT[0] += 20;
       }
     }
     else if (infoDeT[2] % 4 == 1) {
-      if (infoDeT[1] < infoDeT[13]) {
+      if (infoDeT[0] < infoDeT[13]) {
         infoDeT[0] += 20;
       }
     }
     else if (infoDeT[2] % 4 == 2) {
-      if (infoDeT[1] < infoDeT[14]) {
+      if (infoDeT[0] < infoDeT[14]) {
         infoDeT[0] += 20;
       }
     }
     else if (infoDeT[2] % 4 == 3) {
-      if (infoDeT[1] < infoDeT[15]) {
+      if (infoDeT[0] < infoDeT[15]) {
         infoDeT[0] += 20;
       }
     }
   }
   if (keyCode == LEFT_ARROW) {
     if (infoDeT[2] % 4 == 0) {
-      if (infoDeT[1] < infoDeT[3]) {
+      if (infoDeT[0] < infoDeT[3]) {
         infoDeT[0] -= 20;
       }
     }
     else if (infoDeT[2] % 4 == 1) {
-      if (infoDeT[1] < infoDeT[5]) {
+      if (infoDeT[0] < infoDeT[5]) {
         infoDeT[0] -= 20;
       }
     }
     else if (infoDeT[2] % 4 == 2) {
-      if (infoDeT[1] < infoDeT[7]) {
+      if (infoDeT[0] < infoDeT[7]) {
         infoDeT[0] -= 20;
       }
     }
     else if (infoDeT[2] % 4 == 3) {
-      if (infoDeT[1] < infoDeT[9]) {
+      if (infoDeT[0] < infoDeT[9]) {
         infoDeT[0] -= 20;
       }
     }
   }
+
   if (keyCode == UP_ARROW) {
     infoDeT[2] += 1;
   }
+
   if (key == " ") {
     if (infoDeT[2] % 4 == 0) {
       infoDeT[1] = infoDeT[4];
