@@ -16,7 +16,7 @@ let L1 = {
     limiteXR2 : 20,
     limiteY2 : height - 60,
     limiteXR3 : 0,
-    limiteYR : height - 60,
+    limiteY3 : height - 60,
     limiteXI0 : width - 40,
     limiteXI1 : width - 60,
     limiteXI2 : width - 60,
@@ -148,7 +148,7 @@ let L2 = {
     limiteXR2 : 20,
     limiteY2 : height - 60,
     limiteXR3 : 20,
-    limiteYR : height - 40,
+    limiteY3 : height - 40,
     limiteXI0 : width - 40,
     limiteXI1 : width - 40,
     limiteXI2 : width - 20,
@@ -280,7 +280,7 @@ let I = {
     limiteXR2 : 20,
     limiteY2 : height - 80,
     limiteXR3 : 40,
-    limiteYR : height - 60,
+    limiteY3 : height - 60,
     limiteXI0 : width - 20,
     limiteXI1 : width - 40,
     limiteXI2 : width,
@@ -412,7 +412,7 @@ let Cuad = {
     limiteXR2 : 0,
     limiteY2 : height - 40,
     limiteXR3 : 0,
-    limiteYR : height - 40,
+    limiteY3 : height - 40,
     limiteXI0 : width - 40,
     limiteXI1 : width - 40,
     limiteXI2 : width - 40,
@@ -544,7 +544,7 @@ let S = {
     limiteXR2 : 0,
     limiteY2 : height - 20,
     limiteXR3 : 0,
-    limiteYR : height - 40,
+    limiteY3 : height - 40,
     limiteXI0 : width - 60,
     limiteXI1 : width - 40,
     limiteXI2 : width - 60,
@@ -676,7 +676,7 @@ let Z = {
     limiteXR2 : 0,
     limiteY2 : height - 40,
     limiteXR3 : 0,
-    limiteYR : height - 60,
+    limiteY3 : height - 60,
     limiteXI0 : width - 60,
     limiteXI1 : width - 40,
     limiteXI2 : width - 60,
@@ -715,44 +715,44 @@ let Z = {
     },
     moveLeft : function () {
         if (this.rotation % 4 == 0) {
-            if (this.posEnX < this.limiteXR0) {
+            if (this.posEnX > this.limiteXR0) {
               this.posEnX -= 20;
             }
         }
         else if (this.rotation % 4 == 1) {
-            if (this.posEnX < this.limiteXR1) {
+            if (this.posEnX > this.limiteXR1) {
               this.posEnX -= 20;
             }
         }
         else if (this.rotation % 4 == 2) {
-            if (this.posEnX < this.limiteXR2) {
+            if (this.posEnX > this.limiteXR2) {
               this.posEnX -= 20;
             }
         }
         else if (this.rotation % 4 == 3) {
-            if (this.posEnX < this.limiteXR3) {
+            if (this.posEnX > this.limiteXR3) {
               this.posEnX -= 20;
             }
         }
     },
     moveRight : function () {
         if (this.rotation % 4 == 0) {
-            if (this.posEnX > this.limiteXI0) {
+            if (this.posEnX < this.limiteXI0) {
               this.posEnX += 20;
             }
         }
         else if (this.rotation % 4 == 1) {
-            if (this.posEnX > this.limiteXI1) {
+            if (this.posEnX < this.limiteXI1) {
               this.posEnX += 20;
             }
         }
         else if (this.rotation % 4 == 2) {
-            if (this.posEnX > this.limiteXI2) {
+            if (this.posEnX < this.limiteXI2) {
               this.posEnX += 20;
             }
         }
         else if (this.rotation % 4 == 3) {
-            if (this.posEnX > this.limiteXI3) {
+            if (this.posEnX < this.limiteXI3) {
               this.posEnX += 20;
             }
         }
@@ -808,7 +808,7 @@ let T = {
     limiteXR2 : 0,
     limiteY2 : height - 40,
     limiteXR3 : 0,
-    limiteYR : height - 40,
+    limiteY3 : height - 40,
     limiteXI0 : width - 60,
     limiteXI1 : width - 60,
     limiteXI2 : width - 60,
