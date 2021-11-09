@@ -1,6 +1,8 @@
 let height = 400;
 let width = 280;
 
+activeShape = 0
+
 //let infoDeL1 = [];
 
 let L1 = {
@@ -135,7 +137,7 @@ let L1 = {
 
 //let infoDeL2 = [];
 
-let l2 = {
+let L2 = {
     posEnX : 40,
     posEnY : 100,
     rotation : 0,
