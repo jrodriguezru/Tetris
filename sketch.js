@@ -294,22 +294,22 @@ function keyPressed() {
   }
   if (keyCode == RIGHT_ARROW) {
     if (infoDeT[2] % 4 == 0) {
-      if (infoDeT[0] < infoDeT[12]) {
+      if (infoDeT[0] < infoDeT[11]) {
         infoDeT[0] += 20;
       }
     }
     else if (infoDeT[2] % 4 == 1) {
-      if (infoDeT[0] < infoDeT[13]) {
+      if (infoDeT[0] < infoDeT[12]) {
         infoDeT[0] += 20;
       }
     }
     else if (infoDeT[2] % 4 == 2) {
-      if (infoDeT[0] < infoDeT[14]) {
+      if (infoDeT[0] < infoDeT[13]) {
         infoDeT[0] += 20;
       }
     }
     else if (infoDeT[2] % 4 == 3) {
-      if (infoDeT[0] < infoDeT[15]) {
+      if (infoDeT[0] < infoDeT[14]) {
         infoDeT[0] += 20;
       }
     }
