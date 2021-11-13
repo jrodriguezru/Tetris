@@ -6,7 +6,9 @@ function draw() {
     background(230);
     tablero();
     timer += 1;
-    newTetromino();
+    if (timer == 1) {
+        newTetromino();
+    }
     drawActiveTetromino();
     autoMoveDown();
 }

@@ -946,30 +946,28 @@ function getRandomInt(min, max) {
 }
 
 function newTetromino() {
-  if (timer == 1) {
-    random = getRandomInt(0, 6);
-    activeShape = random;
-    if (random == 0) {
-      L1.draw();
-    }
-    else if (random == 1) {
-      L2.draw();
-    }
-    else if (random == 2) {
-      I.draw();
-    }
-    else if (random == 3) {
-      Cuad.draw();
-    }
-    else if (random == 4) {
-      S.draw();
-    }
-    else if (random == 5) {
-      Z.draw();
-    }
-    else if (random == 6) {
-      T.draw();
-    }
+  random = getRandomInt(0, 6);
+  activeShape = random;
+  if (random == 0) {
+    L1.draw();
+  }
+  else if (random == 1) {
+    L2.draw();
+  }
+  else if (random == 2) {
+    I.draw();
+  }
+  else if (random == 3) {
+    Cuad.draw();
+  }
+  else if (random == 4) {
+    S.draw();
+  }
+  else if (random == 5) {
+    Z.draw();
+  }
+  else if (random == 6) {
+    T.draw();
   }
 }
 
