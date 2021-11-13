@@ -931,14 +931,14 @@ let T = {
 };
 
 function tablero() {
-    stroke(0, 100);
-    strokeWeight(1);
-    for (let i = 0; i <= width; i += 20) {
-      line(i, 0, i, height);
-    }
-    for (let i = 0; i <= height; i += 20) {
-      line(0, i, width, i);
-    }
+  stroke(0, 100);
+  strokeWeight(1);
+  for (let i = 0; i <= width; i += 20) {
+    line(i, 0, i, height);
+  }
+  for (let i = 0; i <= height; i += 20) {
+    line(0, i, width, i);
+  }
 }
 
 function getRandomInt(min, max) {
