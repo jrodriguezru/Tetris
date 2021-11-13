@@ -993,7 +993,6 @@ function drawActiveTetromino() {
   else if (activeShape % 7 == 6) {
     T.draw();
   } 
-
 }
 
 function autoMoveDown() {
