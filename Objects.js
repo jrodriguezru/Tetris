@@ -1,7 +1,8 @@
 let height = 400;
 let width = 280;
 
-activeShape = 0
+activeShape = 0;
+timer = 0;
 
 //let infoDeL1 = [];
 
@@ -936,4 +937,60 @@ function tablero() {
     for (let i = 0; i <= height; i += 20) {
       line(0, i, width, i);
     }
+}
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function newTetromino() {
+  random = getRandomInt(0, 6);
+  activeShape = random;
+  if (random == 0) {
+    L1.draw();
+  }
+  else if (random == 1) {
+    L2.draw();
+  }
+  else if (random == 2) {
+    I.draw();
+  }
+  else if (random == 3) {
+    Cuad.draw();
+  }
+  else if (random == 4) {
+    S.draw();
+  }
+  else if (random == 5) {
+    Z.draw();
+  }
+  else if (random == 6) {
+    T.draw();
+  }
+}
+
+function autoMoveDown() {
+  if (timer % 10 == 0) {
+    if (activeShape % 7 == 0) {
+        L1.moveDown();
+    }
+    else if (activeShape % 7 == 1) {
+        L2.moveDown();
+    }
+    else if (activeShape % 7 == 2) {
+        I.moveDown();
+    }
+    else if (activeShape % 7 == 3) {
+        Cuad.moveDown();
+    }
+    else if (activeShape % 7 == 4) {
+        S.moveDown();
+    }
+    else if (activeShape % 7 == 5) {
+        Z.moveDown();
+    }
+    else if (activeShape % 7 == 6) {
+        T.moveDown();
+    }
+  }
 }
