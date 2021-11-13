@@ -3,12 +3,14 @@ let width = 280;
 
 activeShape = 0;
 timer = 0;
+posXInicial = 140;
+posYInicial = 0;
 
 //let infoDeL1 = [];
 
 let L1 = {
-    posEnX : 20,
-    posEnY : 20,
+    posEnX : 140,
+    posEnY : 0,
     rotation : 0,
     limiteXR0 : 0,
     limiteY0 : height - 60,
@@ -139,8 +141,8 @@ let L1 = {
 //let infoDeL2 = [];
 
 let L2 = {
-    posEnX : 40,
-    posEnY : 100,
+    posEnX : 140,
+    posEnY : 0,
     rotation : 0,
     limiteXR0 : 0,
     limiteY0 : height - 60,
@@ -271,8 +273,8 @@ let L2 = {
 //let infoDeI = [];
 
 let I = {
-    posEnX : 60,
-    posEnY : 220,
+    posEnX : 140,
+    posEnY : 0,
     rotation : 0,
     limiteXR0 : 0,
     limiteY0 : height - 80,
@@ -403,8 +405,8 @@ let I = {
 //let infoDeCuadrado = [];
 
 let Cuad = {
-    posEnX : 100,
-    posEnY : 20,
+    posEnX : 140,
+    posEnY : 0,
     rotation : 0,
     limiteXR0 : 0,
     limiteY0 : height - 40,
@@ -535,8 +537,8 @@ let Cuad = {
 //let infoDeS = [];
 
 let S = {
-    posEnX : 100,
-    posEnY : 120,
+    posEnX : 140,
+    posEnY : 0,
     rotation : 0,
     limiteXR0 : 0,
     limiteY0 : height - 20,
@@ -667,8 +669,8 @@ let S = {
 //let infoDeZ = [];
 
 let Z = {
-    posEnX : 100,
-    posEnY : 180,
+    posEnX : 140,
+    posEnY : 0,
     rotation : 0,
     limiteXR0 : 0,
     limiteY0 : height - 40,
@@ -799,8 +801,8 @@ let Z = {
 //let infoDeT = [];
 
 let T = {
-    posEnX : 220,
-    posEnY : 120,
+    posEnX : 140,
+    posEnY : 0,
     rotation : 0,
     limiteXR0 : 0,
     limiteY0 : height - 20,
