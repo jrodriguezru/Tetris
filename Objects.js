@@ -1,3 +1,7 @@
+// TODO: Organizar el "vigilador" del tablero.
+// TODO: Organizar como se van a dejar marcadas las fichas en el tablero una vez caigan
+// TODO: Resetear los valores de posYInicial y posXInicial en la ActiveShape una vez que caigan y se actualice el tablero
+
 let height = 400;
 let width = 280;
 
@@ -973,6 +977,7 @@ function newTetromino() {
 }
 
 function drawActiveTetromino() {
+  
   if (activeShape % 7 == 0) {
     L1.draw();
   }
@@ -994,6 +999,9 @@ function drawActiveTetromino() {
   else if (activeShape % 7 == 6) {
     T.draw();
   } 
+  if (finishTetromino() == true) {
+    endTetromino();
+  }
 }
 
 function autoMoveDown() {
@@ -1020,4 +1028,111 @@ function autoMoveDown() {
         T.moveDown();
     }
   }
+}
+
+function finishTetromino() {
+  if (activeShape % 7 == 0) {
+    if (L1.rotation % 4 == 0) {
+      return (L1.posEnY == L1.limiteY0);
+    }
+    else if (L1.rotation % 4 == 1) {
+      return (L1.posEnY == L1.limiteY1);
+    }
+    else if (L1.rotation % 4 == 2) {
+      return (L1.posEnY == L1.limiteY2);
+    }
+    else if (L1.rotation % 4 == 3) {
+      return (L1.posEnY == L1.limiteY3);
+    }
+  }
+  else if (activeShape % 7 == 1) {
+    if (L2.rotation % 4 == 0) {
+      return (L2.posEnY == L2.limiteY0);
+    }
+    else if (L2.rotation % 4 == 1) {
+      return (L2.posEnY == L2.limiteY1);
+    }
+    else if (L2.rotation % 4 == 2) {
+      return (L2.posEnY == L2.limiteY2);
+    }
+    else if (L2.rotation % 4 == 3) {
+      return (L2.posEnY == L2.limiteY3);
+    }
+  }
+  else if (activeShape % 7 == 2) {
+    if (I.rotation % 4 == 0) {
+      return (I.posEnY == I.limiteY0);
+    }
+    else if (I.rotation % 4 == 1) {
+      return (I.posEnY == I.limiteY1);
+    }
+    else if (I.rotation % 4 == 2) {
+      return (I.posEnY == I.limiteY2);
+    }
+    else if (I.rotation % 4 == 3) {
+      return (I.posEnY == I.limiteY3);
+    }
+  }
+  else if (activeShape % 7 == 3) {
+    if (Cuad.rotation % 4 == 0) {
+      return (Cuad.posEnY == Cuad.limiteY0);
+    }
+    else if (Cuad.rotation % 4 == 1) {
+      return (Cuad.posEnY == Cuad.limiteY1);
+    }
+    else if (Cuad.rotation % 4 == 2) {
+      return (Cuad.posEnY == Cuad.limiteY2);
+    }
+    else if (Cuad.rotation % 4 == 3) {
+      return (Cuad.posEnY == Cuad.limiteY3);
+    }
+  }
+  else if (activeShape % 7 == 4) {
+    if (S.rotation % 4 == 0) {
+      return (S.posEnY == S.limiteY0);
+    }
+    else if (S.rotation % 4 == 1) {
+      return (S.posEnY == S.limiteY1);
+    }
+    else if (S.rotation % 4 == 2) {
+      return (S.posEnY == S.limiteY2);
+    }
+    else if (S.rotation % 4 == 3) {
+      return (S.posEnY == S.limiteY3);
+    }
+  }
+  else if (activeShape % 7 == 5) {
+    if (Z.rotation % 4 == 0) {
+      return (Z.posEnY == Z.limiteY0);
+    }
+    else if (Z.rotation % 4 == 1) {
+      return (Z.posEnY == Z.limiteY1);
+    }
+    else if (Z.rotation % 4 == 2) {
+      return (Z.posEnY == Z.limiteY2);
+    }
+    else if (Z.rotation % 4 == 3) {
+      return (Z.posEnY == Z.limiteY3);
+    }
+  }
+  else if (activeShape % 7 == 6) {
+    if (T.rotation % 4 == 0) {
+      return (T.posEnY == T.limiteY0);
+    }
+    else if (T.rotation % 4 == 1) {
+      return (T.posEnY == T.limiteY1);
+    }
+    else if (T.rotation % 4 == 2) {
+      return (T.posEnY == T.limiteY2);
+    }
+    else if (T.rotation % 4 == 3) {
+      return (T.posEnY == T.limiteY3);
+    }
+  }
+}
+
+function endTetromino() {
+  
+  newTetromino();
+
 }
