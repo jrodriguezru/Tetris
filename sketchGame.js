@@ -1,11 +1,13 @@
 function setup() {
+    
     createCanvas(width, height);
-    newTetromino();
 }
 function draw() {
     background(230);
     tablero();
     timer += 1;
+    newTetromino();
+    drawActiveTetromino();
     autoMoveDown();
 }
 
