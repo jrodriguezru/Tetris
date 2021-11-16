@@ -34,6 +34,14 @@ posXInicial = 100;
 posYInicial = 0;
 movimiento = 0 
 
+// FOR MY FUTURE SELF:
+// La idea es que con cada pieza se cambie el valor de la posicion [i][j] de la matriz tablero de acuerdo a la ubicacion de la pieza
+// Cada [i][j] puede ser expresado por i = posEnY / 20 y j = posEnX / 20
+// Luego con un if se puede evaluar si en la matriz tablero ya hay un 1, de ser así cambia una varible control que hace salir de la función
+// Y si esta variable está "cambiada" luego hay un llamado a una función para que se "dvuelva" el movimiento
+// Caso especial: Si esta variable fue cambiada porque no se puede mover la pieza hacia abajo, en ese caso, se devuelve y llama a la función endTetromino()
+
+
 function updateTablero() {
   if (activeShape % 7 == 0) {
     if (movimiento == 1) {
