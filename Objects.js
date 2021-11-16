@@ -32,6 +32,152 @@ activeShape = 0;
 timer = 0;
 posXInicial = 100;
 posYInicial = 0;
+movimiento = 0 
+
+function updateTablero() {
+  if (activeShape % 7 == 0) {
+    if (movimiento == 1) {
+
+    }
+    else if (movimiento == 2) {
+
+    }
+    else if (movimiento == 3) {
+
+    }
+    else if (movimiento == 4) {
+
+    }
+    else if (movimiento == 5) {
+
+    }
+    else if (movimiento == 6) {
+
+    }
+
+  }
+  else if (activeShape % 7 == 1) {
+    if (movimiento == 1) {
+
+    }
+    else if (movimiento == 2) {
+
+    }
+    else if (movimiento == 3) {
+
+    }
+    else if (movimiento == 4) {
+
+    }
+    else if (movimiento == 5) {
+
+    }
+    else if (movimiento == 6) {
+      
+    }
+  }
+  else if (activeShape % 7 == 2) {
+    if (movimiento == 1) {
+
+    }
+    else if (movimiento == 2) {
+
+    }
+    else if (movimiento == 3) {
+
+    }
+    else if (movimiento == 4) {
+
+    }
+    else if (movimiento == 5) {
+
+    }
+    else if (movimiento == 6) {
+      
+    }
+  }
+  else if (activeShape % 7 == 3) {
+    if (movimiento == 1) {
+
+    }
+    else if (movimiento == 2) {
+
+    }
+    else if (movimiento == 3) {
+
+    }
+    else if (movimiento == 4) {
+
+    }
+    else if (movimiento == 5) {
+
+    }
+    else if (movimiento == 6) {
+      
+    }
+  }
+  else if (activeShape % 7 == 4) {
+    if (movimiento == 1) {
+
+    }
+    else if (movimiento == 2) {
+
+    }
+    else if (movimiento == 3) {
+
+    }
+    else if (movimiento == 4) {
+
+    }
+    else if (movimiento == 5) {
+
+    }
+    else if (movimiento == 6) {
+      
+    }
+  }
+  else if (activeShape % 7 == 5) {
+    if (movimiento == 1) {
+
+    }
+    else if (movimiento == 2) {
+
+    }
+    else if (movimiento == 3) {
+
+    }
+    else if (movimiento == 4) {
+
+    }
+    else if (movimiento == 5) {
+
+    }
+    else if (movimiento == 6) {
+      
+    }
+  }
+  else if (activeShape % 7 == 6) {
+    if (movimiento == 1) {
+
+    }
+    else if (movimiento == 2) {
+
+    }
+    else if (movimiento == 3) {
+
+    }
+    else if (movimiento == 4) {
+
+    }
+    else if (movimiento == 5) {
+
+    }
+    else if (movimiento == 6) {
+      
+    }
+  }
+}
+
 
 //let infoDeL1 = [];
 
