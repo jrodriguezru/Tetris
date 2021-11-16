@@ -459,10 +459,10 @@ let Cuad = {
     limiteXI1 : width - 40,
     limiteXI2 : width - 40,
     limiteXI3 : width - 40,
-    rotation0 : [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
-    rotation1 : [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
-    rotation2 : [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
-    rotation3 : [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation0 : [[1, 1] [1, 1]],
+    rotation1 : [[1, 1] [1, 1]],
+    rotation2 : [[1, 1] [1, 1]],
+    rotation3 : [[1, 1] [1, 1]],
     draw : function (){
         strokeWeight(2);
         stroke(0, 255);
@@ -595,10 +595,10 @@ let S = {
     limiteXI1 : width - 40,
     limiteXI2 : width - 60,
     limiteXI3 : width - 40,
-    rotation0 : [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
-    rotation1 : [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
-    rotation2 : [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
-    rotation3 : [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation0 : [[0, 1, 1], [1, 1, 0], [0, 0, 0]],
+    rotation1 : [[1, 0, 0], [1, 1, 0], [0, 1, 0]],
+    rotation2 : [[0, 1, 1], [1, 1, 0], [0, 0, 0]],
+    rotation3 : [[1, 0, 0], [1, 1, 0], [0, 1, 0]],
     draw : function (){
         strokeWeight(2);
         stroke(0, 255);
