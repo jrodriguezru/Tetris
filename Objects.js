@@ -205,6 +205,7 @@ let L1 = {
       strokeWeight(2);
       stroke(0, 255);
       fill(255, 140, 0);
+      movimiento = 1;
       if (this.rotation % 4 == 0) {
           rect(this.posEnX, this.posEnY, 20, 20);
           rect(this.posEnX, this.posEnY + 20, 20, 20);
@@ -231,10 +232,12 @@ let L1 = {
       }
     },
     rotate : function () {
-        this.rotation += 1;
+      movimiento = 2;  
+      this.rotation += 1;
     },
     moveLeft : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 3;  
+      if (this.rotation % 4 == 0) {
             if (this.posEnX > this.limiteXR0) {
               this.posEnX -= 20;
             }
@@ -256,7 +259,8 @@ let L1 = {
         }
     },
     moveRight : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 4;
+      if (this.rotation % 4 == 0) {
             if (this.posEnX < this.limiteXI0) {
               this.posEnX += 20;
             }
@@ -278,7 +282,8 @@ let L1 = {
         }
     },
     moveDown : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 5;  
+      if (this.rotation % 4 == 0) {
             if (this.posEnY < this.limiteY0) {
               this.posEnY += 20;
             }
@@ -300,6 +305,7 @@ let L1 = {
         }
     },
     fallDown : function () {
+      movimiento = 6;
       if (this.rotation % 4 == 0) {
           this.posEnY = this.limiteY0;
       }
@@ -341,6 +347,7 @@ let L2 = {
         strokeWeight(2);
         stroke(0, 255);
         fill(38, 0, 231);
+        movimiento = 1;
         if (this.rotation % 4 == 0) {
             rect(this.posEnX + 20, this.posEnY, 20, 20);
             rect(this.posEnX + 20, this.posEnY + 20, 20, 20);
@@ -367,10 +374,12 @@ let L2 = {
         }
     },
     rotate : function () {
-        this.rotation += 1;
+      movimiento = 2;  
+      this.rotation += 1;
     },
     moveLeft : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 3;  
+      if (this.rotation % 4 == 0) {
             if (this.posEnX > this.limiteXR0) {
               this.posEnX -= 20;
             }
@@ -392,7 +401,8 @@ let L2 = {
         }
     },
     moveRight : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 4;
+      if (this.rotation % 4 == 0) {
             if (this.posEnX < this.limiteXI0) {
               this.posEnX += 20;
             }
@@ -414,7 +424,8 @@ let L2 = {
         }
     },
     moveDown : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 5;  
+      if (this.rotation % 4 == 0) {
             if (this.posEnY < this.limiteY0) {
               this.posEnY += 20;
             }
@@ -436,7 +447,8 @@ let L2 = {
         }
     },
     fallDown : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 6;  
+      if (this.rotation % 4 == 0) {
             this.posEnY = this.limiteY0;
         }
         else if (this.rotation % 4 == 1) {
@@ -477,6 +489,7 @@ let I = {
         strokeWeight(2);
         stroke(0, 255);
         fill(0, 255, 255);
+        movimiento = 1;
         if (this.rotation % 4 == 0) {
             rect(this.posEnX, this.posEnY, 20, 20);
             rect(this.posEnX, this.posEnY + 20, 20, 20);
@@ -503,10 +516,12 @@ let I = {
         }
     },
     rotate : function () {
-        this.rotation += 1;
+      movimiento = 2;  
+      this.rotation += 1;
     },
     moveLeft : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 3;  
+      if (this.rotation % 4 == 0) {
             if (this.posEnX > this.limiteXR0) {
               this.posEnX -= 20;
             }
@@ -528,7 +543,8 @@ let I = {
         }
     },
     moveRight : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 4;
+      if (this.rotation % 4 == 0) {
             if (this.posEnX < this.limiteXI0) {
               this.posEnX += 20;
             }
@@ -550,7 +566,8 @@ let I = {
         }
     },
     moveDown : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 5;  
+      if (this.rotation % 4 == 0) {
             if (this.posEnY < this.limiteY0) {
               this.posEnY += 20;
             }
@@ -572,7 +589,8 @@ let I = {
         }
     },
     fallDown : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 6;  
+      if (this.rotation % 4 == 0) {
             this.posEnY = this.limiteY0;
         }
         else if (this.rotation % 4 == 1) {
@@ -613,6 +631,7 @@ let Cuad = {
         strokeWeight(2);
         stroke(0, 255);
         fill(255, 255, 0);
+        movimiento = 1;
         if (this.rotation % 4 == 0) {
           rect(this.posEnX, this.posEnY, 20, 20);
           rect(this.posEnX, this.posEnY + 20, 20, 20);
@@ -639,10 +658,12 @@ let Cuad = {
         }
     },
     rotate : function () {
-        this.rotation += 1;
+      movimiento = 2;  
+      this.rotation += 1;
     },
     moveLeft : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 3;  
+      if (this.rotation % 4 == 0) {
             if (this.posEnX > this.limiteXR0) {
               this.posEnX -= 20;
             }
@@ -664,7 +685,8 @@ let Cuad = {
         }
     },
     moveRight : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 4;  
+      if (this.rotation % 4 == 0) {
             if (this.posEnX < this.limiteXI0) {
               this.posEnX += 20;
             }
@@ -686,7 +708,8 @@ let Cuad = {
         }
     },
     moveDown : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 5;  
+      if (this.rotation % 4 == 0) {
             if (this.posEnY < this.limiteY0) {
               this.posEnY += 20;
             }
@@ -708,7 +731,8 @@ let Cuad = {
         }
     },
     fallDown : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 6;  
+      if (this.rotation % 4 == 0) {
             this.posEnY = this.limiteY0;
         }
         else if (this.rotation % 4 == 1) {
@@ -749,6 +773,7 @@ let S = {
         strokeWeight(2);
         stroke(0, 255);
         fill(0, 255, 0);
+        movimiento = 1;
         if (this.rotation % 4 == 0) {
           rect(this.posEnX, this.posEnY, 20, 20);
           rect(this.posEnX + 20, this.posEnY, 20, 20);
@@ -775,10 +800,12 @@ let S = {
         }
     },
     rotate : function () {
-        this.rotation += 1;
+      movimiento = 2;  
+      this.rotation += 1;
     },
     moveLeft : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 3;  
+      if (this.rotation % 4 == 0) {
             if (this.posEnX > this.limiteXR0) {
               this.posEnX -= 20;
             }
@@ -800,7 +827,8 @@ let S = {
         }
     },
     moveRight : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 4;
+      if (this.rotation % 4 == 0) {
             if (this.posEnX < this.limiteXI0) {
               this.posEnX += 20;
             }
@@ -822,7 +850,8 @@ let S = {
         }
     },
     moveDown : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 5;  
+      if (this.rotation % 4 == 0) {
             if (this.posEnY < this.limiteY0) {
               this.posEnY += 20;
             }
@@ -844,7 +873,8 @@ let S = {
         }
     },
     fallDown : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 6;  
+      if (this.rotation % 4 == 0) {
             this.posEnY = this.limiteY0;
         }
         else if (this.rotation % 4 == 1) {
@@ -885,6 +915,7 @@ let Z = {
         strokeWeight(2);
         stroke(0, 255);
         fill(255, 0, 0);
+        movimiento = 1;
         if (this.rotation % 4 == 0) {
           rect(this.posEnX, this.posEnY, 20, 20);
           rect(this.posEnX + 20, this.posEnY, 20, 20);
@@ -911,10 +942,12 @@ let Z = {
         }
     },
     rotate : function () {
-        this.rotation += 1;
+      movimiento = 2;  
+      this.rotation += 1;
     },
     moveLeft : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 3;  
+      if (this.rotation % 4 == 0) {
             if (this.posEnX > this.limiteXR0) {
               this.posEnX -= 20;
             }
@@ -936,7 +969,8 @@ let Z = {
         }
     },
     moveRight : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 4;
+      if (this.rotation % 4 == 0) {
             if (this.posEnX < this.limiteXI0) {
               this.posEnX += 20;
             }
@@ -958,7 +992,8 @@ let Z = {
         }
     },
     moveDown : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 5;  
+      if (this.rotation % 4 == 0) {
             if (this.posEnY < this.limiteY0) {
               this.posEnY += 20;
             }
@@ -980,7 +1015,8 @@ let Z = {
         }
     },
     fallDown : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 6;  
+      if (this.rotation % 4 == 0) {
             this.posEnY = this.limiteY0;
         }
         else if (this.rotation % 4 == 1) {
@@ -1021,6 +1057,7 @@ let T = {
         strokeWeight(2);
         stroke(0, 255);
         fill(200, 50, 250);
+        movimiento = 1;
         if (this.rotation % 4 == 0) {
           rect(this.posEnX, this.posEnY, 20, 20);
           rect(this.posEnX + 20, this.posEnY, 20, 20);
@@ -1047,10 +1084,12 @@ let T = {
         }
     },
     rotate : function () {
-        this.rotation += 1;
+      movimiento = 2;  
+      this.rotation += 1;
     },
     moveLeft : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 3;  
+      if (this.rotation % 4 == 0) {
             if (this.posEnX > this.limiteXR0) {
               this.posEnX -= 20;
             }
@@ -1072,7 +1111,8 @@ let T = {
         }
     },
     moveRight : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 4;
+      if (this.rotation % 4 == 0) {
             if (this.posEnX < this.limiteXI0) {
               this.posEnX += 20;
             }
@@ -1094,7 +1134,8 @@ let T = {
         }
     },
     moveDown : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 5;  
+      if (this.rotation % 4 == 0) {
             if (this.posEnY < this.limiteY0) {
               this.posEnY += 20;
             }
@@ -1116,7 +1157,8 @@ let T = {
         }
     },
     fallDown : function () {
-        if (this.rotation % 4 == 0) {
+      movimiento = 6;  
+      if (this.rotation % 4 == 0) {
             this.posEnY = this.limiteY0;
         }
         else if (this.rotation % 4 == 1) {
