@@ -5,7 +5,7 @@
 let height = 400;
 let width = 200;
 
-tableroControl = [
+let tableroControl = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -26,13 +26,14 @@ tableroControl = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-  ]
+]
 
-activeShape = 0;
-timer = 0;
-posXInicial = 100;
-posYInicial = 0;
-movimiento = 0 
+let activeShape = 0;
+let timer = 0;
+let posXInicial = 100;
+let posYInicial = 0;
+let movimiento = 0 
+let varDrawControl = 0
 
 // FOR MY FUTURE SELF:
 // La idea es que con cada pieza se cambie el valor de la posicion [i][j] de la matriz tablero de acuerdo a la ubicacion de la pieza
@@ -1686,28 +1687,35 @@ function getRandomInt(min, max) {
 }
 
 function newTetromino() {
-  random = getRandomInt(0, 6);
-  activeShape = random;
-  if (random == 0) {
-    L1.draw();
+  for (let k = 0; k <= 10; k++) {
+    if (tableroControl[2][k] != 0) {
+      varDrawControl = 1
+    }
   }
-  else if (random == 1) {
-    L2.draw();
-  }
-  else if (random == 2) {
-    I.draw();
-  }
-  else if (random == 3) {
-    Cuad.draw();
-  }
-  else if (random == 4) {
-    S.draw();
-  }
-  else if (random == 5) {
-    Z.draw();
-  }
-  else if (random == 6) {
-    T.draw();
+  if (varDrawControl != 1) {
+    random = getRandomInt(0, 6);
+    activeShape = random;
+    if (random == 0) {
+      L1.draw();
+    }
+    else if (random == 1) {
+      L2.draw();
+    }
+    else if (random == 2) {
+      I.draw();
+    }
+    else if (random == 3) {
+      Cuad.draw();
+    }
+    else if (random == 4) {
+      S.draw();
+    }
+    else if (random == 5) {
+      Z.draw();
+    }
+    else if (random == 6) {
+      T.draw();
+    }
   }
 }
 
