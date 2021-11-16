@@ -40,7 +40,9 @@ movimiento = 0
 // Luego con un if se puede evaluar si en la matriz tablero ya hay un 1, de ser así cambia una varible control que hace salir de la función
 // Y si esta variable está "cambiada" luego hay un llamado a una función para que se "dvuelva" el movimiento
 // Caso especial: Si esta variable fue cambiada porque no se puede mover la pieza hacia abajo, en ese caso, se devuelve y llama a la función endTetromino()
-
+// En la función newTetromino debe haber una "evaluacion" si se puede o no poner la pieza, en caso negativo, game over.
+// En la función endTetromino, debe haber una "evaluacion" si la última fila de la matriz tablero es una fila de únicamente 1's.
+// De ser así, la elimina, baja todas las anteriores y suma 1 a la variable puntaje.
 
 function updateTablero() {
   if (activeShape % 7 == 0) {
