@@ -47,143 +47,605 @@ movimiento = 0
 function updateTablero() {
   if (activeShape % 7 == 0) {
     if (movimiento == 1) {
+      if (L1.rotation % 4 == 0) {
 
+      }
+      else if (L1.rotation % 4 == 1) {
+
+      }
+      else if (L1.rotation % 4 == 2) {
+
+      }
+      else if (L1.rotation % 4 == 3) {
+
+      }
     }
     else if (movimiento == 2) {
+      if (L1.rotation % 4 == 0) {
 
+      }
+      else if (L1.rotation % 4 == 1) {
+
+      }
+      else if (L1.rotation % 4 == 2) {
+
+      }
+      else if (L1.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 3) {
+      if (L1.rotation % 4 == 0) {
 
+      }
+      else if (L1.rotation % 4 == 1) {
+
+      }
+      else if (L1.rotation % 4 == 2) {
+
+      }
+      else if (L1.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 4) {
+      if (L1.rotation % 4 == 0) {
 
+      }
+      else if (L1.rotation % 4 == 1) {
+
+      }
+      else if (L1.rotation % 4 == 2) {
+
+      }
+      else if (L1.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 5) {
+      if (L1.rotation % 4 == 0) {
 
+      }
+      else if (L1.rotation % 4 == 1) {
+
+      }
+      else if (L1.rotation % 4 == 2) {
+
+      }
+      else if (L1.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 6) {
+      if (L1.rotation % 4 == 0) {
 
+      }
+      else if (L1.rotation % 4 == 1) {
+
+      }
+      else if (L1.rotation % 4 == 2) {
+
+      }
+      else if (L1.rotation % 4 == 3) {
+        
+      }
     }
 
   }
   else if (activeShape % 7 == 1) {
     if (movimiento == 1) {
+      if (L2.rotation % 4 == 0) {
 
+      }
+      else if (L2.rotation % 4 == 1) {
+
+      }
+      else if (L2.rotation % 4 == 2) {
+
+      }
+      else if (L2.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 2) {
+      if (L2.rotation % 4 == 0) {
 
+      }
+      else if (L2.rotation % 4 == 1) {
+
+      }
+      else if (L2.rotation % 4 == 2) {
+
+      }
+      else if (L2.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 3) {
+      if (L2.rotation % 4 == 0) {
 
+      }
+      else if (L2.rotation % 4 == 1) {
+
+      }
+      else if (L2.rotation % 4 == 2) {
+
+      }
+      else if (L2.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 4) {
+      if (L2.rotation % 4 == 0) {
 
+      }
+      else if (L2.rotation % 4 == 1) {
+
+      }
+      else if (L2.rotation % 4 == 2) {
+
+      }
+      else if (L2.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 5) {
+      if (L2.rotation % 4 == 0) {
 
+      }
+      else if (L2.rotation % 4 == 1) {
+
+      }
+      else if (L2.rotation % 4 == 2) {
+
+      }
+      else if (L2.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 6) {
-      
+      if (L2.rotation % 4 == 0) {
+
+      }
+      else if (L2.rotation % 4 == 1) {
+
+      }
+      else if (L2.rotation % 4 == 2) {
+
+      }
+      else if (L2.rotation % 4 == 3) {
+        
+      }
     }
   }
   else if (activeShape % 7 == 2) {
     if (movimiento == 1) {
+      if (I.rotation % 4 == 0) {
 
+      }
+      else if (I.rotation % 4 == 1) {
+
+      }
+      else if (I.rotation % 4 == 2) {
+
+      }
+      else if (I.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 2) {
+      if (I.rotation % 4 == 0) {
 
+      }
+      else if (I.rotation % 4 == 1) {
+
+      }
+      else if (I.rotation % 4 == 2) {
+
+      }
+      else if (I.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 3) {
+      if (I.rotation % 4 == 0) {
 
+      }
+      else if (I.rotation % 4 == 1) {
+
+      }
+      else if (I.rotation % 4 == 2) {
+
+      }
+      else if (I.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 4) {
+      if (I.rotation % 4 == 0) {
 
+      }
+      else if (I.rotation % 4 == 1) {
+
+      }
+      else if (I.rotation % 4 == 2) {
+
+      }
+      else if (I.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 5) {
+      if (I.rotation % 4 == 0) {
 
+      }
+      else if (I.rotation % 4 == 1) {
+
+      }
+      else if (I.rotation % 4 == 2) {
+
+      }
+      else if (I.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 6) {
-      
+      if (I.rotation % 4 == 0) {
+
+      }
+      else if (I.rotation % 4 == 1) {
+
+      }
+      else if (I.rotation % 4 == 2) {
+
+      }
+      else if (I.rotation % 4 == 3) {
+        
+      }
     }
   }
   else if (activeShape % 7 == 3) {
     if (movimiento == 1) {
+      if (Cuad.rotation % 4 == 0) {
 
+      }
+      else if (Cuad.rotation % 4 == 1) {
+
+      }
+      else if (Cuad.rotation % 4 == 2) {
+
+      }
+      else if (Cuad.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 2) {
+      if (Cuad.rotation % 4 == 0) {
 
+      }
+      else if (Cuad.rotation % 4 == 1) {
+
+      }
+      else if (Cuad.rotation % 4 == 2) {
+
+      }
+      else if (Cuad.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 3) {
+      if (Cuad.rotation % 4 == 0) {
 
+      }
+      else if (Cuad.rotation % 4 == 1) {
+
+      }
+      else if (Cuad.rotation % 4 == 2) {
+
+      }
+      else if (Cuad.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 4) {
+      if (Cuad.rotation % 4 == 0) {
 
+      }
+      else if (Cuad.rotation % 4 == 1) {
+
+      }
+      else if (Cuad.rotation % 4 == 2) {
+
+      }
+      else if (Cuad.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 5) {
+      if (Cuad.rotation % 4 == 0) {
 
+      }
+      else if (Cuad.rotation % 4 == 1) {
+
+      }
+      else if (Cuad.rotation % 4 == 2) {
+
+      }
+      else if (Cuad.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 6) {
-      
+      if (Cuad.rotation % 4 == 0) {
+
+      }
+      else if (Cuad.rotation % 4 == 1) {
+
+      }
+      else if (Cuad.rotation % 4 == 2) {
+
+      }
+      else if (Cuad.rotation % 4 == 3) {
+        
+      }
     }
   }
   else if (activeShape % 7 == 4) {
     if (movimiento == 1) {
+      if (S.rotation % 4 == 0) {
 
+      }
+      else if (S.rotation % 4 == 1) {
+
+      }
+      else if (S.rotation % 4 == 2) {
+
+      }
+      else if (S.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 2) {
+      if (S.rotation % 4 == 0) {
 
+      }
+      else if (S.rotation % 4 == 1) {
+
+      }
+      else if (S.rotation % 4 == 2) {
+
+      }
+      else if (S.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 3) {
+      if (S.rotation % 4 == 0) {
 
+      }
+      else if (S.rotation % 4 == 1) {
+
+      }
+      else if (S.rotation % 4 == 2) {
+
+      }
+      else if (S.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 4) {
+      if (S.rotation % 4 == 0) {
 
+      }
+      else if (S.rotation % 4 == 1) {
+
+      }
+      else if (S.rotation % 4 == 2) {
+
+      }
+      else if (S.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 5) {
+      if (S.rotation % 4 == 0) {
 
+      }
+      else if (S.rotation % 4 == 1) {
+
+      }
+      else if (S.rotation % 4 == 2) {
+
+      }
+      else if (S.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 6) {
-      
+      if (S.rotation % 4 == 0) {
+
+      }
+      else if (S.rotation % 4 == 1) {
+
+      }
+      else if (S.rotation % 4 == 2) {
+
+      }
+      else if (S.rotation % 4 == 3) {
+        
+      }
     }
   }
   else if (activeShape % 7 == 5) {
     if (movimiento == 1) {
+      if (Z.rotation % 4 == 0) {
 
+      }
+      else if (Z.rotation % 4 == 1) {
+
+      }
+      else if (Z.rotation % 4 == 2) {
+
+      }
+      else if (Z.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 2) {
+      if (Z.rotation % 4 == 0) {
 
+      }
+      else if (Z.rotation % 4 == 1) {
+
+      }
+      else if (Z.rotation % 4 == 2) {
+
+      }
+      else if (Z.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 3) {
+      if (Z.rotation % 4 == 0) {
 
+      }
+      else if (Z.rotation % 4 == 1) {
+
+      }
+      else if (Z.rotation % 4 == 2) {
+
+      }
+      else if (Z.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 4) {
+      if (Z.rotation % 4 == 0) {
 
+      }
+      else if (Z.rotation % 4 == 1) {
+
+      }
+      else if (Z.rotation % 4 == 2) {
+
+      }
+      else if (Z.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 5) {
+      if (Z.rotation % 4 == 0) {
 
+      }
+      else if (Z.rotation % 4 == 1) {
+
+      }
+      else if (Z.rotation % 4 == 2) {
+
+      }
+      else if (Z.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 6) {
-      
+      if (Z.rotation % 4 == 0) {
+
+      }
+      else if (Z.rotation % 4 == 1) {
+
+      }
+      else if (Z.rotation % 4 == 2) {
+
+      }
+      else if (Z.rotation % 4 == 3) {
+        
+      }
     }
   }
   else if (activeShape % 7 == 6) {
     if (movimiento == 1) {
+      if (T.rotation % 4 == 0) {
 
+      }
+      else if (T.rotation % 4 == 1) {
+
+      }
+      else if (T.rotation % 4 == 2) {
+
+      }
+      else if (T.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 2) {
+      if (T.rotation % 4 == 0) {
 
+      }
+      else if (T.rotation % 4 == 1) {
+
+      }
+      else if (T.rotation % 4 == 2) {
+
+      }
+      else if (T.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 3) {
+      if (T.rotation % 4 == 0) {
 
+      }
+      else if (T.rotation % 4 == 1) {
+
+      }
+      else if (T.rotation % 4 == 2) {
+
+      }
+      else if (T.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 4) {
+      if (T.rotation % 4 == 0) {
 
+      }
+      else if (T.rotation % 4 == 1) {
+
+      }
+      else if (T.rotation % 4 == 2) {
+
+      }
+      else if (T.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 5) {
+      if (T.rotation % 4 == 0) {
 
+      }
+      else if (T.rotation % 4 == 1) {
+
+      }
+      else if (T.rotation % 4 == 2) {
+
+      }
+      else if (T.rotation % 4 == 3) {
+        
+      }
     }
     else if (movimiento == 6) {
-      
+      if (T.rotation % 4 == 0) {
+
+      }
+      else if (T.rotation % 4 == 1) {
+
+      }
+      else if (T.rotation % 4 == 2) {
+
+      }
+      else if (T.rotation % 4 == 3) {
+        
+      }
     }
   }
 }
