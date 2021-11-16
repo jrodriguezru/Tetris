@@ -3,17 +3,40 @@
 // TODO: Resetear los valores de posYInicial y posXInicial en la ActiveShape una vez que caigan y se actualice el tablero
 
 let height = 400;
-let width = 280;
+let width = 200;
+
+tableroControl = [
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  ]
 
 activeShape = 0;
 timer = 0;
-posXInicial = 140;
+posXInicial = 100;
 posYInicial = 0;
 
 //let infoDeL1 = [];
 
 let L1 = {
-    posEnX : 140,
+    posEnX : 100,
     posEnY : 0,
     rotation : 0,
     limiteXR0 : 0,
@@ -28,34 +51,38 @@ let L1 = {
     limiteXI1 : width - 60,
     limiteXI2 : width - 60,
     limiteXI3 : width - 60,
+    rotation0 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation1 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation2 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation3 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
     draw : function (){
-        strokeWeight(2);
-        stroke(0, 255);
-        fill(255, 140, 0);
-        if (this.rotation % 4 == 0) {
-            rect(this.posEnX, this.posEnY, 20, 20);
-            rect(this.posEnX, this.posEnY + 20, 20, 20);
-            rect(this.posEnX, this.posEnY + 40, 20, 20);
-            rect(this.posEnX + 20, this.posEnY + 40, 20, 20);
-        }
-        else if (this.rotation % 4 == 1) {
-            rect(this.posEnX + 40, this.posEnY, 20, 20);
-            rect(this.posEnX + 20, this.posEnY, 20, 20);
-            rect(this.posEnX, this.posEnY, 20, 20);
-            rect(this.posEnX, this.posEnY + 20, 20, 20);
-        }
-        else if (this.rotation % 4 == 2) {
-            rect(this.posEnX + 20, this.posEnY, 20, 20);
-            rect(this.posEnX + 40, this.posEnY, 20, 20);
-            rect(this.posEnX + 40, this.posEnY + 20, 20, 20);
-            rect(this.posEnX + 40, this.posEnY + 40, 20, 20);
-        }
-        else if (this.rotation % 4 == 3) {
-            rect(this.posEnX + 40, this.posEnY + 20, 20, 20);
-            rect(this.posEnX + 40, this.posEnY + 40, 20, 20);
-            rect(this.posEnX + 20, this.posEnY + 40, 20, 20);
-            rect(this.posEnX, this.posEnY + 40, 20, 20);
-        }
+      strokeWeight(2);
+      stroke(0, 255);
+      fill(255, 140, 0);
+      if (this.rotation % 4 == 0) {
+          rect(this.posEnX, this.posEnY, 20, 20);
+          rect(this.posEnX, this.posEnY + 20, 20, 20);
+          rect(this.posEnX, this.posEnY + 40, 20, 20);
+          rect(this.posEnX + 20, this.posEnY + 40, 20, 20);
+      }
+      else if (this.rotation % 4 == 1) {
+          rect(this.posEnX + 40, this.posEnY, 20, 20);
+          rect(this.posEnX + 20, this.posEnY, 20, 20);
+          rect(this.posEnX, this.posEnY, 20, 20);
+          rect(this.posEnX, this.posEnY + 20, 20, 20);
+      }
+      else if (this.rotation % 4 == 2) {
+          rect(this.posEnX + 20, this.posEnY, 20, 20);
+          rect(this.posEnX + 40, this.posEnY, 20, 20);
+          rect(this.posEnX + 40, this.posEnY + 20, 20, 20);
+          rect(this.posEnX + 40, this.posEnY + 40, 20, 20);
+      }
+      else if (this.rotation % 4 == 3) {
+          rect(this.posEnX + 40, this.posEnY + 20, 20, 20);
+          rect(this.posEnX + 40, this.posEnY + 40, 20, 20);
+          rect(this.posEnX + 20, this.posEnY + 40, 20, 20);
+          rect(this.posEnX, this.posEnY + 40, 20, 20);
+      }
     },
     rotate : function () {
         this.rotation += 1;
@@ -127,25 +154,25 @@ let L1 = {
         }
     },
     fallDown : function () {
-        if (this.rotation % 4 == 0) {
-            this.posEnY = this.limiteY0;
-        }
-        else if (this.rotation % 4 == 1) {
-            this.posEnY = this.limiteY1;
-        }
-        else if (this.rotation % 4 == 2) {
-            this.posEnY = this.limiteY2;
-        }
-        else if (this.rotation % 4 == 3) {
-            this.posEnY = this.limiteY3;
-        }
+      if (this.rotation % 4 == 0) {
+          this.posEnY = this.limiteY0;
+      }
+      else if (this.rotation % 4 == 1) {
+          this.posEnY = this.limiteY1;
+      }
+      else if (this.rotation % 4 == 2) {
+          this.posEnY = this.limiteY2;
+      }
+      else if (this.rotation % 4 == 3) {
+          this.posEnY = this.limiteY3;
+      }
     },
 };
 
 //let infoDeL2 = [];
 
 let L2 = {
-    posEnX : 140,
+    posEnX : 100,
     posEnY : 0,
     rotation : 0,
     limiteXR0 : 0,
@@ -160,6 +187,10 @@ let L2 = {
     limiteXI1 : width - 40,
     limiteXI2 : width - 20,
     limiteXI3 : width - 40,
+    rotation0 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation1 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation2 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation3 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
     draw : function (){
         strokeWeight(2);
         stroke(0, 255);
@@ -277,7 +308,7 @@ let L2 = {
 //let infoDeI = [];
 
 let I = {
-    posEnX : 140,
+    posEnX : 100,
     posEnY : 0,
     rotation : 0,
     limiteXR0 : 0,
@@ -292,6 +323,10 @@ let I = {
     limiteXI1 : width - 40,
     limiteXI2 : width,
     limiteXI3 : width - 20,
+    rotation0 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation1 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation2 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation3 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
     draw : function (){
         strokeWeight(2);
         stroke(0, 255);
@@ -409,7 +444,7 @@ let I = {
 //let infoDeCuadrado = [];
 
 let Cuad = {
-    posEnX : 140,
+    posEnX : 100,
     posEnY : 0,
     rotation : 0,
     limiteXR0 : 0,
@@ -424,6 +459,10 @@ let Cuad = {
     limiteXI1 : width - 40,
     limiteXI2 : width - 40,
     limiteXI3 : width - 40,
+    rotation0 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation1 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation2 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation3 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
     draw : function (){
         strokeWeight(2);
         stroke(0, 255);
@@ -541,7 +580,7 @@ let Cuad = {
 //let infoDeS = [];
 
 let S = {
-    posEnX : 140,
+    posEnX : 100,
     posEnY : 0,
     rotation : 0,
     limiteXR0 : 0,
@@ -556,6 +595,10 @@ let S = {
     limiteXI1 : width - 40,
     limiteXI2 : width - 60,
     limiteXI3 : width - 40,
+    rotation0 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation1 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation2 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation3 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
     draw : function (){
         strokeWeight(2);
         stroke(0, 255);
@@ -673,7 +716,7 @@ let S = {
 //let infoDeZ = [];
 
 let Z = {
-    posEnX : 140,
+    posEnX : 100,
     posEnY : 0,
     rotation : 0,
     limiteXR0 : 0,
@@ -688,6 +731,10 @@ let Z = {
     limiteXI1 : width - 40,
     limiteXI2 : width - 60,
     limiteXI3 : width - 40,
+    rotation0 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation1 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation2 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation3 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
     draw : function (){
         strokeWeight(2);
         stroke(0, 255);
@@ -805,7 +852,7 @@ let Z = {
 //let infoDeT = [];
 
 let T = {
-    posEnX : 140,
+    posEnX : 100,
     posEnY : 0,
     rotation : 0,
     limiteXR0 : 0,
@@ -820,6 +867,10 @@ let T = {
     limiteXI1 : width - 60,
     limiteXI2 : width - 60,
     limiteXI3 : width - 40,
+    rotation0 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation1 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation2 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
+    rotation3 = [[0, 0, 0], [0, 0, 0], [0, 0, 0]],
     draw : function (){
         strokeWeight(2);
         stroke(0, 255);
@@ -1131,8 +1182,31 @@ function finishTetromino() {
   }
 }
 
+// 10 horizontal
+// 20 Vertical
+
 function endTetromino() {
+  if (activeShape % 7 == 0) {
+
+  }
+  else if (activeShape % 7 == 1) {
+
+  }
+  else if (activeShape % 7 == 2) {
+
+  }
+  else if (activeShape % 7 == 3) {
+
+  }
+  else if (activeShape % 7 == 4) {
+
+  }
+  else if (activeShape % 7 == 5) {
   
+  }
+  else if (activeShape % 7 == 6) {
+
+  }
   newTetromino();
 
 }
