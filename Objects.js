@@ -48,16 +48,40 @@ function updateTablero() {
   if (activeShape % 7 == 0) {
     if (movimiento == 1) {
       if (L1.rotation % 4 == 0) {
-
+        let i = L1.posEnY / 20;
+        let j = L1.posEnX / 20;
+        for (let iFor = L1.posEnY / 20, iMat = 0; iFor < i + 3; iFor++, iMat++) {
+          for (let jFor = L1.posEnX / 20, jMat = 0; jFor < j + 3; jFor++, jMat++) {
+            tableroControl[iFor][jFor] = L1.rotation0[iMat][jMat];
+          }
+        }
       }
       else if (L1.rotation % 4 == 1) {
-
+        let i = L1.posEnY / 20;
+        let j = L1.posEnX / 20;
+        for (let iFor = L1.posEnY / 20, iMat = 0; iFor < i + 3; iFor++, iMat++) {
+          for (let jFor = L1.posEnX / 20, jMat = 0; jFor < j + 3; jFor++, jMat++) {
+            tableroControl[iFor][jFor] = L1.rotation1[iMat][jMat];
+          }
+        }
       }
       else if (L1.rotation % 4 == 2) {
-
+        let i = L1.posEnY / 20;
+        let j = L1.posEnX / 20;
+        for (let iFor = L1.posEnY / 20, iMat = 0; iFor < i + 3; iFor++, iMat++) {
+          for (let jFor = L1.posEnX / 20, jMat = 0; jFor < j + 3; jFor++, jMat++) {
+            tableroControl[iFor][jFor] = L1.rotation2[iMat][jMat];
+          }
+        }
       }
       else if (L1.rotation % 4 == 3) {
-
+        let i = L1.posEnY / 20;
+        let j = L1.posEnX / 20;
+        for (let iFor = L1.posEnY / 20, iMat = 0; iFor < i + 3; iFor++, iMat++) {
+          for (let jFor = L1.posEnX / 20, jMat = 0; jFor < j + 3; jFor++, jMat++) {
+            tableroControl[iFor][jFor] = L1.rotation3[iMat][jMat];
+          }
+        }
       }
     }
     else if (movimiento == 2) {
