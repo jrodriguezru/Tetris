@@ -193,87 +193,96 @@ function updateTablero() {
   else if (activeShape % 7 == 2) {
     if (movimiento == 1) {
       if (I.rotation % 4 == 0) {
-
+        let i = I.posEnY / 20;
+        let j = I.posEnX / 20;
+        for (let iFor = I.posEnY / 20, iMat = 0; iFor < i + 4; iFor++, iMat++) {
+          for (let jFor = (I.posEnX / 20) - 2, jMat = 0; jFor < j + 2; jFor++, jMat++) {
+            tableroControl[iFor][jFor] = I.rotation0[iMat][jMat];
+          }
+        }
       }
+      //
       else if (I.rotation % 4 == 1) {
-
+        if (I.posEnY == 340) {
+          let i = I.posEnY / 20;
+          let j = I.posEnX / 20;
+          for (let iFor = I.posEnY / 20, iMat = 0; iFor < i + 3; iFor++, iMat++) {
+            for (let jFor = (I.posEnX / 20) - 2, jMat = 0; jFor < j + 2; jFor++, jMat++) {
+              tableroControl[iFor][jFor] = I.rotation1[iMat][jMat];
+            }
+          }
+        }
+        else {
+          let i = I.posEnY / 20;
+          let j = I.posEnX / 20;
+          for (let iFor = I.posEnY / 20, iMat = 0; iFor < i + 4; iFor++, iMat++) {
+            for (let jFor = (I.posEnX / 20) - 2, jMat = 0; jFor < j + 2; jFor++, jMat++) {
+              tableroControl[iFor][jFor] = I.rotation1[iMat][jMat];
+            }
+          }
+        }
+        
       }
       else if (I.rotation % 4 == 2) {
-
+        let i = I.posEnY / 20;
+        let j = I.posEnX / 20;
+        for (let iFor = I.posEnY / 20, iMat = 0; iFor < i + 4; iFor++, iMat++) {
+          for (let jFor = (I.posEnX / 20) - 2, jMat = 0; jFor < j + 2; jFor++, jMat++) {
+            tableroControl[iFor][jFor] = I.rotation2[iMat][jMat];
+          }
+        }
       }
+      //
       else if (I.rotation % 4 == 3) {
-        
+        if (I.posEnY == 360) {
+          let i = I.posEnY / 20;
+          let j = I.posEnX / 20;
+          for (let iFor = I.posEnY / 20, iMat = 0; iFor < i + 2; iFor++, iMat++) {
+            for (let jFor = (I.posEnX / 20) - 2, jMat = 0; jFor < j + 2; jFor++, jMat++) {
+              tableroControl[iFor][jFor] = I.rotation3[iMat][jMat];
+            }
+          }
+        }
+        else {
+          let i = I.posEnY / 20;
+          let j = I.posEnX / 20;
+          for (let iFor = I.posEnY / 20, iMat = 0; iFor < i + 4; iFor++, iMat++) {
+            for (let jFor = (I.posEnX / 20) - 2, jMat = 0; jFor < j + 2; jFor++, jMat++) {
+              tableroControl[iFor][jFor] = I.rotation3[iMat][jMat];
+            }
+          }
+        }
       }
     }
-    else if (movimiento == 2) {
-      if (I.rotation % 4 == 0) {
-
+    else if (movimiento == 2 || movimiento == 3 || movimiento == 4 || movimiento == 5 || movimiento == 6) {
+      if (I.rotate == 1) {
+        let i = I.posEnY / 20;
+        let j = I.posEnX / 20;
+        for (let iFor = I.posEnY / 20; iFor < i + 3; iFor++) {
+          for (let jFor = (I.posEnX / 20) - 2; jFor < j + 2; jFor++) {
+            tableroControl[iFor][jFor] = 0
+          }
+        }
       }
-      else if (I.rotation % 4 == 1) {
-
+      else if (I.rotate == 3) {
+        let i = I.posEnY / 20;
+        let j = I.posEnX / 20;
+        for (let iFor = I.posEnY / 20; iFor < i + 2; iFor++) {
+          for (let jFor = (I.posEnX / 20) - 2; jFor < j + 2; jFor++) {
+            tableroControl[iFor][jFor] = 0
+          }
+        }
       }
-      else if (I.rotation % 4 == 2) {
-
+      else {
+        let i = I.posEnY / 20;
+        let j = I.posEnX / 20;
+        for (let iFor = I.posEnY / 20; iFor < i + 4; iFor++) {
+          for (let jFor = (I.posEnX / 20) - 2; jFor < j + 2; jFor++) {
+            tableroControl[iFor][jFor] = 0
+          }
+        }
       }
-      else if (I.rotation % 4 == 3) {
         
-      }
-    }
-    else if (movimiento == 3) {
-      if (I.rotation % 4 == 0) {
-
-      }
-      else if (I.rotation % 4 == 1) {
-
-      }
-      else if (I.rotation % 4 == 2) {
-
-      }
-      else if (I.rotation % 4 == 3) {
-        
-      }
-    }
-    else if (movimiento == 4) {
-      if (I.rotation % 4 == 0) {
-
-      }
-      else if (I.rotation % 4 == 1) {
-
-      }
-      else if (I.rotation % 4 == 2) {
-
-      }
-      else if (I.rotation % 4 == 3) {
-        
-      }
-    }
-    else if (movimiento == 5) {
-      if (I.rotation % 4 == 0) {
-
-      }
-      else if (I.rotation % 4 == 1) {
-
-      }
-      else if (I.rotation % 4 == 2) {
-
-      }
-      else if (I.rotation % 4 == 3) {
-        
-      }
-    }
-    else if (movimiento == 6) {
-      if (I.rotation % 4 == 0) {
-
-      }
-      else if (I.rotation % 4 == 1) {
-
-      }
-      else if (I.rotation % 4 == 2) {
-
-      }
-      else if (I.rotation % 4 == 3) {
-        
-      }
     }
   }
   else if (activeShape % 7 == 3) {
@@ -291,75 +300,8 @@ function updateTablero() {
         
       }
     }
-    else if (movimiento == 2) {
-      if (Cuad.rotation % 4 == 0) {
+    else if (movimiento == 2 || movimiento == 3 || movimiento == 4 || movimiento == 5 || movimiento == 6) {
 
-      }
-      else if (Cuad.rotation % 4 == 1) {
-
-      }
-      else if (Cuad.rotation % 4 == 2) {
-
-      }
-      else if (Cuad.rotation % 4 == 3) {
-        
-      }
-    }
-    else if (movimiento == 3) {
-      if (Cuad.rotation % 4 == 0) {
-
-      }
-      else if (Cuad.rotation % 4 == 1) {
-
-      }
-      else if (Cuad.rotation % 4 == 2) {
-
-      }
-      else if (Cuad.rotation % 4 == 3) {
-        
-      }
-    }
-    else if (movimiento == 4) {
-      if (Cuad.rotation % 4 == 0) {
-
-      }
-      else if (Cuad.rotation % 4 == 1) {
-
-      }
-      else if (Cuad.rotation % 4 == 2) {
-
-      }
-      else if (Cuad.rotation % 4 == 3) {
-        
-      }
-    }
-    else if (movimiento == 5) {
-      if (Cuad.rotation % 4 == 0) {
-
-      }
-      else if (Cuad.rotation % 4 == 1) {
-
-      }
-      else if (Cuad.rotation % 4 == 2) {
-
-      }
-      else if (Cuad.rotation % 4 == 3) {
-        
-      }
-    }
-    else if (movimiento == 6) {
-      if (Cuad.rotation % 4 == 0) {
-
-      }
-      else if (Cuad.rotation % 4 == 1) {
-
-      }
-      else if (Cuad.rotation % 4 == 2) {
-
-      }
-      else if (Cuad.rotation % 4 == 3) {
-        
-      }
     }
   }
   else if (activeShape % 7 == 4) {
@@ -377,75 +319,8 @@ function updateTablero() {
         
       }
     }
-    else if (movimiento == 2) {
-      if (S.rotation % 4 == 0) {
+    else if (movimiento == 2 || movimiento == 3 || movimiento == 4 || movimiento == 5 || movimiento == 6) {
 
-      }
-      else if (S.rotation % 4 == 1) {
-
-      }
-      else if (S.rotation % 4 == 2) {
-
-      }
-      else if (S.rotation % 4 == 3) {
-        
-      }
-    }
-    else if (movimiento == 3) {
-      if (S.rotation % 4 == 0) {
-
-      }
-      else if (S.rotation % 4 == 1) {
-
-      }
-      else if (S.rotation % 4 == 2) {
-
-      }
-      else if (S.rotation % 4 == 3) {
-        
-      }
-    }
-    else if (movimiento == 4) {
-      if (S.rotation % 4 == 0) {
-
-      }
-      else if (S.rotation % 4 == 1) {
-
-      }
-      else if (S.rotation % 4 == 2) {
-
-      }
-      else if (S.rotation % 4 == 3) {
-        
-      }
-    }
-    else if (movimiento == 5) {
-      if (S.rotation % 4 == 0) {
-
-      }
-      else if (S.rotation % 4 == 1) {
-
-      }
-      else if (S.rotation % 4 == 2) {
-
-      }
-      else if (S.rotation % 4 == 3) {
-        
-      }
-    }
-    else if (movimiento == 6) {
-      if (S.rotation % 4 == 0) {
-
-      }
-      else if (S.rotation % 4 == 1) {
-
-      }
-      else if (S.rotation % 4 == 2) {
-
-      }
-      else if (S.rotation % 4 == 3) {
-        
-      }
     }
   }
   else if (activeShape % 7 == 5) {
@@ -463,75 +338,8 @@ function updateTablero() {
         
       }
     }
-    else if (movimiento == 2) {
-      if (Z.rotation % 4 == 0) {
+    else if (movimiento == 2 || movimiento == 3 || movimiento == 4 || movimiento == 5 || movimiento == 6) {
 
-      }
-      else if (Z.rotation % 4 == 1) {
-
-      }
-      else if (Z.rotation % 4 == 2) {
-
-      }
-      else if (Z.rotation % 4 == 3) {
-        
-      }
-    }
-    else if (movimiento == 3) {
-      if (Z.rotation % 4 == 0) {
-
-      }
-      else if (Z.rotation % 4 == 1) {
-
-      }
-      else if (Z.rotation % 4 == 2) {
-
-      }
-      else if (Z.rotation % 4 == 3) {
-        
-      }
-    }
-    else if (movimiento == 4) {
-      if (Z.rotation % 4 == 0) {
-
-      }
-      else if (Z.rotation % 4 == 1) {
-
-      }
-      else if (Z.rotation % 4 == 2) {
-
-      }
-      else if (Z.rotation % 4 == 3) {
-        
-      }
-    }
-    else if (movimiento == 5) {
-      if (Z.rotation % 4 == 0) {
-
-      }
-      else if (Z.rotation % 4 == 1) {
-
-      }
-      else if (Z.rotation % 4 == 2) {
-
-      }
-      else if (Z.rotation % 4 == 3) {
-        
-      }
-    }
-    else if (movimiento == 6) {
-      if (Z.rotation % 4 == 0) {
-
-      }
-      else if (Z.rotation % 4 == 1) {
-
-      }
-      else if (Z.rotation % 4 == 2) {
-
-      }
-      else if (Z.rotation % 4 == 3) {
-        
-      }
     }
   }
   else if (activeShape % 7 == 6) {
@@ -549,75 +357,8 @@ function updateTablero() {
         
       }
     }
-    else if (movimiento == 2) {
-      if (T.rotation % 4 == 0) {
+    else if (movimiento == 2 || movimiento == 3 || movimiento == 4 || movimiento == 5 || movimiento == 6) {
 
-      }
-      else if (T.rotation % 4 == 1) {
-
-      }
-      else if (T.rotation % 4 == 2) {
-
-      }
-      else if (T.rotation % 4 == 3) {
-        
-      }
-    }
-    else if (movimiento == 3) {
-      if (T.rotation % 4 == 0) {
-
-      }
-      else if (T.rotation % 4 == 1) {
-
-      }
-      else if (T.rotation % 4 == 2) {
-
-      }
-      else if (T.rotation % 4 == 3) {
-        
-      }
-    }
-    else if (movimiento == 4) {
-      if (T.rotation % 4 == 0) {
-
-      }
-      else if (T.rotation % 4 == 1) {
-
-      }
-      else if (T.rotation % 4 == 2) {
-
-      }
-      else if (T.rotation % 4 == 3) {
-        
-      }
-    }
-    else if (movimiento == 5) {
-      if (T.rotation % 4 == 0) {
-
-      }
-      else if (T.rotation % 4 == 1) {
-
-      }
-      else if (T.rotation % 4 == 2) {
-
-      }
-      else if (T.rotation % 4 == 3) {
-        
-      }
-    }
-    else if (movimiento == 6) {
-      if (T.rotation % 4 == 0) {
-
-      }
-      else if (T.rotation % 4 == 1) {
-
-      }
-      else if (T.rotation % 4 == 2) {
-
-      }
-      else if (T.rotation % 4 == 3) {
-        
-      }
     }
   }
 }
@@ -932,15 +673,15 @@ let I = {
     limiteXR2 : 20,
     limiteY2 : height - 80,
     limiteXR3 : 40,
-    limiteY3 : height - 60,
+    limiteY3 : height -40,
     limiteXI0 : width - 20,
     limiteXI1 : width - 40,
     limiteXI2 : width,
-    limiteXI3 : width - 20,
+    limiteXI3 : width - 40,
     rotation0 : [[0, 0, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0]],
     rotation1 : [[0, 0, 0, 0], [0, 0, 0, 0], [1, 1, 1, 1], [0, 0, 0, 0]],
     rotation2 : [[0, 1, 0, 0], [0, 1, 0, 0], [0, 1, 0, 0], [0, 1, 0, 0]],
-    rotation3 : [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]],
+    rotation3 : [[0, 0, 0, 0], [1, 1, 1, 1], [0, 0, 0, 0], [0, 0, 0, 0]],
     draw : function (){
         strokeWeight(2);
         stroke(0, 255);
@@ -970,13 +711,16 @@ let I = {
             rect(this.posEnX - 40, this.posEnY + 20, 20, 20);
             rect(this.posEnX + 20, this.posEnY + 20, 20, 20);
         }
+        updateTablero();
     },
     rotate : function () {
       movimiento = 2;  
+      updateTablero();
       this.rotation += 1;
     },
     moveLeft : function () {
       movimiento = 3;  
+      updateTablero();
       if (this.rotation % 4 == 0) {
             if (this.posEnX > this.limiteXR0) {
               this.posEnX -= 20;
@@ -1000,6 +744,7 @@ let I = {
     },
     moveRight : function () {
       movimiento = 4;
+      updateTablero();
       if (this.rotation % 4 == 0) {
             if (this.posEnX < this.limiteXI0) {
               this.posEnX += 20;
@@ -1023,6 +768,7 @@ let I = {
     },
     moveDown : function () {
       movimiento = 5;  
+      updateTablero();
       if (this.rotation % 4 == 0) {
             if (this.posEnY < this.limiteY0) {
               this.posEnY += 20;
@@ -1046,6 +792,7 @@ let I = {
     },
     fallDown : function () {
       movimiento = 6;  
+      updateTablero();
       if (this.rotation % 4 == 0) {
             this.posEnY = this.limiteY0;
         }
@@ -1112,13 +859,16 @@ let Cuad = {
           rect(this.posEnX + 20, this.posEnY, 20, 20);
           rect(this.posEnX + 20, this.posEnY + 20, 20, 20);
         }
+        updateTablero();
     },
     rotate : function () {
       movimiento = 2;  
+      updateTablero();
       this.rotation += 1;
     },
     moveLeft : function () {
       movimiento = 3;  
+      updateTablero();
       if (this.rotation % 4 == 0) {
             if (this.posEnX > this.limiteXR0) {
               this.posEnX -= 20;
@@ -1142,6 +892,7 @@ let Cuad = {
     },
     moveRight : function () {
       movimiento = 4;  
+      updateTablero();
       if (this.rotation % 4 == 0) {
             if (this.posEnX < this.limiteXI0) {
               this.posEnX += 20;
@@ -1165,6 +916,7 @@ let Cuad = {
     },
     moveDown : function () {
       movimiento = 5;  
+      updateTablero();
       if (this.rotation % 4 == 0) {
             if (this.posEnY < this.limiteY0) {
               this.posEnY += 20;
@@ -1188,6 +940,7 @@ let Cuad = {
     },
     fallDown : function () {
       movimiento = 6;  
+      updateTablero();
       if (this.rotation % 4 == 0) {
             this.posEnY = this.limiteY0;
         }
@@ -1254,13 +1007,16 @@ let S = {
           rect(this.posEnX, this.posEnY - 20, 20, 20);
           rect(this.posEnX + 20, this.posEnY + 20, 20, 20);
         }
+        updateTablero();
     },
     rotate : function () {
       movimiento = 2;  
+      updateTablero();
       this.rotation += 1;
     },
     moveLeft : function () {
       movimiento = 3;  
+      updateTablero();
       if (this.rotation % 4 == 0) {
             if (this.posEnX > this.limiteXR0) {
               this.posEnX -= 20;
@@ -1284,6 +1040,7 @@ let S = {
     },
     moveRight : function () {
       movimiento = 4;
+      updateTablero();
       if (this.rotation % 4 == 0) {
             if (this.posEnX < this.limiteXI0) {
               this.posEnX += 20;
@@ -1307,6 +1064,7 @@ let S = {
     },
     moveDown : function () {
       movimiento = 5;  
+      updateTablero();
       if (this.rotation % 4 == 0) {
             if (this.posEnY < this.limiteY0) {
               this.posEnY += 20;
@@ -1330,6 +1088,7 @@ let S = {
     },
     fallDown : function () {
       movimiento = 6;  
+      updateTablero();
       if (this.rotation % 4 == 0) {
             this.posEnY = this.limiteY0;
         }
@@ -1396,13 +1155,16 @@ let Z = {
           rect(this.posEnX + 20, this.posEnY + 20, 20, 20);
           rect(this.posEnX, this.posEnY + 40, 20, 20);
         }
+        updateTablero();
     },
     rotate : function () {
       movimiento = 2;  
+      updateTablero();
       this.rotation += 1;
     },
     moveLeft : function () {
       movimiento = 3;  
+      updateTablero();
       if (this.rotation % 4 == 0) {
             if (this.posEnX > this.limiteXR0) {
               this.posEnX -= 20;
@@ -1426,6 +1188,7 @@ let Z = {
     },
     moveRight : function () {
       movimiento = 4;
+      updateTablero();
       if (this.rotation % 4 == 0) {
             if (this.posEnX < this.limiteXI0) {
               this.posEnX += 20;
@@ -1449,6 +1212,7 @@ let Z = {
     },
     moveDown : function () {
       movimiento = 5;  
+      updateTablero();
       if (this.rotation % 4 == 0) {
             if (this.posEnY < this.limiteY0) {
               this.posEnY += 20;
@@ -1472,6 +1236,7 @@ let Z = {
     },
     fallDown : function () {
       movimiento = 6;  
+      updateTablero();
       if (this.rotation % 4 == 0) {
             this.posEnY = this.limiteY0;
         }
@@ -1538,13 +1303,16 @@ let T = {
           rect(this.posEnX, this.posEnY, 20, 20);
           rect(this.posEnX + 20, this.posEnY + 20, 20, 20);
         }
+        updateTablero();
     },
     rotate : function () {
       movimiento = 2;  
+      updateTablero();
       this.rotation += 1;
     },
     moveLeft : function () {
       movimiento = 3;  
+      updateTablero();
       if (this.rotation % 4 == 0) {
             if (this.posEnX > this.limiteXR0) {
               this.posEnX -= 20;
@@ -1568,6 +1336,7 @@ let T = {
     },
     moveRight : function () {
       movimiento = 4;
+      updateTablero();
       if (this.rotation % 4 == 0) {
             if (this.posEnX < this.limiteXI0) {
               this.posEnX += 20;
@@ -1591,6 +1360,7 @@ let T = {
     },
     moveDown : function () {
       movimiento = 5;  
+      updateTablero();
       if (this.rotation % 4 == 0) {
             if (this.posEnY < this.limiteY0) {
               this.posEnY += 20;
@@ -1614,6 +1384,7 @@ let T = {
     },
     fallDown : function () {
       movimiento = 6;  
+      updateTablero();
       if (this.rotation % 4 == 0) {
             this.posEnY = this.limiteY0;
         }
