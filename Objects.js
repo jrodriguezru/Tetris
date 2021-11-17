@@ -1,7 +1,7 @@
 // TODO: Organizar el "vigilador" del tablero.
 // TODO: Organizar como se van a dejar marcadas las fichas en el tablero una vez caigan
 // TODO: Resetear los valores de posYInicial y posXInicial en la ActiveShape una vez que caigan y se actualice el tablero
-
+// TODO: Revisar rotaciones de I
 let height = 400;
 let width = 200;
 
