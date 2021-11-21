@@ -75,7 +75,7 @@ class Tetromino {
                 this.posEnY = this.limiteY2;
                 break;
             case 3:
-                this.posEnY = this.limteeY3;
+                this.posEnY = this.limiteY3;
                 break;
         }
     }
@@ -120,19 +120,10 @@ let Irotations = [
 let IlimitesEnY = [height - 80, height - 60, height - 80, height - 40];
 
 let CuadradoRotations = [
-    [
-        [1, 1], [1, 1]
-    ],
-    [
-        [1, 1], [1, 1]
-    ],
-    [
-        [1, 1], [1, 1]
-    ],
-    [
-        [1, 1], [1, 1]
-    ],
-
+    [[1, 1], [1, 1]],
+    [[1, 1], [1, 1]],
+    [[1, 1], [1, 1]],
+    [[1, 1], [1, 1]],
 ]
 
 let CuadlimitesEnY = [height - 40, height - 40, height - 40, height - 40];
@@ -162,7 +153,7 @@ let Trotations = [
     [[0, 1, 0], [1, 1, 0], [0, 1, 0]],
 ];
 
-let TlimitesEnY = [height - 20, height - 40, height - 40, height - 40];
+let TlimitesEnY = [height - 40, height - 60, height - 60, height - 60];
 
 
 
@@ -171,7 +162,7 @@ function getRandomInt(min, max) {
 }
 
 function newTetromino() {
-    random = getRandomInt(0, 6);
+    random = getRandomInt(0, 7);
     activeShape = random;
     switch (activeShape) {
         case 0:
@@ -361,7 +352,7 @@ function finishTetromino() {
             }
             break;
         case 6:
-            switch(T.rotations % 4) {
+            switch(T.rotation % 4) {
                 case 0:
                     return (T.posEnY == T.limiteY0);
                     break;
