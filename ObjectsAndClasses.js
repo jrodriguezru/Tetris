@@ -1,6 +1,7 @@
-width = 200;
-height = 400;
-activeShape = 0;
+let width = 200;
+let height = 400;
+let activeShape = 0;
+let timer = 0;
 
 
 class Tetromino {
@@ -91,74 +92,68 @@ function tablero() {
     }
 }
 
-L1rotations = [
-    [
-        [0, 1, 0], [1, 1, 1], [0, 0, 0]
-    ],
-    [
-        [0, 1, 0], [0, 1, 1], [0, 1, 0]
-    ],
-    [
-        [0, 0, 0], [1, 1, 1], [0, 1, 0]
-    ],
-    [
-        [0, 1, 0], [1, 1, 0], [0, 1, 0]
-    ],
+let L1rotations = [
+    [[1, 0, 0], [1, 0, 0], [1, 1, 0]],
+    [[1, 1, 1], [1, 0, 0], [0, 0, 0]],
+    [[0, 1, 1], [0, 0, 1], [0, 0, 1]],
+    [[0, 0, 0], [0, 0, 1], [1, 1, 1]],
 ];
 
-L2rotations = [
+let L1limitesEnY = [height - 60, height - 40, height - 60, height - 60];
+
+let L2rotations = [
     [[0, 0, 1], [0, 0, 1], [0, 1, 1]],
     [[0, 0, 0], [1, 0, 0], [1, 1, 1]],
     [[1, 1, 0], [1, 0, 0], [1, 0, 0]],
     [[1, 1, 1], [0, 0, 1], [0, 0, 0]],
 ];
 
-L2limitesEnY = [height - 60, height, 60, height - 60, height - 40];
+let L2limitesEnY = [height - 60, height, 60, height - 60, height - 40];
 
-Irotations = [
+let Irotations = [
     [[0, 0, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0]],
     [[0, 0, 0, 0], [0, 0, 0, 0], [1, 1, 1, 1], [0, 0, 0, 0]],
     [[0, 1, 0, 0], [0, 1, 0, 0], [0, 1, 0, 0], [0, 1, 0, 0]],
     [[0, 0, 0, 0], [1, 1, 1, 1], [0, 0, 0, 0], [0, 0, 0, 0]],
 ];
 
-IlimtesEnY = [height - 80, height - 60, height - 80, height - 40];
+let IlimtesEnY = [height - 80, height - 60, height - 80, height - 40];
 
-Cuadrotations = [
+let Cuadrotations = [
     [[1, 1] [1, 1]],
     [[1, 1] [1, 1]],
     [[1, 1] [1, 1]],
     [[1, 1] [1, 1]],
 ];
 
-CuadlimtesEnY = [height - 40, height - 40, height - 40, height - 40];
+let CuadlimtesEnY = [height - 40, height - 40, height - 40, height - 40];
 
-Srotations = [
+let Srotations = [
     [[0, 1, 1], [1, 1, 0], [0, 0, 0]],
     [[1, 0, 0], [1, 1, 0], [0, 1, 0]],
     [[0, 1, 1], [1, 1, 0], [0, 0, 0]],
     [[1, 0, 0], [1, 1, 0], [0, 1, 0]],
 ];
 
-SlimitesEnY = [height - 20, height - 40, height - 20, height - 40];
+let SlimitesEnY = [height - 20, height - 40, height - 20, height - 40];
 
-Zrotations = [
+let Zrotations = [
     [[1, 1, 0], [0, 1, 1], [0, 0, 0]],
     [[0, 1, 0], [1, 1, 0], [1, 0, 0]],
     [[1, 1, 0], [0, 1, 1], [0, 0, 0]],
     [[0, 1, 0], [1, 1, 0], [1, 0, 0]],
 ];
 
-ZlimitesEnY = [height - 40, height - 60, height - 40, height - 60];
+let ZlimitesEnY = [height - 40, height - 60, height - 40, height - 60];
 
-Trotations = [
+let Trotations = [
     [[0, 1, 0], [1, 1, 1], [0, 0, 0]],
     [[0, 1, 0], [0, 1, 1], [0, 1, 0]],
     [[0, 0, 0], [1, 1, 1], [0, 1, 0]],
     [[0, 1, 0], [1, 1, 0], [0, 1, 0]],
 ];
 
-TlimitesEnY = [height - 20, height - 40, height - 40, height - 40];
+let TlimitesEnY = [height - 20, height - 40, height - 40, height - 40];
 
 
 
@@ -171,6 +166,7 @@ function newTetromino() {
     activeShape = random;
     switch (activeShape) {
         case 0:
+            L1 = new Tetromino(L1rotations, L1limitesEnY, 255, 140, 0, 3);
             L1.draw();
             break;
         case 1:
@@ -198,7 +194,33 @@ function newTetromino() {
             T.draw();
             break;
     }
-
 }
+
+function drawActiveTetromino() {
+    switch (activeShape) {
+        case 0: 
+            L1.draw();
+            break;
+        case 1:
+            L2.draw();
+            break;
+        case 2:
+            I.draw();
+            break;
+        case 3:
+            Cuad.draw();
+            break;
+        case 4:
+            S.draw();
+            break;
+        case 5:
+            Z.draw();
+            break;
+        case 6:
+            T.draw();
+            break;
+    }
+}
+
 
 
