@@ -3,7 +3,6 @@ let height = 400;
 let activeShape = 0;
 let timer = 0;
 
-
 class Tetromino {
     constructor(rotations, limitesEnY, color1, color2, color3, size) {
         this.rotations = rotations;
@@ -154,8 +153,6 @@ let Trotations = [
 ];
 
 let TlimitesEnY = [height - 40, height - 60, height - 60, height - 60];
-
-
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
