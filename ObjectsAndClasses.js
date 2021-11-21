@@ -90,12 +90,31 @@ function tablero() {
       line(0, i, width, i);
     }
 }
-/*
-    rotation0 : [],
-    rotation1 : [],
-    rotation2 : [],
-    rotation3 : [],
-*/
+
+L1rotations = [
+    [
+        [0, 1, 0], [1, 1, 1], [0, 0, 0]
+    ],
+    [
+        [0, 1, 0], [0, 1, 1], [0, 1, 0]
+    ],
+    [
+        [0, 0, 0], [1, 1, 1], [0, 1, 0]
+    ],
+    [
+        [0, 1, 0], [1, 1, 0], [0, 1, 0]
+    ],
+];
+
+L2rotations = [
+    [[0, 0, 1], [0, 0, 1], [0, 1, 1]],
+    [[0, 0, 0], [1, 0, 0], [1, 1, 1]],
+    [[1, 1, 0], [1, 0, 0], [1, 0, 0]],
+    [[1, 1, 1], [0, 0, 1], [0, 0, 0]],
+];
+
+L2limitesEnY = [height - 60, height, 60, height - 60, height - 40];
+
 Irotations = [
     [[0, 0, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0]],
     [[0, 0, 0, 0], [0, 0, 0, 0], [1, 1, 1, 1], [0, 0, 0, 0]],
@@ -155,6 +174,7 @@ function newTetromino() {
             L1.draw();
             break;
         case 1:
+            L2 = new Tetromino(L2rotations, L2limitesEnY, 38, 0, 231, 3);
             L2.draw();
             break;
         case 2:
