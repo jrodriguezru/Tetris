@@ -222,5 +222,155 @@ function drawActiveTetromino() {
     }
 }
 
+function autoMoveDown() {
+    if (timer % 40 == 0) {
+        switch (activeShape) {
+            case 0:
+                L1.moveDown();
+                break;
+            case 1:
+                L2.moveDown();
+                break;
+            case 2:
+                I.moveDown();
+                break;
+            case 3:
+                Cuad.moveDown();
+                break;
+            case 4:
+                S.moveDown();
+                break;
+            case 5:
+                Z.moveDown();
+                break;
+            case 6:
+                T.moveDown();
+                break;
+        }
+        if (finishTetromino() == true) {
+            endTetromino();
+        }
+    }
+}
 
+function finishTetromino() {
+    switch(activeShape) {
+        case 0:
+            switch(L1.rotation % 4) {
+                case 0:
+                    return (L1.posEnY == L1.limiteY0);
+                    break;
+                case 1:
+                    return (L1.posEnY == L1.limiteY1);
+                    break;
+                case 2:
+                    return (L1.posEnY == L1.limiteY2);
+                    break;
+                case 3:
+                    return (L1.posEnY == L1.limiteY3);
+                    break;   
+            }
+            break;
+        case 1:
+            switch(L2.rotation % 4) {
+                case 0:
+                    return (L2.posEnY == L2.limiteY0);
+                    break;
+                case 1:
+                    return (L2.posEnY == L2.limiteY1);
+                    break;
+                case 2:
+                    return (L2.posEnY == L2.limiteY2);
+                    break;
+                case 3:
+                    return (L2.posEnY == L2.limiteY3);
+                    break;
+            }
+            break;
+        case 2:
+            switch(I.rotation % 4) {
+                case 0:
+                    return (I.posEnY == I.limiteY0);
+                    break;
+                case 1:
+                    return (I.posEnY == I.limiteY1);
+                    break;
+                case 2:
+                    return (I.posEnY == I.limiteY2);
+                    break;
+                case 3:
+                    return (I.posEnY == I.limiteY3);
+                    break;
+            }
+            break;
+        case 3:
+            switch(Cuad.rotation % 4) {
+                case 0:
+                    return (Cuad.posEnY == Cuad.limiteY0);
+                    break;
+                case 1:
+                    return (Cuad.posEnY == Cuad.limiteY1);
+                    break;
+                case 2:
+                    return (Cuad.posEnY == Cuad.limiteY2);
+                    break;
+                case 3:
+                    return (Cuad.posEnY == Cuad.limiteY3);
+                    break;
+            }
+            break;
+        case 4:
+            switch(S.rotation % 4) {
+                case 0:
+                    return (S.posEnY == S.limiteY0);
+                    break;
+                case 1:
+                    return (S.posEnY == S.limiteY1);
+                    break;
+                case 2:
+                    return (S.posEnY == S.limiteY2);
+                    break;
+                case 3:
+                    return (S.posEnY == S.limiteY3);
+                    break;
+            }
+            break;
+        case 5: 
+            switch(Z.rotation % 4) {
+                case 0:
+                    return (Z.posEnY == Z.limiteY0);
+                    break;
+                case 1:
+                    return (Z.posEnY == Z.limiteY1);
+                    break;
+                case 2:
+                    return (Z.posEnY == Z.limiteY2);
+                    break;
+                case 3:
+                    return (Z.posEnY == Z.limiteY3);
+                    break;
+            }
+            break;
+        case 6:
+            switch(T.rotations % 4) {
+                case 0:
+                    return (T.posEnY == T.limiteY0);
+                    break;
+                case 1:
+                    return (T.posEnY == T.limiteY1);
+                    break;
+                case 2:
+                    return (T.posEnY == T.limiteY2);
+                    break;
+                case 3:
+                    return (T.posEnY == T.limiteY3);
+                    break;
+            }
+            break;
+    }
+}
+
+function endTetromino() {
+    newTetromino();
+}
 
