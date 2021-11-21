@@ -119,12 +119,21 @@ let Irotations = [
 
 let IlimitesEnY = [height - 80, height - 60, height - 80, height - 40];
 
-let Cuadrotations = [
-    [[1, 1] [1, 1]],
-    [[1, 1] [1, 1]],
-    [[1, 1] [1, 1]],
-    [[1, 1] [1, 1]],
-];
+let CuadradoRotations = [
+    [
+        [1, 1], [1, 1]
+    ],
+    [
+        [1, 1], [1, 1]
+    ],
+    [
+        [1, 1], [1, 1]
+    ],
+    [
+        [1, 1], [1, 1]
+    ],
+
+]
 
 let CuadlimitesEnY = [height - 40, height - 40, height - 40, height - 40];
 
@@ -178,7 +187,7 @@ function newTetromino() {
             I.draw();
             break;
         case 3:
-            Cuad = new Tetromino(Cuadrotations, CuadlimitesEnY, 255, 255, 0, 2);
+            Cuad = new Tetromino(CuadradoRotations, CuadlimitesEnY, 255, 255, 0, 2);
             Cuad.draw();
             break;
         case 4:
