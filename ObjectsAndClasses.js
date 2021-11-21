@@ -117,7 +117,7 @@ let Irotations = [
     [[0, 0, 0, 0], [1, 1, 1, 1], [0, 0, 0, 0], [0, 0, 0, 0]],
 ];
 
-let IlimtesEnY = [height - 80, height - 60, height - 80, height - 40];
+let IlimitesEnY = [height - 80, height - 60, height - 80, height - 40];
 
 let Cuadrotations = [
     [[1, 1] [1, 1]],
@@ -126,7 +126,7 @@ let Cuadrotations = [
     [[1, 1] [1, 1]],
 ];
 
-let CuadlimtesEnY = [height - 40, height - 40, height - 40, height - 40];
+let CuadlimitesEnY = [height - 40, height - 40, height - 40, height - 40];
 
 let Srotations = [
     [[0, 1, 1], [1, 1, 0], [0, 0, 0]],
@@ -220,6 +220,9 @@ function drawActiveTetromino() {
             T.draw();
             break;
     }
+    if (finishTetromino() == true) {
+        endTetromino();
+    }
 }
 
 function autoMoveDown() {
@@ -246,9 +249,6 @@ function autoMoveDown() {
             case 6:
                 T.moveDown();
                 break;
-        }
-        if (finishTetromino() == true) {
-            endTetromino();
         }
     }
 }
