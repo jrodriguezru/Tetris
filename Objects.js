@@ -31,7 +31,7 @@ let tableroControl = [
 let activeShape = 0;
 let timer = 0;
 let posXInicial = 100;
-let posYInicial = 0;
+let posYInicial = 0; // Excepto para S y T, los cuales son 20
 let movimiento = 0 
 let varDrawControl = 0
 
@@ -44,6 +44,8 @@ let varDrawControl = 0
 // En la función newTetromino debe haber una "evaluacion" si se puede o no poner la pieza, en caso negativo, game over.
 // En la función endTetromino, debe haber una "evaluacion" si la última fila de la matriz tablero es una fila de únicamente 1's.
 // De ser así, la elimina, baja todas las anteriores y suma 1 a la variable puntaje.
+
+// T tiene un error cuando está en la orilla derecha... (Creo que otros tetrominos tienen el mismo problema....)
 
 function updateTablero() {
   if (activeShape % 7 == 0) {
@@ -502,20 +504,73 @@ function updateTablero() {
   else if (activeShape % 7 == 6) {
     if (movimiento == 1) {
       if (T.rotation % 4 == 0) {
-
+        if (T.posEnY == 380) {
+          let i = T.posEnY / 20;
+          let j = T.posEnX / 20;
+          for (let iFor = (T.posEnY / 20) - 1, iMat = 0; iFor < i + 1; iFor++, iMat++) {
+            for (let jFor = T.posEnX / 20, jMat = 0; jFor < j + 3; jFor++, jMat++) {
+              tableroControl[iFor][jFor] = T.rotation0[iMat][jMat];
+            }
+          }
+        }
+        else {
+          let i = T.posEnY / 20;
+          let j = T.posEnX / 20;
+          for (let iFor = (T.posEnY / 20) - 1, iMat = 0; iFor < i + 2; iFor++, iMat++) {
+            for (let jFor = T.posEnX / 20, jMat = 0; jFor < j + 3; jFor++, jMat++) {
+              tableroControl[iFor][jFor] = T.rotation0[iMat][jMat];
+            }
+          }
+        }
+        
       }
       else if (T.rotation % 4 == 1) {
-
+        let i = T.posEnY / 20;
+        let j = T.posEnX / 20;
+        for (let iFor = (T.posEnY / 20) - 1, iMat = 0; iFor < i + 2; iFor++, iMat++) {
+          for (let jFor = T.posEnX / 20, jMat = 0; jFor < j + 3; jFor++, jMat++) {
+            tableroControl[iFor][jFor] = T.rotation1[iMat][jMat];
+          }
+        }
       }
       else if (T.rotation % 4 == 2) {
-
+        let i = T.posEnY / 20;
+        let j = T.posEnX / 20;
+        for (let iFor = (T.posEnY / 20) - 1, iMat = 0; iFor < i + 2; iFor++, iMat++) {
+          for (let jFor = T.posEnX / 20, jMat = 0; jFor < j + 3; jFor++, jMat++) {
+            tableroControl[iFor][jFor] = T.rotation2[iMat][jMat];
+          }
+        }
       }
       else if (T.rotation % 4 == 3) {
-        
+        let i = T.posEnY / 20;
+        let j = T.posEnX / 20;
+        for (let iFor = (T.posEnY / 20) - 1, iMat = 0; iFor < i + 2; iFor++, iMat++) {
+          for (let jFor = T.posEnX / 20, jMat = 0; jFor < j + 3; jFor++, jMat++) {
+            tableroControl[iFor][jFor] = T.rotation3[iMat][jMat];
+          }
+        }
       }
     }
     else if (movimiento == 2 || movimiento == 3 || movimiento == 4 || movimiento == 5 || movimiento == 6) {
-
+      if (T.rotation % 4 == 0 && T.posEnY == 380) {
+        let i = T.posEnY / 20;
+        let j = T.posEnX / 20;
+        for (let iFor = (T.posEnY / 20) - 1; iFor < i + 1; iFor++) {
+          for (let jFor = T.posEnX / 20; jFor < j + 3; jFor++) {
+            tableroControl[iFor][jFor] = 0
+          }
+        }
+      }
+      else {
+        let i = T.posEnY / 20;
+        let j = T.posEnX / 20;
+        for (let iFor = (T.posEnY / 20) - 1; iFor < i + 2; iFor++) {
+          for (let jFor = T.posEnX / 20; jFor < j + 3; jFor++) {
+            tableroControl[iFor][jFor] = 0
+          }
+        }
+      }
     }
   }
 }
@@ -1413,11 +1468,11 @@ let Z = {
 
 let T = {
     posEnX : 100,
-    posEnY : 0,
+    posEnY : 20,
     rotation : 0,
     limiteXR0 : 0,
     limiteY0 : height - 20,
-    limiteXR1 : 20,
+    limiteXR1 : -20,
     limiteY1 : height - 40,
     limiteXR2 : 0,
     limiteY2 : height - 40,
