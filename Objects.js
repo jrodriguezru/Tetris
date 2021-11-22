@@ -288,39 +288,132 @@ function updateTablero() {
   else if (activeShape % 7 == 3) {
     if (movimiento == 1) {
       if (Cuad.rotation % 4 == 0) {
-
+        let i = Cuad.posEnY / 20;
+        let j = Cuad.posEnX / 20;
+        for (let iFor = Cuad.posEnY / 20, iMat = 0; iFor < i + 2; iFor++, iMat++) {
+          for (let jFor = Cuad.posEnX / 20, jMat = 0; jFor < j + 2; jFor++, jMat++) {
+            tableroControl[iFor][jFor] = Cuad.rotation0[iMat][jMat];
+          }
+        }
       }
       else if (Cuad.rotation % 4 == 1) {
-
+        let i = Cuad.posEnY / 20;
+        let j = Cuad.posEnX / 20;
+        for (let iFor = Cuad.posEnY / 20, iMat = 0; iFor < i + 2; iFor++, iMat++) {
+          for (let jFor = Cuad.posEnX / 20, jMat = 0; jFor < j + 2; jFor++, jMat++) {
+            tableroControl[iFor][jFor] = Cuad.rotation1[iMat][jMat];
+          }
+        }
       }
       else if (Cuad.rotation % 4 == 2) {
-
+        let i = Cuad.posEnY / 20;
+        let j = Cuad.posEnX / 20;
+        for (let iFor = Cuad.posEnY / 20, iMat = 0; iFor < i + 2; iFor++, iMat++) {
+          for (let jFor = Cuad.posEnX / 20, jMat = 0; jFor < j + 2; jFor++, jMat++) {
+            tableroControl[iFor][jFor] = Cuad.rotation2[iMat][jMat];
+          }
+        }
       }
       else if (Cuad.rotation % 4 == 3) {
-        
+        let i = Cuad.posEnY / 20;
+        let j = Cuad.posEnX / 20;
+        for (let iFor = Cuad.posEnY / 20, iMat = 0; iFor < i + 2; iFor++, iMat++) {
+          for (let jFor = Cuad.posEnX / 20, jMat = 0; jFor < j + 2; jFor++, jMat++) {
+            tableroControl[iFor][jFor] = Cuad.rotation3[iMat][jMat];
+          }
+        }
       }
     }
     else if (movimiento == 2 || movimiento == 3 || movimiento == 4 || movimiento == 5 || movimiento == 6) {
-
+      let i = Cuad.posEnY / 20;
+      let j = Cuad.posEnX / 20;
+      for (let iFor = Cuad.posEnY / 20; iFor < i + 2; iFor++) {
+        for (let jFor = Cuad.posEnX / 20; jFor < j + 2; jFor++) {
+          tableroControl[iFor][jFor] = 0
+        }
+      }
     }
   }
   else if (activeShape % 7 == 4) {
     if (movimiento == 1) {
       if (S.rotation % 4 == 0) {
-
+        if (S.posEnY == 380) {
+          let i = S.posEnY / 20;
+          let j = S.posEnX / 20;
+          for (let iFor = (S.posEnY / 20) - 1, iMat = 0; iFor < i + 1; iFor++, iMat++) {
+            for (let jFor = S.posEnX / 20, jMat = 0; jFor < j + 3; jFor++, jMat++) {
+              tableroControl[iFor][jFor] = S.rotation0[iMat][jMat];
+            }
+          }
+        }
+        else {
+          let i = S.posEnY / 20;
+          let j = S.posEnX / 20;
+          for (let iFor = (S.posEnY / 20) - 1, iMat = 0; iFor < i + 2; iFor++, iMat++) {
+            for (let jFor = S.posEnX / 20, jMat = 0; jFor < j + 3; jFor++, jMat++) {
+              tableroControl[iFor][jFor] = S.rotation0[iMat][jMat];
+            }
+          }
+        }
       }
       else if (S.rotation % 4 == 1) {
-
+        let i = S.posEnY / 20;
+        let j = S.posEnX / 20;
+        for (let iFor = (S.posEnY / 20) - 1, iMat = 0; iFor < i + 2; iFor++, iMat++) {
+          for (let jFor = S.posEnX / 20, jMat = 0; jFor < j + 3; jFor++, jMat++) {
+            tableroControl[iFor][jFor] = S.rotation1[iMat][jMat];
+          }
+        }
       }
       else if (S.rotation % 4 == 2) {
-
+        if (S.posEnY == 380) {
+          let i = S.posEnY / 20;
+          let j = S.posEnX / 20;
+          for (let iFor = (S.posEnY / 20) - 1, iMat = 0; iFor < i + 1; iFor++, iMat++) {
+            for (let jFor = S.posEnX / 20, jMat = 0; jFor < j + 3; jFor++, jMat++) {
+              tableroControl[iFor][jFor] = S.rotation2[iMat][jMat];
+            }
+          }
+        }
+        else {
+          let i = S.posEnY / 20;
+          let j = S.posEnX / 20;
+          for (let iFor = (S.posEnY / 20) - 1, iMat = 0; iFor < i + 2; iFor++, iMat++) {
+            for (let jFor = S.posEnX / 20, jMat = 0; jFor < j + 3; jFor++, jMat++) {
+              tableroControl[iFor][jFor] = S.rotation2[iMat][jMat];
+            }
+          }
+        }
       }
       else if (S.rotation % 4 == 3) {
-        
+        let i = S.posEnY / 20;
+        let j = S.posEnX / 20;
+        for (let iFor = (S.posEnY / 20) - 1, iMat = 0; iFor < i + 2; iFor++, iMat++) {
+          for (let jFor = S.posEnX / 20, jMat = 0; jFor < j + 3; jFor++, jMat++) {
+            tableroControl[iFor][jFor] = S.rotation3[iMat][jMat];
+          }
+        }
       }
     }
     else if (movimiento == 2 || movimiento == 3 || movimiento == 4 || movimiento == 5 || movimiento == 6) {
-
+      if (S.posEnY == 380 && (S.rotation % 4 == 0  || S.rotation % 4 == 2)) {
+        let i = S.posEnY / 20;
+        let j = S.posEnX / 20;
+        for (let iFor = (S.posEnY / 20) - 1; iFor < i + 1; iFor++) {
+          for (let jFor = S.posEnX / 20; jFor < j + 3; jFor++) {
+            tableroControl[iFor][jFor] = 0
+          }
+        }
+      }
+      else {
+        let i = S.posEnY / 20;
+        let j = S.posEnX / 20;
+        for (let iFor = (S.posEnY / 20) - 1; iFor < i + 2; iFor++) {
+          for (let jFor = S.posEnX / 20; jFor < j + 3; jFor++) {
+            tableroControl[iFor][jFor] = 0
+          }
+        }
+      }
     }
   }
   else if (activeShape % 7 == 5) {
@@ -826,10 +919,10 @@ let Cuad = {
     limiteXI1 : width - 40,
     limiteXI2 : width - 40,
     limiteXI3 : width - 40,
-    rotation0 : [[1, 1] [1, 1]],
-    rotation1 : [[1, 1] [1, 1]],
-    rotation2 : [[1, 1] [1, 1]],
-    rotation3 : [[1, 1] [1, 1]],
+    rotation0 : [[1, 1], [1, 1]],
+    rotation1 : [[1, 1], [1, 1]],
+    rotation2 : [[1, 1], [1, 1]],
+    rotation3 : [[1, 1], [1, 1]],
     draw : function (){
         strokeWeight(2);
         stroke(0, 255);
