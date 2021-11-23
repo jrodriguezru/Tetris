@@ -9,7 +9,7 @@ function draw() {
         newTetromino();
     }
     drawActiveTetromino();
-    //autoMoveDown();
+    autoMoveDown();
 }
 
 

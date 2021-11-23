@@ -1621,6 +1621,15 @@ function tablero() {
   for (let i = 0; i <= height; i += 20) {
     line(0, i, width, i);
   }
+  for (let i = 0; i < height / 20; i++) {
+    for (let j = 0; j < width / 20; j++){
+      if (tableroControl[i][j] == 1){
+        strokeWeight(2);
+        stroke(200, 255);
+        rect(i * 20, j * 20, 20, 20);
+      } 
+    }
+  }
 }
 
 
@@ -1819,27 +1828,39 @@ function finishTetromino() {
 // 10 horizontal
 // 20 Vertical
 
+/*
+let posXInicial = 100;
+let posYInicial = 0; // Excepto para S y T, los cuales son 20
+*/
+
 function endTetromino() {
   if (activeShape % 7 == 0) {
-
+    L1.posEnX = posXInicial;
+    L1.posEnY = posYInicial;
   }
   else if (activeShape % 7 == 1) {
-
+    L2.posEnX = posXInicial;
+    L2.posEnY = posYInicial;
   }
   else if (activeShape % 7 == 2) {
-
+    I.posEnX = posXInicial;
+    I.posEnY = posYInicial;
   }
   else if (activeShape % 7 == 3) {
-
+    Cuad.posEnX = posXInicial;
+    Cuad.posEnY = posYInicial;
   }
   else if (activeShape % 7 == 4) {
-
+    S.posEnX = posXInicial;
+    S.posEnY = posYInicial + 20;
   }
   else if (activeShape % 7 == 5) {
-  
+    Z.posEnX = posXInicial;
+    Z.posEnY = posYInicial;
   }
   else if (activeShape % 7 == 6) {
-
+    T.posEnX = posXInicial;
+    T.posEnY = posYInicial + 20;
   }
   newTetromino();
 
