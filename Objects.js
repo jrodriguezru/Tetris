@@ -1621,11 +1621,12 @@ function tablero() {
   for (let i = 0; i <= height; i += 20) {
     line(0, i, width, i);
   }
-  for (let i = 0; i < height / 20; i++) {
-    for (let j = 0; j < width / 20; j++){
-      if (tableroControl[i][j] == 1){
+  for (let i = 0; i < width / 20; i++) {
+    for (let j = 0; j < height / 20; j++){
+      if (tableroControl[j][i] == 1){
         strokeWeight(2);
-        stroke(200, 255);
+        stroke(0, 255);
+        fill(0, 255);
         rect(i * 20, j * 20, 20, 20);
       } 
     }
