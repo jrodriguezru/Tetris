@@ -5,6 +5,7 @@ let timer = 0;
 let movimiento = 0;
 let canMoveLeft = 1;
 let canMoveRight = 1;
+let blankRow = [];
 
 let tableroControl = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -64,6 +65,7 @@ class Tetromino {
                 let jOut1 = this.posEnX / 20;
                 let left = 0;
                 let right = 0;
+                let blank = 0;
                 for (let i = iOut1, iMat = 0; i < iOut1 + this.size - validacionOutside; i++, iMat++) {
                     if (tableroControl[i][0] == 1) {
                         left++;
@@ -75,6 +77,22 @@ class Tetromino {
                         let actualRotation = this.rotation % 4;
                         tableroControl[i][j] = this.rotations[actualRotation][iMat][jMat];
                     }
+                }
+                blankRow = [];
+                let actualRotation = this.rotation % 4;
+                for (let i = 0; i < this.size; i ++) {
+                    for (let j = 0; j < this.size; j ++) {
+                        if (this.rotations[actualRotation][j][i] == 0) {
+                            blank ++;
+                        }
+                    }
+                    if (blank == this.size) {
+                        blankRow.push(1);
+                    }
+                    else {
+                        blankRow.push(0);
+                    }
+                    blank = 0;
                 }
                 if (left != 0) {
                     canMoveLeft = 0;
@@ -153,6 +171,26 @@ class Tetromino {
         this.updateTablero();
     }
     rotate() {
+        if (canMoveLeft == 0) {
+            for (let i = 0; i < this.size; i++) {
+                if (blankRow[i] == 1) {
+                    this.moveRight();
+                }
+                if (blankRow[i] == 0) {
+                    break;
+                }
+            }
+        }
+        if (canMoveRight == 0) {
+            for (let i = this.size; i >= 0; i--) {
+                if (blankRow[i] == 1) {
+                    this.moveLeft();
+                }
+                if (blankRow[i] == 0) {
+                    break;
+                }
+            }
+        }
         movimiento = 2;
         this.updateTablero();
         this.rotation += 1;
@@ -250,7 +288,7 @@ let Srotations = [
     [[1, 0, 0], [1, 1, 0], [0, 1, 0]],
 ];
 
-let SlimitesEnY = [height - 20, height - 40, height - 20, height - 40];
+let SlimitesEnY = [height - 40, height - 40, height - 40, height - 40];
 
 let Zrotations = [
     [[1, 1, 0], [0, 1, 1], [0, 0, 0]],
