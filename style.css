@@ -1,15 +1,88 @@
 html, body {
   margin: 0;
   padding: 0;
+  
+}
+
+h1 {
   text-align: center;
 }
+
 /*
 canvas {
   display: block;
 }
 */
-/*
-#canvas {
-  display: block;
+
+.colorPicker {
+  position: absolute;
+  left: 240px;
+  
 }
-*/
+
+.p5Canvas {
+  display: inline;
+  position: relative;
+  left: 20px;
+}
+
+.pcp {
+  position: absolute;
+  left: 300px;
+}
+
+#cpL1 {
+  top: 20px;
+}
+
+#cpL2 {
+  top: 50px;
+}
+
+#cpI {
+  top: 80px;
+}
+
+#cpCuad {
+  top: 110px;
+}
+
+#cpS {
+  top: 140px;
+}
+
+#cpZ {
+  top: 170px;
+}
+
+#cpT {
+  top: 200px;
+}
+
+#pcpL1 {
+  top: 7px;
+}
+
+#pcpL2 {
+  top: 36px;
+}
+
+#pcpI {
+  top: 66px;
+}
+
+#pcpCuad {
+  top: 96px;
+}
+
+#pcpS {
+  top: 127px;
+}
+
+#pcpZ {
+  top: 156px;
+}
+
+#pcpT {
+  top: 187px;
+}

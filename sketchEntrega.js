@@ -1,5 +1,50 @@
 function setup() {
+    if (color == 1) {
+        colorPickerL1 = createColorPicker('#ff8c00');
+        colorPickerL1.class('colorPicker');
+        colorPickerL1.id('cpL1');
+        colorPickerL2 = createColorPicker('#2600e7');
+        colorPickerL2.class('colorPicker');
+        colorPickerL2.id('cpL2');
+        colorPickerI = createColorPicker('#00ffff');
+        colorPickerI.class('colorPicker');
+        colorPickerI.id('cpI');
+        colorPickerCuad = createColorPicker('#ffff00');
+        colorPickerCuad.class('colorPicker');
+        colorPickerCuad.id('cpCuad');
+        colorPickerS = createColorPicker('#00ff00');
+        colorPickerS.class('colorPicker');
+        colorPickerS.id('cpS');
+        colorPickerZ = createColorPicker('#ff0000');
+        colorPickerZ.class('colorPicker');
+        colorPickerZ.id('cpZ');
+        colorPickerT = createColorPicker('#c832fa');
+        colorPickerT.class('colorPicker');
+        colorPickerT.id('cpT');
+        pL1 = createP("Color para el tetromino con forma de L");
+        pL1.class('pcp');
+        pL1.id('pcpL1');
+        pL2 = createP("Color para el tetromino con forma de L invertida");
+        pL2.class('pcp');
+        pL2.id('pcpL2');
+        pI = createP("Color para el tetromino con forma de I");
+        pI.class('pcp');
+        pI.id('pcpI');
+        pCuad = createP("Color para el tetromino con forma de Cuadrado");
+        pCuad.class('pcp');
+        pCuad.id('pcpCuad');
+        pS = createP("Color para el tetromino con forma de S");
+        pS.class('pcp');
+        pS.id('pcpS');
+        pZ = createP("Color para el tetromino con forma de Z");
+        pZ.class('pcp');
+        pZ.id('pcpZ');
+        pT = createP("Color para el tetromino con forma de T");
+        pT.class('pcp');
+        pT.id('pcpT');
+    }
     createCanvas(200, 400);
+
 }
 
 function draw() {

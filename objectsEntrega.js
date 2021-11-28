@@ -2,17 +2,16 @@ let width = 200;
 let height = 400;
 let activeShape = 0;
 let timer = 0;
+let color = 1;
 
 class Tetromino {
-    constructor(rotations, limitesEnY, color1, color2, color3, size) {
+    constructor(rotations, limitesEnY, color, size) {
         this.rotations = rotations;
         this.rotation = 0;
         this.posEnX = 100;
         this.posEnY = 0;
         this.size = size;
-        this.color1 = color1;
-        this.color2 = color2;
-        this.color3 = color3;
+        this.color = color;
         this.limiteY0 = limitesEnY[0];
         this.limiteY1 = limitesEnY[1];
         this.limiteY2 = limitesEnY[2];
@@ -22,7 +21,7 @@ class Tetromino {
     draw() {
         strokeWeight(2);
         stroke(0, 255);
-        fill(this.color1, this.color2, this.color3);
+        fill(this.color);
         for (let i = 0; i < this.size; i++) {
             for (let j = 0; j < this.size; j++) {
                 switch(this.rotation % 4) {
@@ -163,31 +162,31 @@ function newTetromino() {
     activeShape = random;
     switch (activeShape) {
         case 0:
-            L1 = new Tetromino(L1rotations, L1limitesEnY, 255, 140, 0, 3);
+            L1 = new Tetromino(L1rotations, L1limitesEnY, colorPickerL1.color(), 3);
             L1.draw();
             break;
         case 1:
-            L2 = new Tetromino(L2rotations, L2limitesEnY, 38, 0, 231, 3);
+            L2 = new Tetromino(L2rotations, L2limitesEnY, colorPickerL2.color(), 3);
             L2.draw();
             break;
         case 2:
-            I = new Tetromino(Irotations, IlimitesEnY, 0, 255, 255, 4);
+            I = new Tetromino(Irotations, IlimitesEnY, colorPickerI.color(), 4);
             I.draw();
             break;
         case 3:
-            Cuad = new Tetromino(CuadradoRotations, CuadlimitesEnY, 255, 255, 0, 2);
+            Cuad = new Tetromino(CuadradoRotations, CuadlimitesEnY, colorPickerCuad.color(), 2);
             Cuad.draw();
             break;
         case 4:
-            S = new Tetromino(Srotations, SlimitesEnY, 0, 255, 0, 3);
+            S = new Tetromino(Srotations, SlimitesEnY, colorPickerS.color(), 3);
             S.draw();
             break;
         case 5:
-            Z = new Tetromino(Zrotations, ZlimitesEnY, 255, 0, 0, 3);
+            Z = new Tetromino(Zrotations, ZlimitesEnY, colorPickerZ.color(), 3);
             Z.draw();
             break;
         case 6:
-            T = new Tetromino(Trotations, TlimitesEnY, 200, 50, 250, 3);
+            T = new Tetromino(Trotations, TlimitesEnY, colorPickerT.color(), 3);
             T.draw();
             break;
     }
