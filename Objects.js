@@ -26,14 +26,14 @@ let tableroControl = [
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-]
+];
 
 let activeShape = 0;
 let timer = 0;
 let posXInicial = 100;
 let posYInicial = 0; // Excepto para S y T, los cuales son 20
-let movimiento = 0 
-let varDrawControl = 0
+let movimiento = 0; 
+let varDrawControl = 0;
 
 // FOR MY FUTURE SELF:
 // La idea es que con cada pieza se cambie el valor de la posicion [i][j] de la matriz tablero de acuerdo a la ubicacion de la pieza
