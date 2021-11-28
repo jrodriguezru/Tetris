@@ -26,6 +26,12 @@ canvas {
   left: 20px
 }
 
+.notep {
+  position: absolute;
+  top: 367px;
+  left: 240px;
+}
+
 .p5Canvas {
   display: inline;
   position: relative;
@@ -36,7 +42,7 @@ canvas {
   display: inline-block;
   position: absolute;
   left: 240px;
-  top: 80px;
+  top: 110px;
 }
 .pcp {
   position: absolute;
@@ -45,62 +51,98 @@ canvas {
 
 .ppause {
   position: absolute;
-  left: 350px;
-  top: 65px;
-}
-
-#cpL1 {
-  top: 110px;
-}
-
-#cpL2 {
-  top: 140px;
-}
-
-#cpI {
-  top: 170px;
-}
-
-#cpCuad {
-  top: 200px;
-}
-
-#cpS {
-  top: 230px;
-}
-
-#cpZ {
-  top: 260px;
-}
-
-#cpT {
-  top: 290px;
-}
-
-#pcpL1 {
+  left: 370px;
   top: 96px;
 }
 
-#pcpL2 {
+.psUC {
+  position: absolute;
+  top: 65px;
+  left: 300px;
+}
+
+.ucSelec {
+  position: absolute;
+  top: 80px;
+  left:240px
+}
+
+#cpL1 {
+  top: 140px;
+}
+
+#cpL2 {
+  top: 170px;
+}
+
+#cpI {
+  top: 200px;
+}
+
+#cpCuad {
+  top: 230px;
+}
+
+#cpS {
+  top: 260px;
+}
+
+#cpZ {
+  top: 290px;
+}
+
+#cpT {
+  top: 320px;
+}
+
+#cpbg {
+  top: 350px
+}
+
+#cpUC {
+  top: 140px;
+}
+
+#cpUCBG {
+  top: 170px;
+}
+
+#pcpL1 {
   top: 127px;
 }
 
-#pcpI {
+#pcpL2 {
   top: 157px;
 }
 
-#pcpCuad {
+#pcpI {
   top: 187px;
 }
 
-#pcpS {
+#pcpCuad {
   top: 217px;
 }
 
-#pcpZ {
+#pcpS {
   top: 247px;
 }
 
-#pcpT {
+#pcpZ {
   top: 277px;
+}
+
+#pcpT {
+  top: 307px;
+}
+
+#pcpbg {
+  top: 337px;
+}
+
+#pcpUC {
+  top: 127px;
+}
+
+#pcpUCBG {
+  top: 157px;
 }

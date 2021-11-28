@@ -161,34 +161,70 @@ function getRandomInt(min, max) {
 function newTetromino() {
     random = getRandomInt(0, 7);
     activeShape = random;
-    switch (activeShape) {
+    switch(color) {
         case 0:
-            L1 = new Tetromino(L1rotations, L1limitesEnY, colorPickerL1.color(), 3);
-            L1.draw();
+            switch (activeShape) {
+                case 0:
+                    L1 = new Tetromino(L1rotations, L1limitesEnY, colorPickerUC.color(), 3);
+                    L1.draw();
+                    break;
+                case 1:
+                    L2 = new Tetromino(L2rotations, L2limitesEnY, colorPickerUC.color(), 3);
+                    L2.draw();
+                    break;
+                case 2:
+                    I = new Tetromino(Irotations, IlimitesEnY, colorPickerUC.color(), 4);
+                    I.draw();
+                    break;
+                case 3:
+                    Cuad = new Tetromino(CuadradoRotations, CuadlimitesEnY, colorPickerUC.color(), 2);
+                    Cuad.draw();
+                    break;
+                case 4:
+                    S = new Tetromino(Srotations, SlimitesEnY, colorPickerUC.color(), 3);
+                    S.draw();
+                    break;
+                case 5:
+                    Z = new Tetromino(Zrotations, ZlimitesEnY, colorPickerUC.color(), 3);
+                    Z.draw();
+                    break;
+                case 6:
+                    T = new Tetromino(Trotations, TlimitesEnY, colorPickerUC.color(), 3);
+                    T.draw();
+                    break;
+            }
             break;
         case 1:
-            L2 = new Tetromino(L2rotations, L2limitesEnY, colorPickerL2.color(), 3);
-            L2.draw();
-            break;
-        case 2:
-            I = new Tetromino(Irotations, IlimitesEnY, colorPickerI.color(), 4);
-            I.draw();
-            break;
-        case 3:
-            Cuad = new Tetromino(CuadradoRotations, CuadlimitesEnY, colorPickerCuad.color(), 2);
-            Cuad.draw();
-            break;
-        case 4:
-            S = new Tetromino(Srotations, SlimitesEnY, colorPickerS.color(), 3);
-            S.draw();
-            break;
-        case 5:
-            Z = new Tetromino(Zrotations, ZlimitesEnY, colorPickerZ.color(), 3);
-            Z.draw();
-            break;
-        case 6:
-            T = new Tetromino(Trotations, TlimitesEnY, colorPickerT.color(), 3);
-            T.draw();
+            switch (activeShape) {
+                case 0:
+                    L1 = new Tetromino(L1rotations, L1limitesEnY, colorPickerL1.color(), 3);
+                    L1.draw();
+                    break;
+                case 1:
+                    L2 = new Tetromino(L2rotations, L2limitesEnY, colorPickerL2.color(), 3);
+                    L2.draw();
+                    break;
+                case 2:
+                    I = new Tetromino(Irotations, IlimitesEnY, colorPickerI.color(), 4);
+                    I.draw();
+                    break;
+                case 3:
+                    Cuad = new Tetromino(CuadradoRotations, CuadlimitesEnY, colorPickerCuad.color(), 2);
+                    Cuad.draw();
+                    break;
+                case 4:
+                    S = new Tetromino(Srotations, SlimitesEnY, colorPickerS.color(), 3);
+                    S.draw();
+                    break;
+                case 5:
+                    Z = new Tetromino(Zrotations, ZlimitesEnY, colorPickerZ.color(), 3);
+                    Z.draw();
+                    break;
+                case 6:
+                    T = new Tetromino(Trotations, TlimitesEnY, colorPickerT.color(), 3);
+                    T.draw();
+                    break;
+            }
             break;
     }
 }
@@ -373,4 +409,13 @@ function endTetromino() {
 
 function pauseAction() {
     pause++;
+}
+
+function ucChange() {
+    if (color == 1) {
+        color = 0;
+    }
+    else if (color == 0) {
+        color = 1
+    }
 }
