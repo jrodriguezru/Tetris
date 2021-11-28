@@ -21,9 +21,15 @@ canvas {
 }
 
 .footer {
-  position:absolute;
+  position: absolute;
   top: 481px;
   left: 20px
+}
+
+.ngbttn {
+  position: absolute;
+  left: 240px;
+  top: 437px;
 }
 
 .notep {
@@ -51,7 +57,7 @@ canvas {
 
 .ppause {
   position: absolute;
-  left: 370px;
+  left: 380px;
   top: 96px;
 }
 

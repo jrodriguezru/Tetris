@@ -419,3 +419,10 @@ function ucChange() {
         color = 1
     }
 }
+
+function newGame() {
+    let entrada = confirm("Se reiniciará la página creando un nuevo juego. Sin embargo, se eliminarán todas las personalizaciones que se hayan realizado. ¿Continuar?");
+    if (entrada) {
+        location.reload();
+    }
+}

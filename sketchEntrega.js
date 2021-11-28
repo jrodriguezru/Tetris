@@ -2,6 +2,7 @@ let button;
 let ppause, colorPickerL1, colorPickerL2, colorPickerI, colorPickerCuad, colorPickerS;
 let colorPickerZ, colorPickerT, colorPickerBG, pL1, pL2, pI, pCuad, pS, pZ, pT, pBG, note;
 let colorPickerUC, pUC, ucSelector, psUC, colorPickerUCBG, pcpUCBG;
+let newGameButton;
 function setup() {
     button = createButton('Jugar/Pausar Juego');
     button.mousePressed(pauseAction);
@@ -75,7 +76,9 @@ function setup() {
     pUCBG = createP("Color para el fondo del tablero de juego")
     pUCBG.class('pcp');
     pUCBG.id('pcpUCBG');
-    
+    newGameButton = createButton('Nuevo Juego');
+    newGameButton.class('ngbttn');
+    newGameButton.mousePressed(newGame);
     createCanvas(200, 400);
 
 }
