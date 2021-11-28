@@ -2,6 +2,32 @@ let width = 200;
 let height = 400;
 let activeShape = 0;
 let timer = 0;
+let movimiento = 0;
+let canMoveLeft = 1;
+let canMoveRight = 1;
+
+let tableroControl = [
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
 
 class Tetromino {
     constructor(rotations, limitesEnY, color1, color2, color3, size) {
@@ -19,9 +45,84 @@ class Tetromino {
         this.limiteY3 = limitesEnY[3];
     }
 
+    updateTablero() {
+        let validacionOutside = 0;
+        let validacionInside = 0;
+        let actualRotationOutside = this.rotation % 4;
+        for (let i = this.size - 1; i >= 0; i--) {
+            validacionInside = 0;
+            for (let j = 0; j < 3; j ++) {
+                validacionInside = validacionInside + this.rotations[actualRotationOutside][i][j];
+            }
+            if(validacionInside == 0) {
+                validacionOutside++;
+            }
+        }
+        switch(movimiento) {
+            case 1:
+                let iOut1 = this.posEnY / 20;
+                let jOut1 = this.posEnX / 20;
+                let left = 0;
+                let right = 0;
+                for (let i = iOut1, iMat = 0; i < iOut1 + this.size - validacionOutside; i++, iMat++) {
+                    if (tableroControl[i][0] == 1) {
+                        left++;
+                    }
+                    if (tableroControl[i][9] == 1) {
+                        right++;
+                    }
+                    for (let j = jOut1, jMat = 0; j < jOut1 + this.size; j++, jMat++) {
+                        let actualRotation = this.rotation % 4;
+                        tableroControl[i][j] = this.rotations[actualRotation][iMat][jMat];
+                    }
+                }
+                if (left != 0) {
+                    canMoveLeft = 0;
+                }
+                else {
+                    canMoveLeft = 1;
+                }
+                if (right != 0) {
+                    canMoveRight = 0;
+                }
+                else {
+                    canMoveRight = 1;
+                }
+                break;
+            case 2:
+            case 5:
+            case 6:
+                let iOut2 = this.posEnY / 20;
+                let jOut2 = this.posEnX / 20;
+                for (let i = iOut2, iMat = 0; i < iOut2 + this.size - validacionOutside; i++, iMat++) {
+                    for (let j = jOut2, jMat = 0; j < jOut2 + this.size; j++, jMat++) {
+                        let activeRotation = this.rotation % 4;
+                        if (this.rotations[activeRotation][iMat][jMat] == 1) {
+                            tableroControl[i][j] = 0;
+                        }
+                    }
+                }
+                break;
+            case 3:
+            case 4:
+                let iOut3 = this.posEnY / 20;
+                let jOut3 = this.posEnX / 20;
+                for (let i = iOut3, iMat = 0; i < iOut3 + this.size - validacionOutside; i++, iMat++) {
+                    for (let j = jOut3, jMat = 0; j < jOut3 + this.size; j++, jMat++) {
+                        let activeRotation = this.rotation % 4;
+                        if (this.rotations[activeRotation][iMat][jMat] == 1) {
+                            tableroControl[i][j] = 0;
+                        }
+                    }
+                }
+                break;
+        }
+    }
+
     draw() {
         strokeWeight(2);
         stroke(0, 255);
+        movimiento = 1;
         fill(this.color1, this.color2, this.color3);
         for (let i = 0; i < this.size; i++) {
             for (let j = 0; j < this.size; j++) {
@@ -49,20 +150,35 @@ class Tetromino {
                 }
             }
         }
+        this.updateTablero();
     }
     rotate() {
+        movimiento = 2;
+        this.updateTablero();
         this.rotation += 1;
     }
     moveLeft() {
-        this.posEnX -= 20;   
+        if(canMoveLeft == 1) {
+            movimiento = 3;
+            this.updateTablero();
+            this.posEnX -= 20;   
+        }
     }
     moveRight() {
-        this.posEnX += 20;
+        if (canMoveRight == 1) {
+            movimiento = 4;
+            this.updateTablero();
+            this.posEnX += 20;
+        }
     }
     moveDown() {
+        movimiento = 5;
+        this.updateTablero();
         this.posEnY +=20;
     }
     fallDown() {
+        movimiento = 6;
+        this.updateTablero();
         switch (this.rotation % 4) {
             case 0:
                 this.posEnY = this.limiteY0;

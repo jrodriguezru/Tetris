@@ -4,6 +4,34 @@ let activeShape = 0;
 let timer = 0;
 let color = 1;
 let pause = 0;
+let movimiento = 0;
+
+let tableroControl = [
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];  
+
+function updateTablero() {
+    
+}
 
 class Tetromino {
     constructor(rotations, limitesEnY, color, size) {
@@ -22,6 +50,7 @@ class Tetromino {
     draw() {
         strokeWeight(2);
         stroke(0, 255);
+        movimiento = 1;
         fill(this.color);
         for (let i = 0; i < this.size; i++) {
             for (let j = 0; j < this.size; j++) {
@@ -49,20 +78,31 @@ class Tetromino {
                 }
             }
         }
+        updateTablero();
     }
     rotate() {
+        movimiento = 2;
+        updateTablero();
         this.rotation += 1;
     }
     moveLeft() {
+        movimiento = 3;
+        updateTablero();
         this.posEnX -= 20;   
     }
     moveRight() {
+        movimiento = 4;
+        updateTablero();
         this.posEnX += 20;
     }
     moveDown() {
+        movimiento = 5;
+        updateTablero();
         this.posEnY +=20;
     }
     fallDown() {
+        movimiento = 6;
+        updateTablero();
         switch (this.rotation % 4) {
             case 0:
                 this.posEnY = this.limiteY0;
