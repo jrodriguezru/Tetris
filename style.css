@@ -20,69 +20,87 @@ canvas {
   
 }
 
+.footer {
+  position:absolute;
+  top: 481px;
+  left: 20px
+}
+
 .p5Canvas {
   display: inline;
   position: relative;
   left: 20px;
 }
 
+.pausebttn {
+  display: inline-block;
+  position: absolute;
+  left: 240px;
+  top: 80px;
+}
 .pcp {
   position: absolute;
   left: 300px;
 }
 
+.ppause {
+  position: absolute;
+  left: 350px;
+  top: 65px;
+}
+
 #cpL1 {
-  top: 20px;
-}
-
-#cpL2 {
-  top: 50px;
-}
-
-#cpI {
-  top: 80px;
-}
-
-#cpCuad {
   top: 110px;
 }
 
-#cpS {
+#cpL2 {
   top: 140px;
 }
 
-#cpZ {
+#cpI {
   top: 170px;
 }
 
-#cpT {
+#cpCuad {
   top: 200px;
 }
 
+#cpS {
+  top: 230px;
+}
+
+#cpZ {
+  top: 260px;
+}
+
+#cpT {
+  top: 290px;
+}
+
 #pcpL1 {
-  top: 7px;
-}
-
-#pcpL2 {
-  top: 36px;
-}
-
-#pcpI {
-  top: 66px;
-}
-
-#pcpCuad {
   top: 96px;
 }
 
-#pcpS {
+#pcpL2 {
   top: 127px;
 }
 
+#pcpI {
+  top: 157px;
+}
+
+#pcpCuad {
+  top: 187px;
+}
+
+#pcpS {
+  top: 217px;
+}
+
 #pcpZ {
-  top: 156px;
+  top: 247px;
 }
 
 #pcpT {
-  top: 187px;
+  top: 277px;
 }

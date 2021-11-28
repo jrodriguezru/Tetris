@@ -3,6 +3,7 @@ let height = 400;
 let activeShape = 0;
 let timer = 0;
 let color = 1;
+let pause = 0;
 
 class Tetromino {
     constructor(rotations, limitesEnY, color, size) {
@@ -368,4 +369,8 @@ function finishTetromino() {
 
 function endTetromino() {
     newTetromino();
+}
+
+function pauseAction() {
+    pause++;
 }

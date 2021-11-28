@@ -1,4 +1,10 @@
+let button;
 function setup() {
+    button = createButton('Pause/Play Game');
+    button.mousePressed(pauseAction);
+    button.class('pausebttn');
+    ppause = createP("Game Paused");
+    ppause.class("ppause");
     if (color == 1) {
         colorPickerL1 = createColorPicker('#ff8c00');
         colorPickerL1.class('colorPicker');
@@ -50,12 +56,18 @@ function setup() {
 function draw() {
     background(230);
     tablero();
-    timer += 1;
-    if (timer == 1) {
-        newTetromino();
+    if (pause % 2 == 0) {
+        ppause.show();
     }
-    drawActiveTetromino();
-    autoMoveDown();
+    else if (pause % 2 == 1) {
+        ppause.hide();
+        timer += 1;
+        if (timer == 1) {
+            newTetromino();
+        }
+        drawActiveTetromino();
+        autoMoveDown();
+    }
 }
 
 
