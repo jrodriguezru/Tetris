@@ -580,3 +580,12 @@ function newGame() {
         location.reload();
     }
 }
+
+function BGcolor() {
+    if (color == 0) {
+        return colorPickerUCBG.color();
+    }
+    else if (color == 1) {
+        return colorPickerBG.color();
+    }
+}

@@ -128,7 +128,7 @@ function draw() {
         pUC.hide();
         pUCBG.hide();
     }
-    background(230);
+    background(BGcolor());
     tablero();
     if (pause % 2 == 0) {
         ppause.show();
