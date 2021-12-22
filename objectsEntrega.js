@@ -54,10 +54,8 @@ class Tetromino {
         let validacionOutside = 0;
         let validacionInside = 0;
         let actualRotationOutside = this.rotation % 4;
-        canMoveLeftOut == 1;
-        canMoveDown == 1;
-        canMoveRightOut == 1;
-        canRotate == 1;
+        
+        
         for (let i = this.size - 1; i >= 0; i--) {
             validacionInside = 0;
             for (let j = 0; j < 3; j ++) {
@@ -83,7 +81,9 @@ class Tetromino {
                     }
                     for (let j = jOut1, jMat = 0; j < jOut1 + this.size; j++, jMat++) {
                         let actualRotation = this.rotation % 4;
-                        tableroControl[i][j] = this.rotations[actualRotation][iMat][jMat];
+                        if (this.rotations[actualRotation][iMat][jMat] == 1) {
+                            tableroControl[i][j] = this.rotations[actualRotation][iMat][jMat];
+                        }
                     }
                 }
                 blankRow = [];
@@ -118,6 +118,10 @@ class Tetromino {
             case 2:
             case 5:
             case 6:
+                canRotate == 1;
+                canMoveDown == 1;
+                let controlRotation = 0;
+                let controlMoveDown = 0;
                 let iOut2 = this.posEnY / 20;
                 let jOut2 = this.posEnX / 20;
                 for (let i = iOut2, iMat = 0; i < iOut2 + this.size - validacionOutside; i++, iMat++) {
@@ -128,9 +132,48 @@ class Tetromino {
                         }
                     }
                 }
+                if (movimiento == 2) {
+                    controlRotation = 2;
+                    controlMoveDown = 1;
+                }
+                else if (movimiento == 5 || movimiento == 6) {
+                    controlRotation = 1;
+                    controlMoveDown = 2;
+                }
+                let down = 1;
+                if (iOut2 != 20){
+                    for (let iIn = iOut2 + controlMoveDown, iMat = 0; iIn < iOut2 + this.size - validacionOutside + controlMoveDown && iIn < 20; iIn++, iMat++){
+                        for (let jIn = jOut2, jMat = 0; jIn < jOut2 + this.size; jIn++, jMat++){
+                            if (this.rotations[actualRotationOutside][iMat][jMat] == 1) {
+                                if (tableroControl[iIn][jIn] == 1)
+                                    down = 0;
+                            }
+                        }
+                    }
+                }
+                if (down == 0) {
+                    canMoveDown = 0;
+                }
+                let rotate = 1;
+                    let activeRotatiionR = (this.rotation + controlRotation) % 4; 
+                    for (let iIn = iOut2, iMat = 0; iIn < iOut2 + this.size - validacionOutside; iIn++, iMat++){
+                        for (let jIn = jOut2, jMat = 0; jIn < jOut2 + this.size; jIn++, jMat++){
+                            if (this.rotations[activeRotatiionR][iMat][jMat] == 1) {
+                                if (tableroControl[iIn][jIn] == 1)
+                                    rotate = 0;
+                            }
+                        }
+                    }
+                    if (rotate == 0) {
+                        canRotate = 0;
+                    }
                 break;
             case 3:
             case 4:
+                canMoveLeftOut == 1;
+                canMoveRightOut == 1;
+                let controlRight = 0;
+                let controlLeft = 0;
                 let iOut3 = this.posEnY / 20;
                 let jOut3 = this.posEnX / 20;
                 for (let i = iOut3, iMat = 0; i < iOut3 + this.size - validacionOutside; i++, iMat++) {
@@ -141,81 +184,43 @@ class Tetromino {
                         }
                     }
                 }
-                break;
-        }
-        // TODO: Reconstruir los for para no revisar los espacios que ya ocupa la figura. Este es un bug
-        for (let i = 0; i < 3; i++) {
-            let activeRotatiion = this.rotation % 4;
-            let iOut = this.posEnY / 20;
-            let jOut = this.posEnX / 20;
-            switch (i) {
-                case 0: //moveDown
-                    let down = 1;
-                    if (iOut == 20){
-                        break;
-                    }
-                    for (let iIn = iOut + 1, iMat = 0; iIn < iOut + this.size - validacionOutside; iIn++, iMat++){
-                        for (let jIn = jOut, jMat = 0; jIn < jOut + this.size; jIn++, jMat++){
-                            if (this.rotations[activeRotatiion][iMat][jMat] == 1) {
+                if (movimiento == 3){
+                    controlLeft = 2;
+                    controlRight = 1;
+                }
+                else if (movimiento == 4) {
+                    controlLeft = 1;
+                    controlRight = 2;
+                }
+                let leftC = 1;
+                if (jOut3 != 20) {
+                    for (let iIn = iOut3, iMat = 0; iIn < iOut3 + this.size - validacionOutside; iIn++, iMat++){
+                        for (let jIn = jOut3 - controlLeft, jMat = 0; jIn < jOut3 + this.size; jIn++, jMat++){
+                            if (this.rotations[actualRotationOutside][iMat][jMat] == 1) {
                                 if (tableroControl[iIn][jIn] == 1)
-                                    down = 0;
+                                    leftC = 0;
                             }
                         }
                     }
-                    if (down == 0) {
-                        canMoveDown = 0;
-                    }
-                    break;
-                case 1: //moveLeft
-                    let left = 1;
-                    if (jOut == 20) {
-                        break;
-                    }
-                    for (let iIn = iOut, iMat = 0; iIn < iOut + this.size - validacionOutside; iIn++, iMat++){
-                        for (let jIn = jOut + 1, jMat = 0; jIn < jOut + this.size; jIn++, jMat++){
-                            if (this.rotations[activeRotatiion][iMat][jMat] == 1) {
-                                if (tableroControl[iIn][jIn] == 1)
-                                    left = 0;
-                            }
-                        }
-                    }
-                    if (left == 0) {
+                    if (leftC == 0) {
                         canMoveLeftOut = 0;
                     }
-                    break;
-                case 2: //moveRight
-                    let right = 1;
-                    if (jOut == 0) {
-                        break;
-                    }
-                    for (let iIn = iOut, iMat = 0; iIn < iOut + this.size - validacionOutside; iIn++, iMat++){
-                        for (let jIn = jOut - 1, jMat = 0; jIn < jOut + this.size; jIn++, jMat++){
-                            if (this.rotations[activeRotatiion][iMat][jMat] == 1) {
+                }
+                let rightC = 1;
+                if (jOut3 != 0) {
+                    for (let iIn = iOut3, iMat = 0; iIn < iOut3 + this.size - validacionOutside; iIn++, iMat++){
+                        for (let jIn = jOut3 + controlRight, jMat = 0; jIn < jOut3 + this.size; jIn++, jMat++){
+                            if (this.rotations[actualRotationOutside][iMat][jMat] == 1) {
                                 if (tableroControl[iIn][jIn] == 1)
-                                    right = 0;
+                                    rightC = 0;
                             }
                         }
                     }
-                    if (right == 0) {
-                        canMoveRightOut = 0;
-                    }
-                    break;
-                case 3: //rotate
-                    let rotate = 1;
-                    let activeRotatiionR = (this.rotation + 1) % 4; 
-                    for (let iIn = iOut, iMat = 0; iIn < iOut + this.size - validacionOutside; iIn++, iMat++){
-                        for (let jIn = jOut, jMat = 0; jIn < jOut + this.size; jIn++, jMat++){
-                            if (this.rotations[activeRotatiionR][iMat][jMat] == 1) {
-                                if (tableroControl[iIn][jIn] == 1)
-                                    rotate = 0;
-                            }
-                        }
-                    }
-                    if (rotate == 0) {
-                        canRotate = 0;
-                    }
-                    break;
-            }
+                }
+                if (rightC == 0) {
+                    canMoveRightOut = 0;
+                }
+                break;
         }
     }
 
