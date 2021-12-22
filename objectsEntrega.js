@@ -143,7 +143,7 @@ class Tetromino {
                 }
                 break;
         }
-        // TODO: Reconstruir los for para no revisar los espacios que ya ocupa la figura. Este es un bug actual
+        // TODO: Reconstruir los for para no revisar los espacios que ya ocupa la figura. Este es un bug
         for (let i = 0; i < 3; i++) {
             let activeRotatiion = this.rotation % 4;
             let iOut = this.posEnY / 20;
