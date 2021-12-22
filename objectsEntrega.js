@@ -1,3 +1,6 @@
+// TODO: Bug en L2 FallDown en rotacion 1.
+// TODO: Bug random ficha se detuvo en medio del mapa.
+
 let width = 200;
 let height = 400;
 let activeShape = 0;
@@ -152,6 +155,27 @@ class Tetromino {
                     }
                 }
                 if (down == 0) {
+                    canMoveDown = 0;
+                }
+                let limiteInferior = 0;
+                switch (this.rotation % 4) {
+                    case 0:
+                        limiteInferior = this.limiteY0;
+                        break;
+                    case 1:
+                        limiteInferior = this.limiteY1;
+                        break;
+                    case 2:
+                        limiteInferior = this.limiteY2;
+                        break;
+                    case 3:
+                        limiteInferior = this.limiteY3;
+                        break;
+                    default:
+                        limiteInferior = height;
+                        break;
+                }
+                if (this.posEnY == limiteInferior - 20) {
                     canMoveDown = 0;
                 }
                 let rotate = 1;
@@ -309,19 +333,8 @@ class Tetromino {
     fallDown() {
         movimiento = 6;
         this.updateTablero();
-        switch (this.rotation % 4) {
-            case 0:
-                this.posEnY = this.limiteY0;
-                break;
-            case 1:
-                this.posEnY = this.limiteY1;
-                break;
-            case 2:
-                this.posEnY = this.limiteY2;
-                break;
-            case 3:
-                this.posEnY = this.limiteY3;
-                break;
+        while (canMoveDown == 1){
+            this.moveDown();
         }
     }
 }
@@ -415,6 +428,12 @@ function getRandomInt(min, max) {
 }
 
 function newTetromino() {
+    canMoveDown = 1;
+    canMoveLeftOut = 1;
+    canMoveLeftOut = 1;
+    canMoveRight = 1;
+    canMoveRightOut = 1;
+    canRotate = 1;
     random = getRandomInt(0, 7);
     activeShape = random;
     switch(color) {
@@ -510,6 +529,9 @@ function drawActiveTetromino() {
             break;
     }
     if (finishTetromino() == true) {
+        endTetromino();
+    }
+    if (canMoveDown == 0) {
         endTetromino();
     }
 }
