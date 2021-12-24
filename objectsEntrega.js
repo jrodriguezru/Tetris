@@ -1,5 +1,8 @@
-// TODO: Bug en L2 FallDown en rotacion 1.
 // TODO: Bug random ficha se detuvo en medio del mapa.
+// TODO: Line cleared
+// TODO: On hold
+// TODO: Coming Up
+// TODO: Game Over
 
 let width = 200;
 let height = 400;
@@ -66,6 +69,9 @@ class Tetromino {
             }
             if(validacionInside == 0) {
                 validacionOutside++;
+            }
+            else if (validacionInside != 0) {
+                break;
             }
         }
         switch(movimiento) {
@@ -175,7 +181,7 @@ class Tetromino {
                         limiteInferior = height;
                         break;
                 }
-                if (this.posEnY == limiteInferior - 20) {
+                if (this.posEnY == limiteInferior - 20 || this.posEnY > limiteInferior - 20) {
                     canMoveDown = 0;
                 }
                 let rotate = 1;
@@ -376,7 +382,7 @@ let L2rotations = [
     [[1, 1, 1], [0, 0, 1], [0, 0, 0]],
 ];
 
-let L2limitesEnY = [height - 60, height, 60, height - 60, height - 40];
+let L2limitesEnY = [height - 60, height - 60, height - 60, height - 40];
 
 let Irotations = [
     [[0, 0, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0], [0, 0, 1, 0]],
