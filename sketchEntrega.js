@@ -147,6 +147,7 @@ function draw() {
 
 
 function keyPressed() {
+    if (keyCode == SHIFT) {onHoldChange()}
     switch(activeShape) {
         case 0:
             if (keyCode == UP_ARROW) {

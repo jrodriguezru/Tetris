@@ -1,6 +1,6 @@
 // TODO: Bug random ficha se detuvo en medio del mapa.
 // TODO: Line cleared
-// TODO: On hold
+// TODO: On hold, display.
 // TODO: Coming Up
 // TODO: Game Over
 
@@ -18,6 +18,8 @@ let canMoveLeftOut = 1;
 let canMoveRightOut = 1;
 let canRotate = 1;
 let blankRow = [];
+let onHold = -1;
+let onHoldChanging;
 
 let tableroControl = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -717,5 +719,108 @@ function BGcolor() {
     }
     else if (color == 1) {
         return colorPickerBG.color();
+    }
+}
+
+function onHoldChange() {
+    movimiento = 5;
+    switch(activeShape) {
+        case 0:
+            L1.updateTablero();
+            break;
+        case 1:
+            L2.updateTablero();
+            break;
+        case 2:
+            I.updateTablero();
+            break;
+        case 3:
+            Cuad.updateTablero();
+            break;
+        case 4:
+            S.updateTablero();
+            break;
+        case 5:
+            Z.updateTablero();
+            break;
+        case 6:
+            T.updateTablero();
+            break;
+            
+    }
+    if (onHold != -1) {
+        onHoldChanging = activeShape;
+        activeShape = onHold;
+        switch(color) {
+            case 0:
+                switch (onHold) {
+                    case 0:
+                        L1 = new Tetromino(L1rotations, L1limitesEnY, colorPickerUC.color(), 3);
+                        L1.draw();
+                        break;
+                    case 1:
+                        L2 = new Tetromino(L2rotations, L2limitesEnY, colorPickerUC.color(), 3);
+                        L2.draw();
+                        break;
+                    case 2:
+                        I = new Tetromino(Irotations, IlimitesEnY, colorPickerUC.color(), 4);
+                        I.draw();
+                        break;
+                    case 3:
+                        Cuad = new Tetromino(CuadradoRotations, CuadlimitesEnY, colorPickerUC.color(), 2);
+                        Cuad.draw();
+                        break;
+                    case 4:
+                        S = new Tetromino(Srotations, SlimitesEnY, colorPickerUC.color(), 3);
+                        S.draw();
+                        break;
+                    case 5:
+                        Z = new Tetromino(Zrotations, ZlimitesEnY, colorPickerUC.color(), 3);
+                        Z.draw();
+                        break;
+                    case 6:
+                        T = new Tetromino(Trotations, TlimitesEnY, colorPickerUC.color(), 3);
+                        T.draw();
+                        break;
+                }
+                break;
+            case 1:
+                switch (onHold) {
+                    case 0:
+                        L1 = new Tetromino(L1rotations, L1limitesEnY, colorPickerL1.color(), 3);
+                        L1.draw();
+                        break;
+                    case 1:
+                        L2 = new Tetromino(L2rotations, L2limitesEnY, colorPickerL2.color(), 3);
+                        L2.draw();
+                        break;
+                    case 2:
+                        I = new Tetromino(Irotations, IlimitesEnY, colorPickerI.color(), 4);
+                        I.draw();
+                        break;
+                    case 3:
+                        Cuad = new Tetromino(CuadradoRotations, CuadlimitesEnY, colorPickerCuad.color(), 2);
+                        Cuad.draw();
+                        break;
+                    case 4:
+                        S = new Tetromino(Srotations, SlimitesEnY, colorPickerS.color(), 3);
+                        S.draw();
+                        break;
+                    case 5:
+                        Z = new Tetromino(Zrotations, ZlimitesEnY, colorPickerZ.color(), 3);
+                        Z.draw();
+                        break;
+                    case 6:
+                        T = new Tetromino(Trotations, TlimitesEnY, colorPickerT.color(), 3);
+                        T.draw();
+                        break;
+                }
+                break;
+        }
+        onHold = onHoldChanging;
+    }
+    else {
+        onHold = activeShape;
+        newTetromino();
     }
 }
