@@ -1,8 +1,7 @@
 // TODO: Bug random ficha se detuvo en medio del mapa.
-// TODO: Line cleared
+// TODO: Line cleared, tambiém mostrar esta variable en el game over.
 // TODO: On hold, display.
-// TODO: Coming Up
-// TODO: Game Over
+// TODO: Coming Up.
 
 let width = 200;
 let height = 400;
@@ -361,7 +360,7 @@ function tablero() {
           if (tableroControl[j][i] == 1){
             strokeWeight(2);
             stroke(0, 255);
-            fill(0, 255);
+            fill(100, 255);
             rect(i * 20, j * 20, 20, 20);
           } 
         }
@@ -444,71 +443,76 @@ function newTetromino() {
     canRotate = 1;
     random = getRandomInt(0, 7);
     activeShape = random;
-    switch(color) {
-        case 0:
-            switch (activeShape) {
-                case 0:
-                    L1 = new Tetromino(L1rotations, L1limitesEnY, colorPickerUC.color(), 3);
-                    L1.draw();
-                    break;
-                case 1:
-                    L2 = new Tetromino(L2rotations, L2limitesEnY, colorPickerUC.color(), 3);
-                    L2.draw();
-                    break;
-                case 2:
-                    I = new Tetromino(Irotations, IlimitesEnY, colorPickerUC.color(), 4);
-                    I.draw();
-                    break;
-                case 3:
-                    Cuad = new Tetromino(CuadradoRotations, CuadlimitesEnY, colorPickerUC.color(), 2);
-                    Cuad.draw();
-                    break;
-                case 4:
-                    S = new Tetromino(Srotations, SlimitesEnY, colorPickerUC.color(), 3);
-                    S.draw();
-                    break;
-                case 5:
-                    Z = new Tetromino(Zrotations, ZlimitesEnY, colorPickerUC.color(), 3);
-                    Z.draw();
-                    break;
-                case 6:
-                    T = new Tetromino(Trotations, TlimitesEnY, colorPickerUC.color(), 3);
-                    T.draw();
-                    break;
-            }
-            break;
-        case 1:
-            switch (activeShape) {
-                case 0:
-                    L1 = new Tetromino(L1rotations, L1limitesEnY, colorPickerL1.color(), 3);
-                    L1.draw();
-                    break;
-                case 1:
-                    L2 = new Tetromino(L2rotations, L2limitesEnY, colorPickerL2.color(), 3);
-                    L2.draw();
-                    break;
-                case 2:
-                    I = new Tetromino(Irotations, IlimitesEnY, colorPickerI.color(), 4);
-                    I.draw();
-                    break;
-                case 3:
-                    Cuad = new Tetromino(CuadradoRotations, CuadlimitesEnY, colorPickerCuad.color(), 2);
-                    Cuad.draw();
-                    break;
-                case 4:
-                    S = new Tetromino(Srotations, SlimitesEnY, colorPickerS.color(), 3);
-                    S.draw();
-                    break;
-                case 5:
-                    Z = new Tetromino(Zrotations, ZlimitesEnY, colorPickerZ.color(), 3);
-                    Z.draw();
-                    break;
-                case 6:
-                    T = new Tetromino(Trotations, TlimitesEnY, colorPickerT.color(), 3);
-                    T.draw();
-                    break;
-            }
-            break;
+    if (validacionTablero()) {
+        switch(color) {
+            case 0:
+                switch (activeShape) {
+                    case 0:
+                        L1 = new Tetromino(L1rotations, L1limitesEnY, colorPickerUC.color(), 3);
+                        L1.draw();
+                        break;
+                    case 1:
+                        L2 = new Tetromino(L2rotations, L2limitesEnY, colorPickerUC.color(), 3);
+                        L2.draw();
+                        break;
+                    case 2:
+                        I = new Tetromino(Irotations, IlimitesEnY, colorPickerUC.color(), 4);
+                        I.draw();
+                        break;
+                    case 3:
+                        Cuad = new Tetromino(CuadradoRotations, CuadlimitesEnY, colorPickerUC.color(), 2);
+                        Cuad.draw();
+                        break;
+                    case 4:
+                        S = new Tetromino(Srotations, SlimitesEnY, colorPickerUC.color(), 3);
+                        S.draw();
+                        break;
+                    case 5:
+                        Z = new Tetromino(Zrotations, ZlimitesEnY, colorPickerUC.color(), 3);
+                        Z.draw();
+                        break;
+                    case 6:
+                        T = new Tetromino(Trotations, TlimitesEnY, colorPickerUC.color(), 3);
+                        T.draw();
+                        break;
+                }
+                break;
+            case 1:
+                switch (activeShape) {
+                    case 0:
+                        L1 = new Tetromino(L1rotations, L1limitesEnY, colorPickerL1.color(), 3);
+                        L1.draw();
+                        break;
+                    case 1:
+                        L2 = new Tetromino(L2rotations, L2limitesEnY, colorPickerL2.color(), 3);
+                        L2.draw();
+                        break;
+                    case 2:
+                        I = new Tetromino(Irotations, IlimitesEnY, colorPickerI.color(), 4);
+                        I.draw();
+                        break;
+                    case 3:
+                        Cuad = new Tetromino(CuadradoRotations, CuadlimitesEnY, colorPickerCuad.color(), 2);
+                        Cuad.draw();
+                        break;
+                    case 4:
+                        S = new Tetromino(Srotations, SlimitesEnY, colorPickerS.color(), 3);
+                        S.draw();
+                        break;
+                    case 5:
+                        Z = new Tetromino(Zrotations, ZlimitesEnY, colorPickerZ.color(), 3);
+                        Z.draw();
+                        break;
+                    case 6:
+                        T = new Tetromino(Trotations, TlimitesEnY, colorPickerT.color(), 3);
+                        T.draw();
+                        break;
+                }
+                break;
+        }
+    }
+    else {
+        gameOver();
     }
 }
 
@@ -822,5 +826,29 @@ function onHoldChange() {
     else {
         onHold = activeShape;
         newTetromino();
+    }
+}
+
+
+// FAlSE = GAME OVER
+function validacionTablero() {
+    let validacionGameOver = 0;
+    for(let j = 3; j < 9; j++){
+        if(tableroControl[1][j] == 1){
+            validacionGameOver = 1;
+        }
+    }
+    if (validacionGameOver == 1) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+function gameOver() {
+    let entrada = confirm("Game Over.\nPara volver a jugar debe recargar la página, creando un nuevo juego.\nCon esto, se eliminarán también todas las personalizaciones que se hayan realizado. ¿Continuar?");
+    if (entrada) {
+        location.reload();
     }
 }
