@@ -1,90 +1,155 @@
-let button;
+let canvas, canvasLeft, canvasRight, button;
 let ppause, colorPickerL1, colorPickerL2, colorPickerI, colorPickerCuad, colorPickerS;
 let colorPickerZ, colorPickerT, colorPickerBG, pL1, pL2, pI, pCuad, pS, pZ, pT, pBG, note;
 let colorPickerUC, pUC, ucSelector, psUC, colorPickerUCBG, pcpUCBG;
 let newGameButton;
+let settingsButton, goBackButton, comingUp, onHoldP, titleP, footer, x;
 function setup() {
     button = createButton('Jugar/Pausar Juego');
     button.mousePressed(pauseAction);
-    button.class('pausebttn');
     ppause = createP("Juego en Pausa");
-    ppause.class("ppause");
+    settingsButton = createButton('Ajustes')
+    settingsButton.mousePressed(settings);
+    newGameButton = createButton('Nuevo Juego');
+    newGameButton.mousePressed(newGame);
+    titleP = createP('Ajustes');
+    titleP.class('title');
     ucSelector = createCheckbox("", true);
     ucSelector.changed(ucChange);
-    ucSelector.class('ucSelec');
     psUC = createP('¿Color diferente para todos los tetrominos?');
-    psUC.class('psUC');
     colorPickerL1 = createColorPicker('#ff8c00');
-    colorPickerL1.class('colorPicker');
-    colorPickerL1.id('cpL1');
     colorPickerL2 = createColorPicker('#2600e7');
-    colorPickerL2.class('colorPicker');
-    colorPickerL2.id('cpL2');
     colorPickerI = createColorPicker('#00ffff');
-    colorPickerI.class('colorPicker');
-    colorPickerI.id('cpI');
     colorPickerCuad = createColorPicker('#ffff00');
-    colorPickerCuad.class('colorPicker');
-    colorPickerCuad.id('cpCuad');
     colorPickerS = createColorPicker('#00ff00');
-    colorPickerS.class('colorPicker');
-    colorPickerS.id('cpS');
     colorPickerZ = createColorPicker('#ff0000');
-    colorPickerZ.class('colorPicker');
-    colorPickerZ.id('cpZ');
     colorPickerT = createColorPicker('#c832fa');
-    colorPickerT.class('colorPicker');
-    colorPickerT.id('cpT');
     colorPickerBG = createColorPicker('#e6e6e6');
-    colorPickerBG.class('colorPicker');
-    colorPickerBG.id('cpbg');
     pL1 = createP("Color para el tetromino con forma de L");
-    pL1.class('pcp');
-    pL1.id('pcpL1');
-    pL2 = createP("Color para el tetromino con forma de L invertida");
-    pL2.class('pcp');
-    pL2.id('pcpL2');
+    pL2 = createP("Color para el tetromino con forma de J");
     pI = createP("Color para el tetromino con forma de I");
-    pI.class('pcp');
-    pI.id('pcpI');
     pCuad = createP("Color para el tetromino con forma de Cuadrado");
-    pCuad.class('pcp');
-    pCuad.id('pcpCuad');
     pS = createP("Color para el tetromino con forma de S");
-    pS.class('pcp');
-    pS.id('pcpS');
     pZ = createP("Color para el tetromino con forma de Z");
-    pZ.class('pcp');
-    pZ.id('pcpZ');
     pT = createP("Color para el tetromino con forma de T");
-    pT.class('pcp');
-    pT.id('pcpT');
     pBG = createP('Color para el fondo del tablero de juego');
-    pBG.class('pcp');
-    pBG.id('pcpbg');
     note = createP('El cambio de colores en los tetrominos tomará efecto <br> en la creación del siguiente tetromino.');
-    note.class('notep');
     colorPickerUC = createColorPicker("#ffffff");
-    colorPickerUC.class('colorPicker');
-    colorPickerUC.id('cpUC');
     colorPickerUCBG = createColorPicker('#e6e6e6');
-    colorPickerUCBG.class('colorPicker');
-    colorPickerUCBG.id('cpUCBG');
     pUC = createP("Color único para los tetrominos")
-    pUC.class('pcp');
-    pUC.id('pcpUC');
     pUCBG = createP("Color para el fondo del tablero de juego")
-    pUCBG.class('pcp');
-    pUCBG.id('pcpUCBG');
-    newGameButton = createButton('Nuevo Juego');
-    newGameButton.class('ngbttn');
-    newGameButton.mousePressed(newGame);
-    createCanvas(200, 400);
-
+    goBackButton = createButton('Regresar')
+    goBackButton.mousePressed(regresar);
+    canvas = createCanvas(200, 400);
+    canvasLeft = createGraphics(100, 100);
+    canvasRight = createGraphics(100, 240);
+    comingUp = createP('Siguientes...')
+    onHoldP = createP('En espera...')
+    footer = createP('Juan Antonio Rodríguez Rubio<br>2021<br>UN');
+    footer.class('footer');
 }
 
 function draw() {
-    if (color == 0) {
+    x = (windowWidth - width) / 2;
+    if (windowWidth < 440) {
+        alert('Para que la página sea cargada sin errores se necesita un espacio mínimo de 440 px de ancho. Continuar con un espacio menor hará que la página se cargue de manera incorrecta. <br> Ajuste la ventana y recargue la página. ');
+    }
+    button.position(x + 208, 360);
+    ppause.position(x + 220, 370);
+    settingsButton.position(x + 208, 410);
+    newGameButton.position(x + 208, 440);
+    titleP.position(x + 80, 43);
+    ucSelector.position(x - 100, 80);
+    psUC.position(x - 70, 65);
+    colorPickerL1.position(x - 100, 160);
+    colorPickerL2.position(x - 100, 190);
+    colorPickerI.position(x - 100, 220);
+    colorPickerCuad.position(x - 100, 250);
+    colorPickerS.position(x - 100, 280);
+    colorPickerZ.position(x - 100, 310);
+    colorPickerT.position(x - 100, 340);
+    colorPickerBG.position(x - 100, 370);
+    pL1.position(x - 40, 147);
+    pL2.position(x - 40,177);
+    pI.position(x - 40, 207);
+    pCuad.position(x - 40, 237);
+    pS.position(x - 40, 267);
+    pZ.position(x - 40, 297);
+    pT.position(x - 40, 327);
+    pBG.position(x - 40, 357);
+    note.position(x - 80, 97);
+    colorPickerUC.position(x - 100, 160);
+    colorPickerUCBG.position(x - 100, 190);
+    pUC.position(x - 40, 147);
+    pUCBG.position(x - 40, 177);
+    goBackButton.position(x + 80, 470);
+    canvas.position(x, 80);
+    canvasLeft.position(x - 120, 100);
+    canvasRight.position(x + 220, 100);
+    comingUp.position(x + 230, 65);
+    onHoldP.position(x - 110, 65);
+    footer.position(x, 490);
+    if (setActive == 1) {
+        ucSelector.show();
+        psUC.show();
+        note.show();
+        goBackButton.show();
+        titleP.show();
+        settingsButton.hide();
+        canvas.hide();
+        canvasLeft.hide();
+        canvasRight.hide();
+        comingUp.hide();
+        onHoldP.hide();
+        ppause.hide();
+        button.hide();
+        newGameButton.hide();
+        if (color == 0) {
+            colorPickerL1.hide();
+            colorPickerL2.hide();
+            colorPickerI.hide();
+            colorPickerCuad.hide();
+            colorPickerS.hide();
+            colorPickerZ.hide();
+            colorPickerT.hide();
+            colorPickerBG.hide();
+            pL1.hide();
+            pL2.hide();
+            pI.hide();
+            pCuad.hide();
+            pS.hide();
+            pZ.hide();
+            pT.hide();
+            pBG.hide();
+            colorPickerUC.show();
+            colorPickerUCBG.show();
+            pUC.show();
+            pUCBG.show();
+        }
+        else if (color == 1) {
+            colorPickerL1.show();
+            colorPickerL2.show();
+            colorPickerI.show();
+            colorPickerCuad.show();
+            colorPickerS.show();
+            colorPickerZ.show();
+            colorPickerT.show();
+            colorPickerBG.show();
+            pL1.show();
+            pL2.show();
+            pI.show();
+            pCuad.show();
+            pS.show();
+            pZ.show();
+            pT.show();
+            pBG.show();
+            colorPickerUC.hide();
+            colorPickerUCBG.hide();
+            pUC.hide();
+            pUCBG.hide();
+        }
+    }
+    else if (setActive == 0) {
         colorPickerL1.hide();
         colorPickerL2.hide();
         colorPickerI.hide();
@@ -101,36 +166,30 @@ function draw() {
         pZ.hide();
         pT.hide();
         pBG.hide();
-        colorPickerUC.show();
-        colorPickerUCBG.show();
-        pUC.show();
-        pUCBG.show();
-    }
-    else if (color == 1) {
-        colorPickerL1.show();
-        colorPickerL2.show();
-        colorPickerI.show();
-        colorPickerCuad.show();
-        colorPickerS.show();
-        colorPickerZ.show();
-        colorPickerT.show();
-        colorPickerBG.show();
-        pL1.show();
-        pL2.show();
-        pI.show();
-        pCuad.show();
-        pS.show();
-        pZ.show();
-        pT.show();
-        pBG.show();
         colorPickerUC.hide();
         colorPickerUCBG.hide();
         pUC.hide();
         pUCBG.hide();
+        ucSelector.hide();
+        psUC.hide();
+        note.hide();
+        titleP.hide();
+        settingsButton.show();
+        goBackButton.hide();
+        canvas.show();
+        canvasLeft.show();
+        canvasRight.show();
+        comingUp.show();
+        onHoldP.show();
+        ppause.show();
+        button.show();
+        newGameButton.show();
     }
+    canvasLeft.background(BGcolor());
+    canvasRight.background(BGcolor());
     background(BGcolor());
     tablero();
-    if (pause % 2 == 0) {
+    if (pause % 2 == 0 && setActive != 1) {
         ppause.show();
     }
     else if (pause % 2 == 1) {

@@ -19,6 +19,7 @@ let canRotate = 1;
 let blankRow = [];
 let onHold = -1;
 let onHoldChanging;
+let setActive = 0;
 
 let tableroControl = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -851,4 +852,12 @@ function gameOver() {
     if (entrada) {
         location.reload();
     }
+}
+
+function settings() {
+    setActive = 1;
+}
+
+function regresar() {
+    setActive = 0;
 }

@@ -1,154 +1,16 @@
 html, body {
   margin: 0;
   padding: 0;
-  
 }
 
 h1 {
   text-align: center;
 }
-
 /*
-canvas {
-  display: block;
+body {
+  background-image: url("https://www.wallpaperup.com/uploads/wallpapers/2012/04/02/1939/efa4a21f5ea5834cbbb1b30bc94eb17c.jpg");
 }
 */
-
-.colorPicker {
-  position: absolute;
-  left: 240px;
-  
-}
-
 .footer {
-  position: absolute;
-  top: 481px;
-  left: 20px
-}
-
-.ngbttn {
-  position: absolute;
-  left: 240px;
-  top: 437px;
-}
-
-.notep {
-  position: absolute;
-  top: 367px;
-  left: 240px;
-}
-
-.p5Canvas {
-  display: inline;
-  position: relative;
-  left: 20px;
-}
-
-.pausebttn {
-  display: inline-block;
-  position: absolute;
-  left: 240px;
-  top: 110px;
-}
-.pcp {
-  position: absolute;
-  left: 300px;
-}
-
-.ppause {
-  position: absolute;
-  left: 380px;
-  top: 96px;
-}
-
-.psUC {
-  position: absolute;
-  top: 65px;
-  left: 300px;
-}
-
-.ucSelec {
-  position: absolute;
-  top: 80px;
-  left:240px
-}
-
-#cpL1 {
-  top: 140px;
-}
-
-#cpL2 {
-  top: 170px;
-}
-
-#cpI {
-  top: 200px;
-}
-
-#cpCuad {
-  top: 230px;
-}
-
-#cpS {
-  top: 260px;
-}
-
-#cpZ {
-  top: 290px;
-}
-
-#cpT {
-  top: 320px;
-}
-
-#cpbg {
-  top: 350px
-}
-
-#cpUC {
-  top: 140px;
-}
-
-#cpUCBG {
-  top: 170px;
-}
-
-#pcpL1 {
-  top: 127px;
-}
-
-#pcpL2 {
-  top: 157px;
-}
-
-#pcpI {
-  top: 187px;
-}
-
-#pcpCuad {
-  top: 217px;
-}
-
-#pcpS {
-  top: 247px;
-}
-
-#pcpZ {
-  top: 277px;
-}
-
-#pcpT {
-  top: 307px;
-}
-
-#pcpbg {
-  top: 337px;
-}
-
-#pcpUC {
-  top: 127px;
-}
-
-#pcpUCBG {
-  top: 157px;
+  text-align: center;
 }
