@@ -3,7 +3,7 @@ let ppause, colorPickerL1, colorPickerL2, colorPickerI, colorPickerCuad, colorPi
 let colorPickerZ, colorPickerT, colorPickerBG, pL1, pL2, pI, pCuad, pS, pZ, pT, pBG, note;
 let colorPickerUC, pUC, ucSelector, psUC, colorPickerUCBG, pcpUCBG;
 let newGameButton;
-let settingsButton, goBackButton, comingUp, onHoldP, titleP, footer, x;
+let settingsButton, goBackButton, comingUp, onHoldP, titleP, footer, x, titleP2, instructionsButton;
 function setup() {
     button = createButton('Jugar/Pausar Juego');
     button.mousePressed(pauseAction);
@@ -12,8 +12,12 @@ function setup() {
     settingsButton.mousePressed(settings);
     newGameButton = createButton('Nuevo Juego');
     newGameButton.mousePressed(newGame);
+    instructionsButton = createButton('¿Cómo se juega?')
+    instructionsButton.mousePressed(instructions);
     titleP = createP('Ajustes');
     titleP.class('title');
+    titleP2 = createP('Instrucciones')
+    titleP2.class('title');
     ucSelector = createCheckbox("", true);
     ucSelector.changed(ucChange);
     psUC = createP('¿Color diferente para todos los tetrominos?');
@@ -42,7 +46,7 @@ function setup() {
     goBackButton.mousePressed(regresar);
     canvas = createCanvas(200, 400);
     canvasLeft = createGraphics(100, 100);
-    canvasRight = createGraphics(100, 240);
+    canvasRight = createGraphics(100, 300);
     comingUp = createP('Siguientes...')
     onHoldP = createP('En espera...')
     footer = createP('Juan Antonio Rodríguez Rubio<br>2021<br>UN');
@@ -54,11 +58,13 @@ function draw() {
     if (windowWidth < 440) {
         alert('Para que la página sea cargada sin errores se necesita un espacio mínimo de 440 px de ancho. Continuar con un espacio menor hará que la página se cargue de manera incorrecta. <br> Ajuste la ventana y recargue la página. ');
     }
-    button.position(x + 208, 360);
-    ppause.position(x + 220, 370);
-    settingsButton.position(x + 208, 410);
-    newGameButton.position(x + 208, 440);
+    button.position(x - 130, 220);
+    ppause.position(x - 120, 230);
+    settingsButton.position(x + 208, 405);
+    newGameButton.position(x + 208, 435);
+    instructionsButton.position(x + 208, 465);
     titleP.position(x + 80, 43);
+    titleP2.position(x + 60, 43);
     ucSelector.position(x - 100, 80);
     psUC.position(x - 70, 65);
     colorPickerL1.position(x - 100, 160);
@@ -95,6 +101,7 @@ function draw() {
         note.show();
         goBackButton.show();
         titleP.show();
+        titleP2.hide();
         settingsButton.hide();
         canvas.hide();
         canvasLeft.hide();
@@ -104,6 +111,7 @@ function draw() {
         ppause.hide();
         button.hide();
         newGameButton.hide();
+        instructionsButton.hide();
         if (color == 0) {
             colorPickerL1.hide();
             colorPickerL2.hide();
@@ -174,6 +182,7 @@ function draw() {
         psUC.hide();
         note.hide();
         titleP.hide();
+        titleP2.hide();
         settingsButton.show();
         goBackButton.hide();
         canvas.show();
@@ -184,21 +193,63 @@ function draw() {
         ppause.show();
         button.show();
         newGameButton.show();
+        instructionsButton.show();
+    }
+    else if (setActive == 2) {
+        colorPickerL1.hide();
+        colorPickerL2.hide();
+        colorPickerI.hide();
+        colorPickerCuad.hide();
+        colorPickerS.hide();
+        colorPickerZ.hide();
+        colorPickerT.hide();
+        colorPickerBG.hide();
+        pL1.hide();
+        pL2.hide();
+        pI.hide();
+        pCuad.hide();
+        pS.hide();
+        pZ.hide();
+        pT.hide();
+        pBG.hide();
+        colorPickerUC.hide();
+        colorPickerUCBG.hide();
+        pUC.hide();
+        pUCBG.hide();
+        ucSelector.hide();
+        psUC.hide();
+        note.hide();
+        titleP.hide();
+        titleP2.show();
+        settingsButton.hide();
+        goBackButton.show();
+        canvas.hide();
+        canvasLeft.hide();
+        canvasRight.hide();
+        comingUp.hide();
+        onHoldP.hide();
+        ppause.hide();
+        button.hide();
+        newGameButton.hide();
+        instructionsButton.hide()
     }
     canvasLeft.background(BGcolor());
     canvasRight.background(BGcolor());
     background(BGcolor());
     tablero();
-    if (pause % 2 == 0 && setActive != 1) {
+    drawLinesComingUp()
+    if (pause % 2 == 0 && setActive == 0) {
         ppause.show();
     }
     else if (pause % 2 == 1) {
         ppause.hide();
         timer += 1;
         if (timer == 1) {
-            newTetromino();
+            startGame();
         }
         drawActiveTetromino();
+        drawOnHold();
+        drawComingUp();
         autoMoveDown();
         
     }

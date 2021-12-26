@@ -1,7 +1,7 @@
 // TODO: Bug random ficha se detuvo en medio del mapa.
 // TODO: Line cleared, tambiém mostrar esta variable en el game over.
-// TODO: On hold, display.
-// TODO: Coming Up.
+// TODO: Color for on hold.
+// TODO: Color for Coming up.
 
 let width = 200;
 let height = 400;
@@ -20,6 +20,7 @@ let blankRow = [];
 let onHold = -1;
 let onHoldChanging;
 let setActive = 0;
+let cu1, cu2, cu3;
 
 let tableroControl = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -443,7 +444,10 @@ function newTetromino() {
     canMoveRightOut = 1;
     canRotate = 1;
     random = getRandomInt(0, 7);
-    activeShape = random;
+    activeShape = cu1;
+    cu1 = cu2;
+    cu2 = cu3;
+    cu3 = random;
     if (validacionTablero()) {
         switch(color) {
             case 0:
@@ -860,4 +864,309 @@ function settings() {
 
 function regresar() {
     setActive = 0;
+}
+
+function instructions() {
+    setActive = 2;
+}
+
+function startGame() {
+    let random = 0;
+    for (let i = 0; i < 3; i++) {
+        random = getRandomInt(0, 7);
+        switch(i) {
+            case 0:
+                cu1 = random;
+                break;
+            case 1:
+                cu2 = random;
+                break;
+            case 2:
+                cu3 = random;
+                break;
+        }
+    }
+    newTetromino();
+}
+
+function drawOnHold() {
+    switch(onHold) {
+        case 0:
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (L1rotations[0][j][i] == 1) {
+                        canvasLeft.rect(20 + (i*20), 20 + (j*20), 20, 20);
+                    }
+                }
+            }
+            break;
+        case 1:
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (L2rotations[0][j][i] == 1) {
+                        canvasLeft.rect(20 + (i*20), 20 + (j*20), 20, 20);
+                    }
+                }
+            }
+            break;
+        case 2:
+            for (let i = 0; i < 4; i++) {
+                for (let j = 0; j < 4; j++) {
+                    if (Irotations[0][j][i] == 1) {
+                        canvasLeft.rect((j*20), (i*20), 20, 20);
+                    }
+                }
+            }
+            break;
+        case 3:
+            for (let i = 0; i < 2; i++) {
+                for (let j = 0; j < 2; j++) {
+                    if (CuadradoRotations[0][j][i] == 1) {
+                        canvasLeft.rect(20 + (i*20), 20 + (j*20), 20, 20);
+                    }
+                }
+            }
+            break;
+        case 4:
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (Srotations[0][j][i] == 1) {
+                        canvasLeft.rect(20 + (i*20), 20 + (j*20), 20, 20);
+                    }
+                }
+            }
+            break;
+        case 5:
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (Zrotations[0][j][i] == 1) {
+                        canvasLeft.rect(20 + (i*20), 20 + (j*20), 20, 20);
+                    }
+                }
+            }
+            break;
+        case 6:
+            for (let i = 0; i < 3; i++) {
+                for (let j = 0; j < 3; j++) {
+                    if (Trotations[0][j][i] == 1) {
+                        canvasLeft.rect(20 + (i*20), 20 + (j*20), 20, 20);
+                    }
+                }
+            }
+            break;
+    }
+}
+
+function drawLinesComingUp() {
+    for (let i = 0; i < 2; i++) {
+        canvasRight.line(0, (i + 1) * 100, 100, (i + 1) * 100);
+    }
+}
+
+function drawComingUp() {
+    for (let c = 0; c < 3; c++) {
+        switch(c) {
+            case 0:
+                switch(cu1) {
+                    case 0:
+                        for (let i = 0; i < 3; i++) {
+                            for (let j = 0; j < 3; j++) {
+                                if (L1rotations[0][j][i] == 1) {
+                                    canvasRight.rect(20 + (i*20), 20 + (j*20), 20, 20);
+                                }
+                            }
+                        }
+                        break;
+                    case 1:
+                        for (let i = 0; i < 3; i++) {
+                            for (let j = 0; j < 3; j++) {
+                                if (L2rotations[0][j][i] == 1) {
+                                    canvasRight.rect(20 + (i*20), 20 + (j*20), 20, 20);
+                                }
+                            }
+                        }
+                        break;
+                    case 2:
+                        for (let i = 0; i < 4; i++) {
+                            for (let j = 0; j < 4; j++) {
+                                if (Irotations[0][j][i] == 1) {
+                                    canvasRight.rect((i*20), (j*20), 20, 20);
+                                }
+                            }
+                        }
+                        break;
+                    case 3:
+                        for (let i = 0; i < 2; i++) {
+                            for (let j = 0; j < 2; j++) {
+                                if (CuadradoRotations[0][j][i] == 1) {
+                                    canvasRight.rect(20 + (i*20), 20 + (j*20), 20, 20);
+                                }
+                            }
+                        }
+                        break;
+                    case 4:
+                        for (let i = 0; i < 3; i++) {
+                            for (let j = 0; j < 3; j++) {
+                                if (Srotations[0][j][i] == 1) {
+                                    canvasRight.rect(20 + (i*20), 20 + (j*20), 20, 20);
+                                }
+                            }
+                        }
+                        break;
+                    case 5:
+                        for (let i = 0; i < 3; i++) {
+                            for (let j = 0; j < 3; j++) {
+                                if (Zrotations[0][j][i] == 1) {
+                                    canvasRight.rect(20 + (i*20), 20 + (j*20), 20, 20);
+                                }
+                            }
+                        }
+                        break;
+                    case 6:
+                        for (let i = 0; i < 3; i++) {
+                            for (let j = 0; j < 3; j++) {
+                                if (Trotations[0][j][i] == 1) {
+                                    canvasRight.rect(20 + (i*20), 20 + (j*20), 20, 20);
+                                }
+                            }
+                        }
+                        break;
+                }
+                break;
+            case 1:
+                switch(cu2) {
+                    case 0:
+                        for (let i = 0; i < 3; i++) {
+                            for (let j = 0; j < 3; j++) {
+                                if (L1rotations[0][j][i] == 1) {
+                                    canvasRight.rect(20 + (i*20), (20*6) + (j*20), 20, 20);
+                                }
+                            }
+                        }
+                        break;
+                    case 1:
+                        for (let i = 0; i < 3; i++) {
+                            for (let j = 0; j < 3; j++) {
+                                if (L2rotations[0][j][i] == 1) {
+                                    canvasRight.rect(20 + (i*20), (20*6) + (j*20), 20, 20);
+                                }
+                            }
+                        }
+                        break;
+                    case 2:
+                        for (let i = 0; i < 4; i++) {
+                            for (let j = 0; j < 4; j++) {
+                                if (Irotations[0][j][i] == 1) {
+                                    canvasRight.rect((i*20), (20*5) + (j*20), 20, 20);
+                                }
+                            }
+                        }
+                        break;
+                    case 3:
+                        for (let i = 0; i < 2; i++) {
+                            for (let j = 0; j < 2; j++) {
+                                if (CuadradoRotations[0][j][i] == 1) {
+                                    canvasRight.rect(20 + (i*20), (20*6) + (j*20), 20, 20);
+                                }
+                            }
+                        }
+                        break;
+                    case 4:
+                        for (let i = 0; i < 3; i++) {
+                            for (let j = 0; j < 3; j++) {
+                                if (Srotations[0][j][i] == 1) {
+                                    canvasRight.rect(20 + (i*20), (20*6) + (j*20), 20, 20);
+                                }
+                            }
+                        }
+                        break;
+                    case 5:
+                        for (let i = 0; i < 3; i++) {
+                            for (let j = 0; j < 3; j++) {
+                                if (Zrotations[0][j][i] == 1) {
+                                    canvasRight.rect(20 + (i*20), (20*6) + (j*20), 20, 20);
+                                }
+                            }
+                        }
+                        break;
+                    case 6:
+                        for (let i = 0; i < 3; i++) {
+                            for (let j = 0; j < 3; j++) {
+                                if (Trotations[0][j][i] == 1) {
+                                    canvasRight.rect(20 + (i*20), (20*6) + (j*20), 20, 20);
+                                }
+                            }
+                        }
+                        break;
+                }
+                break;
+            case 2:
+                switch(cu3) {
+                    case 0:
+                        for (let i = 0; i < 3; i++) {
+                            for (let j = 0; j < 3; j++) {
+                                if (L1rotations[0][j][i] == 1) {
+                                    canvasRight.rect(20 + (i*20), (20*11) + (j*20), 20, 20);
+                                }
+                            }
+                        }
+                        break;
+                    case 1:
+                        for (let i = 0; i < 3; i++) {
+                            for (let j = 0; j < 3; j++) {
+                                if (L2rotations[0][j][i] == 1) {
+                                    canvasRight.rect(20 + (i*20), (20*11) + (j*20), 20, 20);
+                                }
+                            }
+                        }
+                        break;
+                    case 2:
+                        for (let i = 0; i < 4; i++) {
+                            for (let j = 0; j < 4; j++) {
+                                if (Irotations[0][j][i] == 1) {
+                                    canvasRight.rect((i*20), (20*10) + (j*20), 20, 20);
+                                }
+                            }
+                        }
+                        break;
+                    case 3:
+                        for (let i = 0; i < 2; i++) {
+                            for (let j = 0; j < 2; j++) {
+                                if (CuadradoRotations[0][j][i] == 1) {
+                                    canvasRight.rect(20 + (i*20), (20*11) + (j*20), 20, 20);
+                                }
+                            }
+                        }
+                        break;
+                    case 4:
+                        for (let i = 0; i < 3; i++) {
+                            for (let j = 0; j < 3; j++) {
+                                if (Srotations[0][j][i] == 1) {
+                                    canvasRight.rect(20 + (i*20), (20*11) + (j*20), 20, 20);
+                                }
+                            }
+                        }
+                        break;
+                    case 5:
+                        for (let i = 0; i < 3; i++) {
+                            for (let j = 0; j < 3; j++) {
+                                if (Zrotations[0][j][i] == 1) {
+                                    canvasRight.rect(20 + (i*20), (20*11) + (j*20), 20, 20);
+                                }
+                            }
+                        }
+                        break;
+                    case 6:
+                        for (let i = 0; i < 3; i++) {
+                            for (let j = 0; j < 3; j++) {
+                                if (Trotations[0][j][i] == 1) {
+                                    canvasRight.rect(20 + (i*20), (20*11) + (j*20), 20, 20);
+                                }
+                            }
+                        }
+                        break;
+                }
+                break
+        }
+    }
 }
