@@ -1,6 +1,8 @@
 // TODO: Bug random ficha se detuvo en medio del mapa.
 // TODO: Bug random, cuando se limpia una linea, el tablero desaparece y se pausa el juego. No permite seguir jugando.
 // TODO: Background
+// TODO: Display linesCleared en el UI
+// TODO: Agregar manejo de niveles
 
 let width = 200;
 let height = 400;
