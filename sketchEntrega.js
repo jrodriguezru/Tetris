@@ -2,7 +2,7 @@ let canvas, canvasLeft, canvasRight, button;
 let ppause, colorPickerL1, colorPickerL2, colorPickerI, colorPickerCuad, colorPickerS;
 let colorPickerZ, colorPickerT, colorPickerBG, pL1, pL2, pI, pCuad, pS, pZ, pT, pBG, note;
 let colorPickerUC, pUC, ucSelector, psUC, colorPickerUCBG, pcpUCBG;
-let newGameButton;
+let newGameButton, colorPickerOH, colorPickerCU, pOH, pCU;
 let settingsButton, goBackButton, comingUp, onHoldP, titleP, footer, x, titleP2, instructionsButton;
 function setup() {
     button = createButton('Jugar/Pausar Juego');
@@ -29,6 +29,8 @@ function setup() {
     colorPickerZ = createColorPicker('#ff0000');
     colorPickerT = createColorPicker('#c832fa');
     colorPickerBG = createColorPicker('#e6e6e6');
+    colorPickerOH = createColorPicker('#FFFFFF');
+    colorPickerCU = createColorPicker('#FFFFFF');
     pL1 = createP("Color para el tetromino con forma de L");
     pL2 = createP("Color para el tetromino con forma de J");
     pI = createP("Color para el tetromino con forma de I");
@@ -37,6 +39,8 @@ function setup() {
     pZ = createP("Color para el tetromino con forma de Z");
     pT = createP("Color para el tetromino con forma de T");
     pBG = createP('Color para el fondo del tablero de juego');
+    pOH = createP('Color para la ficha en espera');
+    pCU = createP('Color para las fichas siguientes');
     note = createP('El cambio de colores en los tetrominos tomará efecto <br> en la creación del siguiente tetromino.');
     colorPickerUC = createColorPicker("#ffffff");
     colorPickerUCBG = createColorPicker('#e6e6e6');
@@ -74,7 +78,9 @@ function draw() {
     colorPickerS.position(x - 100, 280);
     colorPickerZ.position(x - 100, 310);
     colorPickerT.position(x - 100, 340);
-    colorPickerBG.position(x - 100, 370);
+    colorPickerOH.position(x - 100, 370);
+    colorPickerCU.position(x - 100, 400);
+    colorPickerBG.position(x - 100, 430);
     pL1.position(x - 40, 147);
     pL2.position(x - 40,177);
     pI.position(x - 40, 207);
@@ -82,7 +88,9 @@ function draw() {
     pS.position(x - 40, 267);
     pZ.position(x - 40, 297);
     pT.position(x - 40, 327);
-    pBG.position(x - 40, 357);
+    pOH.position(x - 40, 357);
+    pCU.position(x - 40, 387);
+    pBG.position(x - 40, 417);
     note.position(x - 80, 97);
     colorPickerUC.position(x - 100, 160);
     colorPickerUCBG.position(x - 100, 190);
@@ -112,6 +120,10 @@ function draw() {
         button.hide();
         newGameButton.hide();
         instructionsButton.hide();
+        colorPickerOH.show();
+        colorPickerCU.show();
+        pOH.show();
+        pCU.show();
         if (color == 0) {
             colorPickerL1.hide();
             colorPickerL2.hide();
@@ -133,6 +145,10 @@ function draw() {
             colorPickerUCBG.show();
             pUC.show();
             pUCBG.show();
+            colorPickerOH.position(x - 100, 220);
+            colorPickerCU.position(x - 100, 250);
+            pOH.position(x - 40, 207);
+            pCU.position(x - 40, 237);
         }
         else if (color == 1) {
             colorPickerL1.show();
@@ -194,6 +210,10 @@ function draw() {
         button.show();
         newGameButton.show();
         instructionsButton.show();
+        colorPickerOH.hide();
+        colorPickerCU.hide();
+        pOH.hide();
+        pCU.hide();
     }
     else if (setActive == 2) {
         colorPickerL1.hide();

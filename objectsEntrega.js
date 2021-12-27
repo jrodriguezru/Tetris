@@ -1,7 +1,6 @@
 // TODO: Bug random ficha se detuvo en medio del mapa.
 // TODO: Line cleared, tambiém mostrar esta variable en el game over.
-// TODO: Color for on hold.
-// TODO: Color for Coming up.
+// TODO: Background
 
 let width = 200;
 let height = 400;
@@ -890,6 +889,7 @@ function startGame() {
 }
 
 function drawOnHold() {
+    canvasLeft.fill(colorPickerOH.color());
     switch(onHold) {
         case 0:
             for (let i = 0; i < 3; i++) {
@@ -965,6 +965,7 @@ function drawLinesComingUp() {
 
 function drawComingUp() {
     for (let c = 0; c < 3; c++) {
+        canvasRight.fill(colorPickerCU.color());
         switch(c) {
             case 0:
                 switch(cu1) {
