@@ -272,6 +272,7 @@ function draw() {
         drawComingUp();
         autoMoveDown();
         
+        
     }
 }
 

@@ -1,5 +1,5 @@
 // TODO: Bug random ficha se detuvo en medio del mapa.
-// TODO: Line cleared, tambiém mostrar esta variable en el game over.
+// TODO: Bug random, cuando se limpia una linea, el tablero desaparece y se pausa el juego. No permite seguir jugando.
 // TODO: Background
 
 let width = 200;
@@ -20,6 +20,9 @@ let onHold = -1;
 let onHoldChanging;
 let setActive = 0;
 let cu1, cu2, cu3;
+let newLine = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+let linesCompleted = [];
+let linesCleared = 0;
 
 let tableroControl = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -698,6 +701,7 @@ function finishTetromino() {
 }
 
 function endTetromino() {
+    lineClearedManagement();
     newTetromino();
 }
 
@@ -851,7 +855,7 @@ function validacionTablero() {
 }
 
 function gameOver() {
-    let entrada = confirm("Game Over.\nPara volver a jugar debe recargar la página, creando un nuevo juego.\nCon esto, se eliminarán también todas las personalizaciones que se hayan realizado. ¿Continuar?");
+    let entrada = confirm("Game Over.\nLimpió un total de: " + linesCleared + " línea(s).\nPara volver a jugar debe recargar la página, creando un nuevo juego.\nCon esto, se eliminarán también todas las personalizaciones que se hayan realizado. ¿Continuar?");
     if (entrada) {
         location.reload();
     }
@@ -1170,4 +1174,34 @@ function drawComingUp() {
                 break
         }
     }
+}
+
+function lineCompleted(i) {
+    for (let j = 0; j < 10; j++) {
+        if (tableroControl[i][j] == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function lineCleared() {
+    for (let i = 0; i < linesCompleted.length; i++) {
+        tableroControl.splice(linesCompleted[i]);
+        tableroControl.unshift([...newLine]);
+
+    }
+}
+
+function lineClearedManagement() {
+    linesCompleted = [];
+    for (let i = 0; i < 20; i++) {
+        if (lineCompleted(i)) {
+            linesCompleted.push(i);
+        }
+    }
+    if (linesCompleted.length != 0) {
+        lineCleared()
+    }
+    linesCleared = linesCleared + linesCompleted.length;
 }
