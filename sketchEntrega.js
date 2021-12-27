@@ -2,7 +2,7 @@ let canvas, canvasLeft, canvasRight, button;
 let ppause, colorPickerL1, colorPickerL2, colorPickerI, colorPickerCuad, colorPickerS;
 let colorPickerZ, colorPickerT, colorPickerBG, pL1, pL2, pI, pCuad, pS, pZ, pT, pBG, note;
 let colorPickerUC, pUC, ucSelector, psUC, colorPickerUCBG, pcpUCBG;
-let newGameButton, colorPickerOH, colorPickerCU, pOH, pCU;
+let newGameButton, colorPickerOH, colorPickerCU, pOH, pCU, instructionsP1;
 let settingsButton, goBackButton, comingUp, onHoldP, titleP, footer, x, titleP2, instructionsButton;
 function setup() {
     button = createButton('Jugar/Pausar Juego');
@@ -55,6 +55,10 @@ function setup() {
     onHoldP = createP('En espera...')
     footer = createP('Juan Antonio Rodríguez Rubio<br>2021<br>UN');
     footer.class('footer');
+    linesClearedP = createP('Lineas limpiadas: ')
+    linesClearedV = createP(linesCleared);
+    linesClearedV.class('lcv');
+    instructionsP1 = createP('Éstas son las teclas que se usan para jugar:<br> - Flecha Abajo: Baja el tetromino un cuadrado <br> - Flecha Derecha/Izquierda: Mueve el tetromino un cuadrado a la<br>derecha o a la izqueirda. <br> - Flecha arriba: Rota el tetromino en dirección de las manecillas del<br>reloj. <br> - Shift: Cambia el tetromino en espera. <br> - Espacio: Hace que el tetromino caiga por el tablero. <br>')
 }
 
 function draw() {
@@ -103,6 +107,9 @@ function draw() {
     comingUp.position(x + 230, 65);
     onHoldP.position(x - 110, 65);
     footer.position(x, 490);
+    instructionsP1.position(x - 120, 80);
+    linesClearedP.position(x - 125, 290);
+    linesClearedV.position(x - 80, 310);
     if (setActive == 1) {
         ucSelector.show();
         psUC.show();
@@ -120,6 +127,9 @@ function draw() {
         button.hide();
         newGameButton.hide();
         instructionsButton.hide();
+        instructionsP1.hide();
+        linesClearedP.hide();
+        linesClearedV.hide();
         colorPickerOH.show();
         colorPickerCU.show();
         pOH.show();
@@ -210,10 +220,13 @@ function draw() {
         button.show();
         newGameButton.show();
         instructionsButton.show();
+        instructionsP1.hide();
         colorPickerOH.hide();
         colorPickerCU.hide();
         pOH.hide();
         pCU.hide();
+        linesClearedP.show();
+        linesClearedV.show();
     }
     else if (setActive == 2) {
         colorPickerL1.hide();
@@ -241,6 +254,7 @@ function draw() {
         note.hide();
         titleP.hide();
         titleP2.show();
+        instructionsP1.show();
         settingsButton.hide();
         goBackButton.show();
         canvas.hide();
@@ -251,10 +265,13 @@ function draw() {
         ppause.hide();
         button.hide();
         newGameButton.hide();
-        instructionsButton.hide()
+        instructionsButton.hide();
+        linesClearedP.hide();
+        linesClearedV.hide();
     }
     canvasLeft.background(BGcolor());
     canvasRight.background(BGcolor());
+    linesClearedV.html(linesCleared);
     background(BGcolor());
     tablero();
     drawLinesComingUp()

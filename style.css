@@ -14,3 +14,10 @@ body {
 .footer {
   text-align: center;
 }
+
+.lcv {
+  border: 1px;
+  border-style:double;
+  width: 20px;
+  text-align: center;
+}
