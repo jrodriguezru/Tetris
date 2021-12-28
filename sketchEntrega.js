@@ -269,6 +269,7 @@ function draw() {
         linesClearedP.hide();
         linesClearedV.hide();
     }
+    document.body.style.backgroundImage = "url('/background.JPG')";
     canvasLeft.background(BGcolor());
     canvasRight.background(BGcolor());
     linesClearedV.html(linesCleared);
