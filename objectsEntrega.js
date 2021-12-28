@@ -1,5 +1,6 @@
 // TODO: Bug random ficha se detuvo en medio del mapa.
 // TODO: Agregar manejo de niveles
+// TODO: Plantear una forma para hacer la página completamente responsiva.
 
 let width = 200;
 let height = 400;
