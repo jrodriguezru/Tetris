@@ -288,7 +288,7 @@ function draw() {
     }
     darkModeChange();
     if (darkMode == 0) {
-        document.body.style.backgroundImage = "url('/background.JPG')";
+        document.body.style.backgroundImage = "url('https://jrodriguezru.github.io/Tetris/background.JPG')";
         let x = document.getElementsByTagName("P");
         for (let i = 0; i < x.length; i++) {
             x[i].style.color = "black";
@@ -299,7 +299,7 @@ function draw() {
         }
     }
     else if (darkMode == 1) {
-        document.body.style.backgroundImage = "url('/backgroundDM.JPG')";
+        document.body.style.backgroundImage = "url('https://jrodriguezru.github.io/Tetris/backgroundDM.JPG')";
         let x = document.getElementsByTagName("P");
         for (let i = 0; i < x.length; i++) {
             x[i].style.color = "white";
