@@ -23,6 +23,7 @@ let cu1, cu2, cu3;
 let newLine = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 let linesCompleted = [];
 let linesCleared = 0;
+let darkMode = 0;
 
 let tableroControl = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -1210,4 +1211,36 @@ function lineClearedManagement() {
         lineCleared()
     }
     linesCleared = linesCleared + linesCompleted.length;
+}
+
+let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+function darkModeInitialization() {
+    if (matched) {
+        darkMode = 1;
+    }
+    else {
+        darkMode = 0;
+    }
+}
+
+function darkModeChange() {
+    let matchedOld = matched;
+    matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (matchedOld != matched) {
+        darkModeInitialization();
+        dmSelector.hide();
+        dmSelector = createCheckbox("", matched);
+        dmSelector.changed(dmChange);
+    }
+}
+
+
+function dmChange() {
+    if (darkMode == 1) {
+        darkMode = 0;
+    }
+    else if (darkMode == 0) {
+        darkMode = 1
+    }
 }

@@ -1,10 +1,11 @@
 let canvas, canvasLeft, canvasRight, button;
 let ppause, colorPickerL1, colorPickerL2, colorPickerI, colorPickerCuad, colorPickerS;
 let colorPickerZ, colorPickerT, colorPickerBG, pL1, pL2, pI, pCuad, pS, pZ, pT, pBG, note;
-let colorPickerUC, pUC, ucSelector, psUC, colorPickerUCBG, pcpUCBG;
+let colorPickerUC, pUC, ucSelector, psUC, colorPickerUCBG, pcpUCBG, dmSelector, dmP;
 let newGameButton, colorPickerOH, colorPickerCU, pOH, pCU, instructionsP1;
 let settingsButton, goBackButton, comingUp, onHoldP, titleP, footer, x, titleP2, instructionsButton;
 function setup() {
+    darkModeInitialization();
     button = createButton('Jugar/Pausar Juego');
     button.mousePressed(pauseAction);
     ppause = createP("Juego en Pausa");
@@ -58,6 +59,14 @@ function setup() {
     linesClearedP = createP('Lineas limpiadas: ')
     linesClearedV = createP(linesCleared);
     linesClearedV.class('lcv');
+    if (darkMode == 0 ) {
+        dmSelector = createCheckbox("", false);
+    }
+    else if (darkMode == 1) {
+        dmSelector = createCheckbox("", true);
+    }
+    dmP = createP('Modo Oscuro');
+    dmSelector.changed(dmChange);
     instructionsP1 = createP('Éstas son las teclas que se usan para jugar:<br> - Flecha Abajo: Baja el tetromino un cuadrado <br> - Flecha Derecha/Izquierda: Mueve el tetromino un cuadrado a la<br>derecha o a la izqueirda. <br> - Flecha arriba: Rota el tetromino en dirección de las manecillas del<br>reloj. <br> - Shift: Cambia el tetromino en espera. <br> - Espacio: Hace que el tetromino caiga por el tablero. <br>')
 }
 
@@ -100,7 +109,7 @@ function draw() {
     colorPickerUCBG.position(x - 100, 190);
     pUC.position(x - 40, 147);
     pUCBG.position(x - 40, 177);
-    goBackButton.position(x + 80, 470);
+    goBackButton.position(x + 80, 480);
     canvas.position(x, 80);
     canvasLeft.position(x - 120, 100);
     canvasRight.position(x + 220, 100);
@@ -110,6 +119,8 @@ function draw() {
     instructionsP1.position(x - 120, 80);
     linesClearedP.position(x - 125, 290);
     linesClearedV.position(x - 80, 310);
+    dmSelector.position(x - 90, 460);
+    dmP.position(x - 70, 445);
     if (setActive == 1) {
         ucSelector.show();
         psUC.show();
@@ -134,6 +145,8 @@ function draw() {
         colorPickerCU.show();
         pOH.show();
         pCU.show();
+        dmSelector.show();
+        dmP.show();
         if (color == 0) {
             colorPickerL1.hide();
             colorPickerL2.hide();
@@ -209,6 +222,8 @@ function draw() {
         note.hide();
         titleP.hide();
         titleP2.hide();
+        dmSelector.hide();
+        dmP.hide();
         settingsButton.show();
         goBackButton.hide();
         canvas.show();
@@ -252,6 +267,8 @@ function draw() {
         ucSelector.hide();
         psUC.hide();
         note.hide();
+        dmSelector.hide();
+        dmP.hide();
         titleP.hide();
         titleP2.show();
         instructionsP1.show();
@@ -269,7 +286,29 @@ function draw() {
         linesClearedP.hide();
         linesClearedV.hide();
     }
-    document.body.style.backgroundImage = "url('/background.JPG')";
+    darkModeChange();
+    if (darkMode == 0) {
+        document.body.style.backgroundImage = "url('/background.JPG')";
+        let x = document.getElementsByTagName("P");
+        for (let i = 0; i < x.length; i++) {
+            x[i].style.color = "black";
+        }
+        let y = document.getElementsByTagName("H1");
+        for (let i = 0; i < y.length; i++) {
+            y[i].style.color = "black";
+        }
+    }
+    else if (darkMode == 1) {
+        document.body.style.backgroundImage = "url('/backgroundDM.JPG')";
+        let x = document.getElementsByTagName("P");
+        for (let i = 0; i < x.length; i++) {
+            x[i].style.color = "white";
+        }
+        let y = document.getElementsByTagName("H1");
+        for (let i = 0; i < y.length; i++) {
+            y[i].style.color = "white";
+        }
+    }
     canvasLeft.background(BGcolor());
     canvasRight.background(BGcolor());
     linesClearedV.html(linesCleared);
