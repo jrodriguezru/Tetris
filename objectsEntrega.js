@@ -1,5 +1,4 @@
 // TODO: Bug random ficha se detuvo en medio del mapa.
-// TODO: Background
 // TODO: Agregar manejo de niveles
 
 let width = 200;
