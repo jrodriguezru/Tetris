@@ -2,7 +2,7 @@ let canvas, canvasLeft, canvasRight, button;
 let ppause, colorPickerL1, colorPickerL2, colorPickerI, colorPickerCuad, colorPickerS;
 let colorPickerZ, colorPickerT, colorPickerBG, pL1, pL2, pI, pCuad, pS, pZ, pT, pBG, note;
 let colorPickerUC, pUC, ucSelector, psUC, colorPickerUCBG, pcpUCBG, dmSelector, dmP;
-let newGameButton, colorPickerOH, colorPickerCU, pOH, pCU, instructionsP1;
+let newGameButton, colorPickerOH, colorPickerCU, pOH, pCU, instructionsP1, nivelP, nivelV;
 let settingsButton, goBackButton, comingUp, onHoldP, titleP, footer, x, titleP2, instructionsButton;
 function setup() {
     darkModeInitialization();
@@ -59,6 +59,9 @@ function setup() {
     linesClearedP = createP('Lineas limpiadas: ')
     linesClearedV = createP(linesCleared);
     linesClearedV.class('lcv');
+    nivelP = createP('Nivel: ')
+    nivelV = createP(nivel);
+    nivelV.class('lcv');
     if (darkMode == 0 ) {
         dmSelector = createCheckbox("", false);
     }
@@ -121,6 +124,8 @@ function draw() {
     linesClearedV.position(x - 80, 310);
     dmSelector.position(x - 90, 460);
     dmP.position(x - 70, 445);
+    nivelP.position(x - 90, 340);
+    nivelV.position(x - 80, 360);
     if (setActive == 1) {
         ucSelector.show();
         psUC.show();
@@ -141,6 +146,8 @@ function draw() {
         instructionsP1.hide();
         linesClearedP.hide();
         linesClearedV.hide();
+        nivelP.hide();
+        nivelV.hide();
         colorPickerOH.show();
         colorPickerCU.show();
         pOH.show();
@@ -242,6 +249,8 @@ function draw() {
         pCU.hide();
         linesClearedP.show();
         linesClearedV.show();
+        nivelP.show();
+        nivelV.show();
     }
     else if (setActive == 2) {
         colorPickerL1.hide();
@@ -285,6 +294,8 @@ function draw() {
         instructionsButton.hide();
         linesClearedP.hide();
         linesClearedV.hide();
+        nivelP.hide();
+        nivelV.hide();
     }
     darkModeChange();
     if (darkMode == 0) {
@@ -312,6 +323,7 @@ function draw() {
     canvasLeft.background(BGcolor());
     canvasRight.background(BGcolor());
     linesClearedV.html(linesCleared);
+    nivelV.html(nivel);
     background(BGcolor());
     tablero();
     drawLinesComingUp()
@@ -328,8 +340,6 @@ function draw() {
         drawOnHold();
         drawComingUp();
         autoMoveDown();
-        
-        
     }
 }
 

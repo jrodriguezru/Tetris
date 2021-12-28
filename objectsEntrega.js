@@ -1,5 +1,4 @@
-// TODO: Bug random ficha se detuvo en medio del mapa.
-// TODO: Agregar manejo de niveles
+// TODO: Bug random ficha se detuvo en medio del mapa. (No se volvió a presentar)
 // TODO: Plantear una forma para hacer la página completamente responsiva.
 
 let width = 200;
@@ -24,6 +23,8 @@ let newLine = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 let linesCompleted = [];
 let linesCleared = 0;
 let darkMode = 0;
+let nivel = 1;
+let timerNivel = 40;
 
 let tableroControl = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -415,7 +416,7 @@ let Srotations = [
     [[1, 0, 0], [1, 1, 0], [0, 1, 0]],
 ];
 
-let SlimitesEnY = [height - 40, height - 40, height - 40, height - 40];
+let SlimitesEnY = [height - 40, height - 60, height - 40, height - 60];
 
 let Zrotations = [
     [[1, 1, 0], [0, 1, 1], [0, 0, 0]],
@@ -557,7 +558,7 @@ function drawActiveTetromino() {
 }
 
 function autoMoveDown() {
-    if (timer % 40 == 0) {
+    if (timer % timerNivel == 0) {
         switch (activeShape) {
             case 0:
                 L1.moveDown();
@@ -1196,7 +1197,10 @@ function lineCleared() {
     for (let i = 0; i < linesCompleted.length; i++) {
         tableroControl.splice(linesCompleted[i], 1);
         tableroControl.unshift([...newLine]);
-
+        linesCleared++;
+        if (linesCleared % 10 == 0 && linesCleared != 0) {
+            levelUp();
+        }
     }
 }
 
@@ -1210,7 +1214,6 @@ function lineClearedManagement() {
     if (linesCompleted.length != 0) {
         lineCleared()
     }
-    linesCleared = linesCleared + linesCompleted.length;
 }
 
 let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -1242,5 +1245,12 @@ function dmChange() {
     }
     else if (darkMode == 0) {
         darkMode = 1
+    }
+}
+
+function levelUp() {
+    nivel++;
+    if (timerNivel > 5) {
+        timerNivel = timerNivel - 5;
     }
 }
