@@ -1,5 +1,4 @@
 // TODO: Bug random ficha se detuvo en medio del mapa.
-// TODO: Bug random, cuando se limpia una linea, el tablero desaparece y se pausa el juego. No permite seguir jugando.
 // TODO: Background
 // TODO: Agregar manejo de niveles
 
@@ -864,6 +863,9 @@ function gameOver() {
 
 function settings() {
     setActive = 1;
+    if (pause % 2 != 0) {
+        pause++
+    }
 }
 
 function regresar() {
@@ -872,6 +874,9 @@ function regresar() {
 
 function instructions() {
     setActive = 2;
+    if (pause % 2 != 0) {
+        pause++
+    }
 }
 
 function startGame() {
@@ -1188,7 +1193,7 @@ function lineCompleted(i) {
 
 function lineCleared() {
     for (let i = 0; i < linesCompleted.length; i++) {
-        tableroControl.splice(linesCompleted[i]);
+        tableroControl.splice(linesCompleted[i], 1);
         tableroControl.unshift([...newLine]);
 
     }
