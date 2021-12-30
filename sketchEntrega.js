@@ -70,7 +70,7 @@ function setup() {
     }
     dmP = createP('Modo Oscuro');
     dmSelector.changed(dmChange);
-    instructionsP1 = createP('Éstas son las teclas que se usan para jugar:<br> - Flecha Abajo: Baja el tetromino un cuadrado <br> - Flecha Derecha/Izquierda: Mueve el tetromino un cuadrado a la<br>derecha o a la izqueirda. <br> - Flecha arriba: Rota el tetromino en dirección de las manecillas del<br>reloj. <br> - Shift: Cambia el tetromino en espera. <br> - Espacio: Hace que el tetromino caiga por el tablero. <br>')
+    instructionsP1 = createP('Éstas son las teclas que se usan para jugar:<br> - Flecha Abajo: Baja el tetromino un cuadrado <br> - Flecha Derecha/Izquierda: Mueve el tetromino un cuadrado a la<br>derecha o a la izqueirda. <br> - Flecha arriba: Rota 90º el tetromino en dirección de las manecillas del<br>reloj. <br> - Shift: Cambia el tetromino en espera. <br> - Espacio: Hace que el tetromino caiga por el tablero. <br>')
 }
 
 function draw() {
