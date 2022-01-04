@@ -1,9 +1,10 @@
-let canvas, canvasLeft, canvasRight, button;
+let canvasLeft, canvasRight, button;
 let ppause, colorPickerL1, colorPickerL2, colorPickerI, colorPickerCuad, colorPickerS;
 let colorPickerZ, colorPickerT, colorPickerBG, pL1, pL2, pI, pCuad, pS, pZ, pT, pBG, note;
 let colorPickerUC, pUC, ucSelector, psUC, colorPickerUCBG, pcpUCBG, dmSelector, dmP;
 let newGameButton, colorPickerOH, colorPickerCU, pOH, pCU, instructionsP1, nivelP, nivelV;
 let settingsButton, goBackButton, comingUp, onHoldP, titleP, footer, x, titleP2, instructionsButton;
+
 function setup() {
     darkModeInitialization();
     button = createButton('Jugar/Pausar Juego');
@@ -49,12 +50,11 @@ function setup() {
     pUCBG = createP("Color para el fondo del tablero de juego")
     goBackButton = createButton('Regresar')
     goBackButton.mousePressed(regresar);
-    canvas = createCanvas(200, 400);
     canvasLeft = createGraphics(100, 100);
     canvasRight = createGraphics(100, 300);
     comingUp = createP('Siguientes...')
     onHoldP = createP('En espera...')
-    footer = createP('Juan Antonio Rodríguez Rubio<br>2021<br>UN');
+    footer = createP('Usando p5.Quadrille.js<br>Juan Antonio Rodríguez Rubio<br>2021<br>UN');
     footer.class('footer');
     linesClearedP = createP('Lineas limpiadas: ')
     linesClearedV = createP(linesCleared);
@@ -71,7 +71,9 @@ function setup() {
     dmP = createP('Modo Oscuro');
     dmSelector.changed(dmChange);
     instructionsP1 = createP('Éstas son las teclas que se usan para jugar:<br> - Flecha Abajo: Baja el tetromino un cuadrado <br> - Flecha Derecha/Izquierda: Mueve el tetromino un cuadrado a la<br>derecha o a la izqueirda. <br> - Flecha arriba: Rota 90º el tetromino en dirección de las manecillas del<br>reloj. <br> - Shift: Cambia el tetromino en espera. <br> - Espacio: Hace que el tetromino caiga por el tablero. <br>')
-    multiButton = createButton('Con Quadrille');
+    canvas = createCanvas(columnas * square, filas * square);
+    board = createQuadrille(columnas, filas);
+    multiButton = createButton('Sin Quadrille');
     multiButton.mousePressed(change);
 }
 
@@ -158,7 +160,7 @@ function draw() {
         dmSelector.show();
         dmP.show();
         multiButton.hide();
-        if (color == 0) {
+        if (colorSet == 0) {
             colorPickerL1.hide();
             colorPickerL2.hide();
             colorPickerI.hide();
@@ -184,7 +186,7 @@ function draw() {
             pOH.position(x - 40, 207);
             pCU.position(x - 40, 237);
         }
-        else if (color == 1) {
+        else if (colorSet == 1) {
             colorPickerL1.show();
             colorPickerL2.show();
             colorPickerI.show();
@@ -326,13 +328,13 @@ function draw() {
             y[i].style.color = "white";
         }
     }
+    canvas.background(BGcolor());
     canvasLeft.background(BGcolor());
     canvasRight.background(BGcolor());
     linesClearedV.html(linesCleared);
     nivelV.html(nivel);
-    background(BGcolor());
-    tablero();
     drawLinesComingUp()
+    drawQuadrille(board, {cellLength: square, outline: (0, 100), board: true});
     if (pause % 2 == 0 && setActive == 0) {
         ppause.show();
     }
@@ -342,140 +344,50 @@ function draw() {
         if (timer == 1) {
             startGame();
         }
-        drawActiveTetromino();
         drawOnHold();
         drawComingUp();
         autoMoveDown();
+        drawQuadrille(quadrille, {row: row, col: col, cellLength: square, outline: (0, 100), board: true});
+        if (row == filas - sizes[value] || !canMoveDown()) {
+            finishTetromino();
+        }
     }
+    
 }
 
-
 function keyPressed() {
-    if (keyCode == SHIFT) {onHoldChange()}
-    switch(activeShape) {
-        case 0:
-            if (keyCode == UP_ARROW) {
-                L1.rotate();
-                console.log("L1 changed rotation");
-            }
-            else if (keyCode == RIGHT_ARROW) {
-                L1.moveRight();
-            }
-            else if (keyCode == LEFT_ARROW) {
-                L1.moveLeft();
-            }
-            else if (keyCode == DOWN_ARROW) {
-                L1.moveDown();
-            }
-            else if (key == " ") {
-                L1.fallDown();
-            }
-            break;
-        case 1:
-            if (keyCode == UP_ARROW) {
-                L2.rotate();
-            }
-            else if (keyCode == RIGHT_ARROW) {
-                L2.moveRight();
-            }
-            else if (keyCode == LEFT_ARROW) {
-                L2.moveLeft();
-            }
-            else if (keyCode == DOWN_ARROW) {
-                L2.moveDown();
-            }
-            else if (key == " ") {
-                L2.fallDown();
-            }
-            break;
-        case 2:
-            if (keyCode == UP_ARROW) {
-                I.rotate();
-            }
-            else if (keyCode == RIGHT_ARROW) {
-                I.moveRight();
-            }
-            else if (keyCode == LEFT_ARROW) {
-                I.moveLeft();
-            }
-            else if (keyCode == DOWN_ARROW) {
-                I.moveDown();
-            }
-            else if (key == " ") {
-                I.fallDown();
-            }
-            break;
-        case 3:
-            if (keyCode == UP_ARROW) {
-                Cuad.rotate();
-            }
-            else if (keyCode == RIGHT_ARROW) {
-                Cuad.moveRight();
-            }
-            else if (keyCode == LEFT_ARROW) {
-                Cuad.moveLeft();
-            }
-            else if (keyCode == DOWN_ARROW) {
-                Cuad.moveDown();
-            }
-            else if (key == " ") {
-                Cuad.fallDown();
-            }
-            break;
-        case 4:
-            if (keyCode == UP_ARROW) {
-                S.rotate();
-            }
-            else if (keyCode == RIGHT_ARROW) {
-                S.moveRight();
-            }
-            else if (keyCode == LEFT_ARROW) {
-                S.moveLeft();
-            }
-            else if (keyCode == DOWN_ARROW) {
-                S.moveDown();
-            }
-            else if (key == " ") {
-                S.fallDown();
-            }
-            break;
-        case 5:
-            if (keyCode == UP_ARROW) {
-                Z.rotate();
-            }
-            else if (keyCode == RIGHT_ARROW) {
-                Z.moveRight();
-            }
-            else if (keyCode == LEFT_ARROW) {
-                Z.moveLeft();
-            }
-            else if (keyCode == DOWN_ARROW) {
-                Z.moveDown();
-            }
-            else if (key == " ") {
-                Z.fallDown();
-            }
-            break;
-        case 6:
-            if (keyCode == UP_ARROW) {
-                T.rotate();
-            }
-            else if (keyCode == RIGHT_ARROW) {
-                T.moveRight();
-            }
-            else if (keyCode == LEFT_ARROW) {
-                T.moveLeft();
-            }
-            else if (keyCode == DOWN_ARROW) {
-                T.moveDown();
-            }
-            else if (key == " ") {
-                T.fallDown();
-            }
-            break;
+    if (keyCode == UP_ARROW) {
+        if (canRotate()) {
+            quadrille.rotate();
+            freeSpace();
+        }   
+    }
+    else if (keyCode == DOWN_ARROW) {
+        if (row < filas - sizes[value] + freeSpaceDown && canMoveDown()) {
+            row += 1;
+        }
+    }
+    else if (keyCode == RIGHT_ARROW) {
+        if (col < columnas - sizes[value] + freeSpaceRight && canMoveRight()) {
+            col += 1
+        }
+        
+    }
+    else if (keyCode == LEFT_ARROW) {
+        if (col > 0 - freeSpaceLeft && canMoveLeft()) {
+            col -= 1
+        }
+    }
+    else if (key == ' ') {
+        while (canMoveDown()) {
+            row += 1;
+        }
+    }
+    else if (keyCode == SHIFT) {
+        onHoldChange()
     }
 }
 
 function change() {
-    window.location.replace("quadrille.html");
+    window.location.replace("index.html")
 }
