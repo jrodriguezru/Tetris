@@ -10,18 +10,24 @@ We use in this proyect the following:
 ## What does it have?
 The final project have only 2 html pages.
 - The fist one (index.html) is the fully working game without using the p5.quadrille.js library.
-- The second one (quadrille.html) is also the fully working game, but using the p5.quadrille.js library.\
+- The second one (quadrille.html) is also the fully working game, but using the p5.quadrille.js library. 
+
+
 However in this repository other html pages can be found. Those were used for developing purposes and should not be taken into further consideration.
 
 ## What can you do in the working pages?
-The main idea of the project, the game, is fully functional; so you can play.\
+The main idea of the project, the game, is fully functional; so you can play.
+
+
 Apart from playing, you can also customize the look and feel of the game. Each page have the following customization options:
 - Checkbox for you to choose whether you want all tetrominos to have the same color or not.
 - Color Pickers for you to choose what color each (or all) tetrominos will use and to change the color of the background of the playing areas.
 - Checkbox for you to choose whether or not you want dark mode applied or not. (When the page is opened, it applies the same mode of the desktop and also changes if the desktop's mode is changed.)
 
 ## Anything else worth mentioning?
-Yes!\ 
+Yes!
+
+
 There is also instructions of how to play the game in each page, as well as the lines cleared counter and the level counter.
 
 ## How does it work?
