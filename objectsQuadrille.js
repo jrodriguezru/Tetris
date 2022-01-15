@@ -126,7 +126,7 @@ function finishTetromino() {
         }
     }
     if (freeSpaceRight != 0) {
-        for (let j = sizes[value] - 1 - freeSpaceLeft; j >= freeSpaceRight; j--) {
+        for (let j = sizes[value] - 1 - freeSpaceLeft, l = 0; l < freeSpaceRight; j--, l++) {
             for (let i = 0; i < sizes[value]; i++) {
                 clone._memory2D[i].splice(j, 1);
             }

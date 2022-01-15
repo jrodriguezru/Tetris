@@ -348,7 +348,7 @@ function draw() {
         drawComingUp();
         autoMoveDown();
         drawQuadrille(quadrille, {row: row, col: col, cellLength: square, outline: (0, 100), board: true});
-        if (row == filas - sizes[value] || !canMoveDown()) {
+        if (row == filas - sizes[value] + freeSpaceDown || !canMoveDown()) {
             finishTetromino();
         }
     }
