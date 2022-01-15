@@ -42,4 +42,4 @@ In each of the pages, the Tetromino moves using the arrow keys of the Keyboard, 
 ## Some additional notes:
 In this game, there is some differences with the "normal" game. For instance:
 - Traditional score is not calculated, only level and lines cleared are calculated and displayed.
-- Movement at the end of the Tetromino's life is not supported. I.e. rotating the tetromino at the final row after passing one block, or moving it left/right.
+- Movement at the end of the Tetromino's life is not supported. I.e. rotating/moving left/right the tetromino at the final row after passing one block.
