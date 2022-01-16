@@ -27,6 +27,8 @@ let onHold = -1;
 let onHoldChanging;
 let cu1, cu2, cu3;
 let timerNivel = 40;
+let score = 0;
+let previousQLinesCleared = 0;
 
 function active(value) {
     return createQuadrille(matrix(value));
@@ -335,7 +337,7 @@ function instructions() {
 
 function gameOver() {
     pause += 1;
-    let entrada = confirm("Game Over.\nLimpió un total de: " + linesCleared + " línea(s).\nPara volver a jugar debe recargar la página, creando un nuevo juego.\nCon esto, se eliminarán también todas las personalizaciones que se hayan realizado. ¿Continuar?");
+    let entrada = confirm("Game Over.\nLimpió un total de: " + linesCleared + " línea(s).\nObtuvo un puntaje de " + score + " puntos.\nPara volver a jugar debe recargar la página, creando un nuevo juego.\nCon esto, se eliminarán también todas las personalizaciones que se hayan realizado. ¿Continuar?");
     if (entrada) {
         location.reload();
     }
@@ -566,6 +568,22 @@ function lineClearedManagement() {
         }
     }
     if (linesCompleted.length != 0) {
-        lineCleared()
+        lineCleared();
+        scoreManagment();
     }
+}
+
+function scoreManagment() {
+    let increaseScore = 0
+    if (linesCompleted.length == 4 && previousQLinesCleared != 4) {
+        increaseScore = 400;
+    }
+    else if (linesCompleted.length == 4 && previousQLinesCleared == 4) {
+        increaseScore = 1200;
+    }
+    else {
+        increaseScore = 100;
+    }
+    score += increaseScore;
+    previousQLinesCleared = linesCompleted.length;
 }

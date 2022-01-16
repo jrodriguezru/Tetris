@@ -75,6 +75,9 @@ function setup() {
     board = createQuadrille(columnas, filas);
     multiButton = createButton('Sin Quadrille');
     multiButton.mousePressed(change);
+    scorep1 = createP('Puntaje:');
+    scorep2 = createP(score);
+    scorep2.class('lcv');
 }
 
 function draw() {
@@ -125,12 +128,14 @@ function draw() {
     footer.position(x, 490);
     instructionsP1.position(x - 120, 80);
     linesClearedP.position(x - 125, 290);
-    linesClearedV.position(x - 80, 310);
+    linesClearedV.position(x - 87, 310);
     dmSelector.position(x - 90, 460);
     dmP.position(x - 70, 445);
-    nivelP.position(x - 90, 340);
-    nivelV.position(x - 80, 360);
-    multiButton.position(x - 110, 410);
+    nivelP.position(x - 85, 340);
+    nivelV.position(x - 87, 360);
+    multiButton.position(x - 110, 460);
+    scorep1.position(x - 90, 390);
+    scorep2.position(x - 87, 410);
     if (setActive == 1) {
         ucSelector.show();
         psUC.show();
@@ -160,6 +165,8 @@ function draw() {
         dmSelector.show();
         dmP.show();
         multiButton.hide();
+        scorep2.hide();
+        scorep1.hide();
         if (colorSet == 0) {
             colorPickerL1.hide();
             colorPickerL2.hide();
@@ -258,6 +265,8 @@ function draw() {
         nivelP.show();
         nivelV.show();
         multiButton.show();
+        scorep2.show();
+        scorep1.show();
     }
     else if (setActive == 2) {
         colorPickerL1.hide();
@@ -304,6 +313,8 @@ function draw() {
         nivelP.hide();
         nivelV.hide();
         multiButton.hide();
+        scorep2.hide();
+        scorep1.hide();
     }
     darkModeChange();
     if (darkMode == 0) {

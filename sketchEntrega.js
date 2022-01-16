@@ -1,4 +1,4 @@
-let canvas, canvasLeft, canvasRight, button;
+let canvas, canvasLeft, canvasRight, button, scorep1, scorep2;
 let ppause, colorPickerL1, colorPickerL2, colorPickerI, colorPickerCuad, colorPickerS;
 let colorPickerZ, colorPickerT, colorPickerBG, pL1, pL2, pI, pCuad, pS, pZ, pT, pBG, note;
 let colorPickerUC, pUC, ucSelector, psUC, colorPickerUCBG, pcpUCBG, dmSelector, dmP;
@@ -73,6 +73,9 @@ function setup() {
     instructionsP1 = createP('Éstas son las teclas que se usan para jugar:<br> - Flecha Abajo: Baja el tetromino un cuadrado <br> - Flecha Derecha/Izquierda: Mueve el tetromino un cuadrado a la<br>derecha o a la izqueirda. <br> - Flecha arriba: Rota 90º el tetromino en dirección de las manecillas del<br>reloj. <br> - Shift: Cambia el tetromino en espera. <br> - Espacio: Hace que el tetromino caiga por el tablero. <br>')
     multiButton = createButton('Con Quadrille');
     multiButton.mousePressed(change);
+    scorep1 = createP('Puntaje:');
+    scorep2 = createP(score);
+    scorep2.class('lcv');
 }
 
 function draw() {
@@ -123,12 +126,14 @@ function draw() {
     footer.position(x, 490);
     instructionsP1.position(x - 120, 80);
     linesClearedP.position(x - 125, 290);
-    linesClearedV.position(x - 80, 310);
+    linesClearedV.position(x - 87, 310);
     dmSelector.position(x - 90, 460);
     dmP.position(x - 70, 445);
-    nivelP.position(x - 90, 340);
-    nivelV.position(x - 80, 360);
-    multiButton.position(x - 110, 410);
+    nivelP.position(x - 85, 340);
+    nivelV.position(x - 87, 360);
+    multiButton.position(x - 110, 460);
+    scorep1.position(x - 90, 390);
+    scorep2.position(x - 87, 410);
     if (setActive == 1) {
         ucSelector.show();
         psUC.show();
@@ -158,6 +163,8 @@ function draw() {
         dmSelector.show();
         dmP.show();
         multiButton.hide();
+        scorep2.hide();
+        scorep1.hide();
         if (color == 0) {
             colorPickerL1.hide();
             colorPickerL2.hide();
@@ -256,6 +263,8 @@ function draw() {
         nivelP.show();
         nivelV.show();
         multiButton.show();
+        scorep2.show();
+        scorep1.show();
     }
     else if (setActive == 2) {
         colorPickerL1.hide();
@@ -302,6 +311,8 @@ function draw() {
         nivelP.hide();
         nivelV.hide();
         multiButton.hide();
+        scorep2.hide();
+        scorep1.hide();
     }
     darkModeChange();
     if (darkMode == 0) {
@@ -330,6 +341,7 @@ function draw() {
     canvasRight.background(BGcolor());
     linesClearedV.html(linesCleared);
     nivelV.html(nivel);
+    scorep2.html(score);
     background(BGcolor());
     tablero();
     drawLinesComingUp()
