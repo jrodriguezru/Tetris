@@ -39,7 +39,11 @@ In each of the pages, the Tetromino moves using the arrow keys of the Keyboard, 
 - Spacebar key: It pushes the Active Tetromino to the bottom of the board. 
 - Shift key: It changes the Active Tetromino with the one in the hold space.
 
+## How is score calculated?
+- Each cleared line adds 100 points to the point variable.
+- When clearing 4 files in one movement (known as Tetris) the score increases by 400 points.
+- After doing a Tetris, subsequent back-to-back Tetris the score increases by 1200 points.
+
 ## Some additional notes:
 In this game, there is some differences with the "normal" game. For instance:
-- Traditional score is not calculated, only level and lines cleared are calculated and displayed.
 - Movement at the end of the Tetromino's life is not supported. I.e. rotating/moving left/right the tetromino at the final row after passing one block.
