@@ -1,10 +1,19 @@
+/*
+DOCUMENTO JAVASCRIPT PRINCIPAL DEL JUEGO DE TETRIS SIN USAR LA LIBRERÍA P5.QUADILLE.JS
+JUAN ANTONIO RODRÍGUEZ RUBIO
+UN - 2021 - 2022
+GITHUB: https://github.com/jrodriguezru/Tetris
+*/
+// Variables de la UI
 let canvas, canvasLeft, canvasRight, button, scorep1, scorep2;
 let ppause, colorPickerL1, colorPickerL2, colorPickerI, colorPickerCuad, colorPickerS;
 let colorPickerZ, colorPickerT, colorPickerBG, pL1, pL2, pI, pCuad, pS, pZ, pT, pBG, note;
 let colorPickerUC, pUC, ucSelector, psUC, colorPickerUCBG, pcpUCBG, dmSelector, dmP;
 let newGameButton, colorPickerOH, colorPickerCU, pOH, pCU, instructionsP1, nivelP, nivelV;
 let settingsButton, goBackButton, comingUp, onHoldP, titleP, footer, x, titleP2, instructionsButton;
+
 function setup() {
+    // Inicialización de la UI
     darkModeInitialization();
     button = createButton('Jugar/Pausar Juego');
     button.mousePressed(pauseAction);
@@ -79,6 +88,7 @@ function setup() {
 }
 
 function draw() {
+    // Ubicación de los elementos de la UI de acuerdo al tamaño horizontal de la ventana
     x = (windowWidth - width) / 2;
     if (windowWidth < 440) {
         alert('Para que la página sea cargada sin errores se necesita un espacio mínimo de 440 px de ancho. Continuar con un espacio menor hará que la página se cargue de manera incorrecta. <br> Ajuste la ventana y recargue la página. ');
@@ -134,6 +144,10 @@ function draw() {
     multiButton.position(x - 110, 460);
     scorep1.position(x - 90, 390);
     scorep2.position(x - 87, 410);
+    // Mostrar o esconder los elementos de la UI de acuerdo al espcio a mostrar
+    // Si setActive = 0: Se muestra el juego
+    // Si setActive = 1: Se muestran los ajustes
+    // Si setActive = 2: Se muestran las instrucciones
     if (setActive == 1) {
         ucSelector.show();
         psUC.show();
@@ -314,9 +328,12 @@ function draw() {
         scorep2.hide();
         scorep1.hide();
     }
+    // Manejo del modo oscuro/claro
     darkModeChange();
-    if (darkMode == 0) {
+    if (darkMode == 0) {        // Modo claro
+        // Imagen de fondo
         document.body.style.backgroundImage = "url('https://jrodriguezru.github.io/Tetris/background.JPG')";
+        // Cambiar el color de la letra a negro
         let x = document.getElementsByTagName("P");
         for (let i = 0; i < x.length; i++) {
             x[i].style.color = "black";
@@ -326,8 +343,10 @@ function draw() {
             y[i].style.color = "black";
         }
     }
-    else if (darkMode == 1) {
+    else if (darkMode == 1) {        // Modo oscuro
+        // Imagen de fondo
         document.body.style.backgroundImage = "url('https://jrodriguezru.github.io/Tetris/backgroundDM.JPG')";
+        // Cambiar el color de la letra a blanco
         let x = document.getElementsByTagName("P");
         for (let i = 0; i < x.length; i++) {
             x[i].style.color = "white";
@@ -337,6 +356,7 @@ function draw() {
             y[i].style.color = "white";
         }
     }
+    // Dibujar todo en los canvas
     canvasLeft.background(BGcolor());
     canvasRight.background(BGcolor());
     linesClearedV.html(linesCleared);
@@ -345,6 +365,7 @@ function draw() {
     background(BGcolor());
     tablero();
     drawLinesComingUp()
+    // Manejo de la pausa
     if (pause % 2 == 0 && setActive == 0) {
         ppause.show();
     }
@@ -361,7 +382,7 @@ function draw() {
     }
 }
 
-
+// Manejo de la entrada del usuario
 function keyPressed() {
     if (keyCode == SHIFT) {onHoldChange()}
     switch(activeShape) {
@@ -486,8 +507,4 @@ function keyPressed() {
             }
             break;
     }
-}
-
-function change() {
-    window.location.replace("quadrille.html");
 }

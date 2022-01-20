@@ -1,3 +1,10 @@
+/*
+DOCUMENTO JAVASCRIPT DE FUNCIONES Y VARIABLES DEL JUEGO DE TETRIS USANDO LA LIBRERÍA P5.QUADILLE.JS
+JUAN ANTONIO RODRÍGUEZ RUBIO
+UN - 2021 - 2022
+GITHUB: https://github.com/jrodriguezru/Tetris
+*/
+// Declaración de variables globales usadas.
 let filas = 20;
 let columnas = 10;
 let square = 20;
@@ -30,12 +37,20 @@ let timerNivel = 40;
 let score = 0;
 let previousQLinesCleared = 0;
 
+// Variable que toma el valor del modo preferido por el usuario. El modo configurado en el SO.
+// False = El usuario prefiere modo Claro
+// True = El usuario prefiere modo oscuro
+let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+// Creación del Tetromino activo
 function active(value) {
     return createQuadrille(matrix(value));
 }
 
+// Creación de la matriz del Tetromino activo con el color seleccionado con los Color Picker
 function matrix(value) {
     let colorM;
+    // Seleccionar el color del Tetromino activo de acuerdo con el Color Picker
     switch(value) {
         case 0:
             if (colorSet == 0) {
@@ -94,6 +109,8 @@ function matrix(value) {
             }
             break;
     }
+
+    // Creación de la matriz del Tetromino activo con el color correspondiente
     let finalMatrix = [];
     
     for (let i = 0; i < sizes[value]; i++) {   
@@ -115,8 +132,10 @@ function matrix(value) {
     return finalMatrix;
 } 
 
+// Función que termina el Tetromino activo
 function finishTetromino() {
     let clone = quadrille.clone();
+    // Elimina las filas inferiores y las columnas laterales vacías
     for (let i = 0, j = sizes[value] - 1; i < freeSpaceDown; i++, j--) {
         clone.delete(j);
     }
@@ -134,11 +153,13 @@ function finishTetromino() {
             }
         }
     }
+    // "Pegar" el Tetromino a terminar en el tablero
     board = Quadrille.OR(board, clone, row, col + freeSpaceLeft);
     lineClearedManagement();
     newTetromino();
 }
 
+// Validación colisiones hacia abajo
 function canMoveDown() {
     canMoveDownV = 1
     if (row == filas - sizes[value] + freeSpaceDown) {
@@ -166,6 +187,7 @@ function canMoveDown() {
     }
 }
 
+// Validación colisiones hacia la derecha
 function canMoveRight() {
     canMoveRightV = 1
     let clone = quadrille.clone();
@@ -186,6 +208,7 @@ function canMoveRight() {
     }
 }
 
+// Validación colisiones hacia la izquierda
 function canMoveLeft() {
     canMoveLeftV = 1
     let clone = quadrille.clone();
@@ -206,6 +229,7 @@ function canMoveLeft() {
     }
 }
 
+// Validación colisiones al rotar
 function canRotate() {
     canRotateV = 1
     let clone = quadrille.clone();
@@ -227,6 +251,7 @@ function canRotate() {
     }
 }
 
+// Analiza las filas inferiores vacías, y las columnas laterales vacías
 function freeSpace() {
     freeSpaceLeft = 0;
     freeSpaceRight = 0; 
@@ -281,12 +306,12 @@ function freeSpace() {
     }
 }
 
+// Retorna un entero entre min y max
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
 
-let matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
+// De acuerdo a la variable matched, inicializa la visualización en el modo preferido por el usuario, el modo configurado en el SO.
 function darkModeInitialization() {
     if (matched) {
         darkMode = 1;
@@ -296,6 +321,7 @@ function darkModeInitialization() {
     }
 }
 
+// Función que cambia el modo si el usuario (o el SO) cambia el modo configurado en el SO.
 function darkModeChange() {
     let matchedOld = matched;
     matched = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -307,7 +333,7 @@ function darkModeChange() {
     }
 }
 
-
+// Función que cambia el modo al cambiarlo en los ajustes
 function dmChange() {
     if (darkMode == 1) {
         darkMode = 0;
@@ -317,6 +343,7 @@ function dmChange() {
     }
 }
 
+// Función que cambia los elementos en visualización a los ajustes
 function settings() {
     setActive = 1;
     if (pause % 2 != 0) {
@@ -324,10 +351,12 @@ function settings() {
     }
 }
 
+// Función que cambia los elemntos en visualización al juego
 function regresar() {
     setActive = 0;
 }
 
+// Función que cambia los elemntos en visualización a las instrucciones
 function instructions() {
     setActive = 2;
     if (pause % 2 != 0) {
@@ -335,6 +364,7 @@ function instructions() {
     }
 }
 
+// Función que se ejecuta al perder el juego, da el puntaje y la cantidad de líneas limpiadas y luego, recarga la página
 function gameOver() {
     pause += 1;
     let entrada = confirm("Game Over.\nLimpió un total de: " + linesCleared + " línea(s).\nObtuvo un puntaje de " + score + " puntos.\nPara volver a jugar debe recargar la página, creando un nuevo juego.\nCon esto, se eliminarán también todas las personalizaciones que se hayan realizado. ¿Continuar?");
@@ -343,10 +373,14 @@ function gameOver() {
     }
 }
 
+// Función que pausa el juego
 function pauseAction() {
     pause++;
 }
 
+// Función que cambia si el usuario quiere todos los tetrominos con un único color, o no
+// Color = 0 -> Todos con color único
+// Color = 1 -> Todos con color distinto
 function ucChange() {
     if (colorSet == 1) {
         colorSet = 0;
@@ -356,6 +390,7 @@ function ucChange() {
     }
 }
 
+// Función que recarga la página al hacer click en el botón de nuevo juego
 function newGame() {
     let entrada = confirm("Se reiniciará la página creando un nuevo juego. Sin embargo, se eliminarán todas las personalizaciones que se hayan realizado. ¿Continuar?");
     if (entrada) {
@@ -363,6 +398,7 @@ function newGame() {
     }
 }
 
+// Función que retorna el color del fondo del tablero seleccionado en el Color Picker dependiendo el estado de la variable color
 function BGcolor() {
     if (colorSet == 0) {
         return colorPickerUCBG.color();
@@ -372,12 +408,14 @@ function BGcolor() {
     }
 }
 
+// Dibuja las dos líneas que se ven en la fila de Tetrominos siguientes
 function drawLinesComingUp() {
     for (let i = 0; i < 2; i++) {
         canvasRight.line(0, (i + 1) * 100, 100, (i + 1) * 100);
     }
 }
 
+// Función que dibuja los tetrominos siguientes
 function drawComingUp() {
     for (let c = 0; c < 3; c++) {
         canvasRight.fill(colorPickerCU.color());
@@ -431,6 +469,7 @@ function drawComingUp() {
     }
 }
 
+// Función que dibuja el Tetromino en espera en el canvas de En Espera
 function drawOnHold() {
     canvasLeft.fill(colorPickerOH.color());
     for (let i = 0; i < sizes[onHold]; i++) {
@@ -448,6 +487,7 @@ function drawOnHold() {
     }
 }
 
+// Función que se ejecuta al iniciar el juego
 function startGame() {
     let randomV = 0;
     for (let i = 0; i < 3; i++) {
@@ -467,13 +507,16 @@ function startGame() {
     newTetromino();
 }
 
+// Crea el siguiente Tetromino activo
 function newTetromino() {
     if (validacionTablero()) {
+        // Cambia los Tetrominos siguientes
         randomV = getRandomInt(0, 7);
         value = cu1;
         cu1 = cu2;
         cu2 = cu3;
         cu3 = randomV;
+        // Crea el siguiente Tetromino
         quadrille = active(value);
         row = 0;
         col = columnas / 2;
@@ -485,7 +528,10 @@ function newTetromino() {
     
 }
 
+// Función que cambia el Tetromino activo con el Tetromino en espera
+// Si no hay Tetromino en espera, guarda el activo y crea el siguiente en la cola de Siguientes
 function onHoldChange() {
+    // Si hay Tetromino en espera....
     if (onHold != -1) {
         onHoldChanging = value;
         value = onHold;
@@ -494,12 +540,14 @@ function onHoldChange() {
         col = columnas / 2;
         onHold = onHoldChanging;
     }
+    // Si no hay Tetromino en espera...
     else {
         onHold = value;
         newTetromino();
     }
 }
 
+// Función que baja automáticamente el Tetromino al cabo de cierto tiempo. "Gravedad"
 function autoMoveDown() {
     if (timer % timerNivel == 0) {
         if (row < filas - sizes[value] + freeSpaceDown && canMoveDown()) {
@@ -508,6 +556,7 @@ function autoMoveDown() {
     }
 }
 
+// Función que al subir el nivel, reduce el tiempo que el juego espera para bajar automáticamente el Tetromino activo
 function levelUp() {
     nivel++;
     if (timerNivel > 5) {
@@ -515,6 +564,8 @@ function levelUp() {
     }
 }
 
+// Valida si se puede crear un nuevo Tetromino sin colisionar con ninguno otro en el tablero
+// FAlSE = GAME OVER
 function validacionTablero() {
     let validacionGameOver = 0;
     let boardClone = board.clone();
@@ -533,6 +584,9 @@ function validacionTablero() {
 
 // Lines Cleared...
 
+// Función que analiza si dada una línea i, la línea está llena.
+// True = Línea completadaa
+// False = Al menos un bloque está vacío
 function lineCompleted(i) {
     let control = 0;
     let boardClone = board.clone();
@@ -549,6 +603,7 @@ function lineCompleted(i) {
     }
 }
 
+// Función que elimina las líneas completadas y aumenta el contador de líneas completadas y el contador del nivel
 function lineCleared() {
     for (let i = 0; i < linesCompleted.length; i++) {
         board.delete(linesCompleted[i]);
@@ -560,6 +615,7 @@ function lineCleared() {
     }
 }
 
+// Función que maneja las lineas del tablero. Llama la función que analiza si la línea está completada y de ser así llama la funcion que la elimina
 function lineClearedManagement() {
     linesCompleted = [];
     for (let i = 0; i < 20; i++) {
@@ -573,10 +629,19 @@ function lineClearedManagement() {
     }
 }
 
+// Cambia la página activa a la página que no usa la librería p5.Quadrille.js
+function change() {
+    window.location.replace("index.html")
+}
+
+// Función que maneja el puntaje del juego
+// 100 puntos por eliminar una línea
+// 800 puntos por eliminar un Tetris (4 líneas en un movimiento)
+// 1200 puntos por eliminar un Tetris inmediatamente después de haber eliminado otro Tetris
 function scoreManagment() {
     let increaseScore = 0
     if (linesCompleted.length == 4 && previousQLinesCleared != 4) {
-        increaseScore = 400;
+        increaseScore = 800;
     }
     else if (linesCompleted.length == 4 && previousQLinesCleared == 4) {
         increaseScore = 1200;
