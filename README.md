@@ -30,6 +30,9 @@ Yes!
 
 There is also instructions of how to play the game in each page, as well as the lines cleared counter and the level counter.
 
+
+The game is published at: https://jrodriguezru.github.io/Tetris/
+
 ## How does it work?
 In each of the pages, the Tetromino moves using the arrow keys of the Keyboard, as well as some other special keys:
 - Down key: moves the Active Tetromino one block down.
